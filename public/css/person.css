@@ -1,0 +1,149 @@
+.f-divider{
+    padding: 15px;
+    color: #666;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.input-group {
+    -webkit-border-image: url("../image/border-line.png") 2 stretch;
+    -moz-border-image: url("../image/border-line.png") 2 stretch;
+    border-image: url("../image/border-line.png") 2 stretch;
+    background: #fff;
+    border-bottom: 1px solid #4f96d5;
+    border-top: 1px solid #4f96d5;
+}
+.input-group.padding-left{
+    padding-left: 15px;
+}
+.input-group .input-control:last-child {
+    border: medium none;
+}
+.input-control {
+    position: relative;
+    height: 50px;
+    font-size: 14px;
+    -webkit-border-image: url("../image/border-line.png") 2 stretch;
+    -moz-border-image: url("../image/border-line.png") 2 stretch;
+    border-image: url("../image/border-line.png") 2 stretch;
+    border-bottom: 1px solid #4f96d5;
+}
+.input-control.label{
+    padding-left: 80px;
+}
+.input-control.label span{
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #333;
+    font-size: 14px;
+    line-height: 50px;
+}
+.input-control input[type='text'],
+.input-control input[type='tel'],
+.input-control select{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px 0;
+    color: #333;
+    font-size: 14px;
+    line-height: 30px;
+    border: 0 none;
+}
+.input-control.label input[type='text'],
+.input-control.label input[type='tel']{
+    padding-right: 15px;
+    text-align: right;
+}
+
+.radio-box{
+    display: inline-block;
+    line-height: 50px;
+}
+.radio-box input{
+    display: none;
+}
+.radio-box label{
+    display: inline-block;
+    padding-left: 24px;
+    padding-right: 15px;
+    line-height: 50px;
+    background: transparent url("../image/radio.png") no-repeat left center / 24px 24px;
+}
+.radio-box input:checked ~ label{
+    background-image: url("../image/radio_1.png");
+}
+
+.input-control.select input[type='text']{
+    position:relative;
+    right: 10px;
+    padding-right: 24px;
+    background: transparent url("../image/select_ico.png") no-repeat right center / 16px 16px;
+}
+.input-control.select select{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    opacity: 0;
+}
+.input-control.hasbtn span{
+    position: absolute;
+    top: 8px;
+    right: 15px;
+    display: block;
+    height: 34px;
+    padding: 0 10px;
+    color: #fff;
+    font-size: 12px;
+    line-height: 34px;
+    background: #4f96d5;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.input-control.hasbtn span.disabled{
+    background-color: #f1f1f1;
+    color: #999;
+}
+.input-control.text{
+    color: #333;
+    font-size: 14px;
+    line-height: 50px;
+}
+.input-control.vertical-check{
+    height: auto;
+    padding-left: 0;
+}
+.input-control.vertical-check .radio-box{
+    width: 100%;
+}
+.form-bottom{
+    padding-bottom: 30px;
+}
+.form-bottom p{
+    padding: 10px 15px;
+    color: #999;
+    font-size: 12px;
+}
+.form-bottom a{
+    color: #0085d7;
+}
+.form-bottom button{
+    display: block;
+    width: 50%;
+    height: 46px;
+    margin: 20px auto 0;
+    color: #fff;
+    font-size: 16px;
+    line-height: 36px;
+    text-align: center;
+    background: #4f96d5;
+    border: 0 none;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    outline: 0 none;
+}

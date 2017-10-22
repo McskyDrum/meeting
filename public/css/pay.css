@@ -1,0 +1,273 @@
+.container{
+    padding-bottom: 63px;
+}
+.banner-image-box{
+    position: relative;
+}
+.banner-image-box::before {
+    overflow: hidden;
+    content: '';
+    display: block;
+    width: 100%;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAR4AAAEgCAYAAABiuRwLAAAAGXRFW…fGdA7TIJz0RaK6z62ozLQ2q9HfPxYTqQ8iw+BqOeR/AgwAQAd/lIuGx/cAAAAASUVORK5CYII=) center no-repeat #f5f5f5;
+    background-size: 25%;
+    padding-top: 42.667%;
+}
+.banner-image-box .banner-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.info-layout {
+    background-color: #fff;
+    margin-bottom: 10px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.info-item-simple {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    position: relative;
+    font-size: 14px;
+    color: #333;
+}
+.info-item-simple.flexbox {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+.info-sprite {
+    width: 100%;
+    height: 2px;
+    background: url(../image/dot.png) repeat-x;
+    background-size: auto 100%;
+}
+.info-item-simple .info-cont span+span {
+    padding-left: 6px;
+}
+.info-title {
+    font-size: 14px;
+    color: #999;
+}
+.info-title.info-title-sm {
+    margin: 0 -15px;
+    padding: 12px 15px;
+    border-bottom: 1px solid #e5e5e5;
+}
+.info-item-simple .info-cont i {
+    float: left;
+    top: 1px;
+    margin-right: 10px;
+}
+.info-item-simple .location {
+    font-size: 18px;
+}
+.info-item-simple .location+span {
+    overflow: hidden;
+    display: block;
+    margin-left: 0;
+}
+.info-layout .flex {
+    -webkit-box-flex: 1;
+    flex: 1;
+}
+.info-layout a{
+    color: #333;
+}
+.info-layout .val-empty {
+    color: #999!important;
+}
+[data-toggle=modal] {
+    outline: 0;
+    display: block;
+    text-align: right;
+}
+.info-item-simple .coupon-count {
+    position: relative;
+    display: inline-block;
+    padding: 3px 8px;
+    margin-left: 8px;
+    border: 1px solid #ff6c00;
+    color: #ff6c00;
+    font-size: 10px;
+}
+.info-item-simple .coupon-count:after, .info-item-simple .coupon-count:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    margin-top: -4px;
+    width: 8px;
+    height: 8px;
+    display: block;
+    background-color: #fff;
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent #ff6c00 #ff6c00 transparent;
+    border-radius: 50%;
+}
+.info-item-simple .coupon-count:before {
+    left: -5px;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+.info-item-simple .coupon-count:after {
+    right: -5px;
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg);
+}
+.info-item-simple label{
+    color: #333;
+    font-size: 14px;
+    font-weight: 500;
+    vertical-align: middle;
+}
+[class^=urimg-] {
+    background: url(../image/paymethod.png) no-repeat;
+    width: 22px;
+    height: 22px;
+    display: block;
+    margin-right: 12px;
+    float: left;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    background-size: cover;
+}
+.urimg-alipay {
+    position: relative;
+    top: -1px;
+    vertical-align: middle;
+    background-position: 0 0;
+}
+
+.coupon-item-checkable:after, input[type=radio], input[type=checkbox] {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    right: 15px;
+    width: 22px;
+    height: 22px;
+    display: block;
+    appearance: none;
+    -webkit-appearance: none;
+    background: url(../image/ui/checkicon.png) no-repeat;
+    background-size: cover;
+    border: none;
+    outline: 0;
+    shadow: none;
+}
+.coupon-item-checkable:after:checked,input[type=radio]:checked,input[type=checkbox]:checked {
+    background-position: 0 -44px
+}
+.info-layout input[type=radio] {
+    display: block;
+    width: 22px;
+    height: 22px;
+    margin: 0;
+    padding: 0;
+    appearance: none;
+    -webkit-appearance: none;
+    background: url(../image/ui/checkicon.png) no-repeat;
+    background-size: cover;
+    border: none;
+    outline: 0;
+    shadow: none;
+}
+.info-layout input[type=radio] {
+    background-image: url(../image/ui/checkicon2.png);
+}
+.info-layout input[type=radio]:checked {
+    background-position: 0 -22px;
+}
+
+.info-item {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 80px;
+    font-size: 14px;
+    color: #333;
+}
+.info-item .info-label {
+    margin-left: -80px;
+    float: left;
+    overflow: hidden;
+    white-space: nowrap;
+    color: #999;
+}
+.tip-wrapper {
+    padding: 15px 20px 20px;
+    line-height: 20px;
+    font-size: 12px;
+    color: #999;
+    text-align: center;
+}
+
+
+/*fixed-bottom*/
+.btn-group {
+    padding: 10px;
+    display: -webkit-box;
+    display: flex;
+}
+.btn-group.fixed-bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: #666;
+    background-color: #f8f8f8;
+    border-top: 1px solid #e5e5e5;
+}
+.btn-group .flex {
+    -webkit-box-flex: 1;
+    flex: 1;
+    line-height: 40px;
+}
+.btn-group .btn {
+    -webkit-box-flex: 1;
+    flex: 1;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    text-align: center;
+}
+.btn-group .price {
+    color: #333;
+    font-size: 16px;
+}
+
+.info-item-simple .add-item{
+    -webkit-box-flex: 2;
+    flex: 2;
+}
+.info-item-simple .number-click{
+    -webkit-box-flex: 2;
+    flex: 2;
+}
+.info-item-simple .addTotal{
+    -webkit-box-flex: 1;
+    flex: 1;
+}
+.info-item-simple .number-click{
+    font-size: 0;
+    text-align: center;
+}
+.number-click span{
+    display: inline-block;
+    width: 30%;
+    font-size: 14px;
+    line-height: 36px;
+    text-align: center;
+    -webkit-border-image: url(../image/border-line.png) 2 stretch;
+    -moz-border-image: url(../image/border-line.png) 2 stretch;
+    border: 1px solid #e5e5e5;
+}
+.info-item-simple .addTotal{
+    text-align: right;
+}

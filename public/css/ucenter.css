@@ -1,0 +1,177 @@
+.container{
+    padding-bottom: 45px;
+}
+.usercenter{
+    position: relative;
+    z-index: 2;
+    padding: 10px;
+    background: transparent url('../image/vip_bg.jpg') no-repeat center / cover;
+}
+.usercenter .bg{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: transparent url('../image/dzmask.png') no-repeat top center / cover;
+}
+.user-info{
+    position: relative;
+    min-height: 68px;
+    padding: 0 10px;
+}
+.user-info .u-logo{
+    float: left;
+    width: 68px;
+    height: 68px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+.user-info p{
+    padding-left: 78px;
+    line-height: 20px;
+}
+.user-info p.name{
+    padding: 3px 0 5px 78px;
+    color: #fff;
+    font-size: 16px;
+}
+.open-door-btn{
+    position: absolute;
+    right: 20px;
+    bottom: -30px;
+    display: block;
+    width: 60px;
+    height: 60px;
+    background: #ff7608;
+    color: #fff;
+    font-size: 14px;
+    line-height: 60px;
+    text-align: center;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+}
+
+
+.list {
+    position: relative;
+    font-size: 14px;
+    background-color: #fff;
+    border-bottom: 1px solid #e5e5e5;
+    -webkit-border-image: url(../image/border-line.png) 2 stretch;
+    -moz-border-image: url(../image/border-line.png) 2 stretch;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5
+}
+.list.list-vertical{
+    padding-left: 10px;
+}
+.list .list-item{
+    position: relative;
+    display: block;
+    padding: 10px;
+    line-height: 22px;
+    border: 0;
+    -webkit-border-image: url(../image/border-line.png) 2 stretch;
+    -moz-border-image: url(../image/border-line.png) 2 stretch;
+    border-bottom: 1px solid #e5e5e5
+}
+.list .list-item:last-child{
+    border: 0 none;
+}
+.list .list-item.icon{
+    padding-left: 38px;
+}
+.list .list-item.icon:before{
+    content: "";
+    position: absolute;
+    top: 9px;
+    left: 0;
+    width: 25px;
+    height: 25px;
+    background-image: url(../image/phoneidbanner_ico.png);
+    background-position: 0 0;
+    background-size: 24px 24px;
+}
+.list .list-item.icon.ico-order:before{
+    background-image: url(../image/listbanner_ico.png);
+}
+.list .list-item.icon.ico-yhq:before{
+    background-image: url(../image/quan_ico.png);
+}
+.list .list-item .title-info{
+    color: #333;
+    font-size: 14px;
+}
+.list.list-vertical>a.link p::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-top: 1px solid #cbc9cc;
+    border-right: 1px solid #cbc9cc;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    top: 16px;
+    right: 12px
+}
+
+.list.list-horizontal{
+    box-sizing: border-box;
+    padding: 20px 0 12px;
+    width: 100%;
+}
+.list.list-horizontal.no-border{
+    border: 0 none;
+}
+.list.list-horizontal .list-item{
+    float: left;
+    width: 20%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    border: 0 none;
+    box-sizing: border-box;
+}
+.list.list-horizontal .list-item .title-num{
+    padding-bottom: 3px;
+    line-height: 1;
+}
+.list.list-horizontal .list-item .title-info{
+    color: #666;
+    font-size: 10px;
+}
+
+.link-ico{
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-repeat: no-repeat;
+}
+.link-ico.dfk{
+    background: transparent url("../image/dfk.png") center / 30px 30px;
+}
+.link-ico.dsy{
+    background: transparent url("../image/dsy.png") center / 30px 30px;
+}
+.link-ico span{
+    position: absolute;
+    top: -8px;
+    right: -9px;
+    display: block;
+    height: 16px;
+    min-width: 8px;
+    padding: 0 4px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 16px;
+    border: 2px solid #fff;
+    border-radius: 16px;
+    background: #f76060;
+}

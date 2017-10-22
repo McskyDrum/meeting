@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="87cda679-34c1-42bb-a533-1e13fb23f194" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/fonts/uricon.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/fonts/uricon.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/image/ajax-loader.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/image/border-line.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/image/coupon/cou1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/image/coupon/cou2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/image/coupon/cou3.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/image/coupon/cou_bg.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/image/coupon/cou_dot.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/image/coupon/cou_inv.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/image/coupon/delico.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/image/coupon/gq.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/image/coupon/hand_bag.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/image/coupon/quan_gr.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/image/coupon/quan_or.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/image/coupon/quan_re.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/image/coupon/quan_usescope.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/image/coupon/wdyhq2_top.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/image/coupon/wdyhq3_top.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/image/coupon/wdyhq_top.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/image/coupon/yl.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/image/coupon/ysy.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/image/coupon/yzr.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/image/d-huiyi.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/image/d-logo.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/image/dfk.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/image/dot.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/image/dsy.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/image/dzmask.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/image/listbanner_ico.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/image/paymethod.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/image/phoneidbanner_ico.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/image/quan_ico.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/image/radio.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/image/radio_1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/image/select_ico.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/image/ui/checkicon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/image/ui/checkicon2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/image/vip_bg.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/meeting.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/base.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/coupons.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/list.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/orders.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/pay.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/person.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/ucenter.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/fonts/uricon.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/html/couponDisable.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/html/coupons.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/html/list.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/html/orderAll.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/html/orderDetail.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/html/orderPaying.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/html/orderUsing.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/html/pay.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/html/person.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/html/ucenter.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/common/app.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/common/init.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/common/mtap.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/common/templateheper.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/coupons.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/libs/jquery-1.10.2.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/libs/jquery.cookie.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/libs/jquery.scrollLoading.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/libs/template.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/libs/vue.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/libs/vue.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/list.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/orders.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/pay.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/person.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/ucenter.js" />
+    </list>
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="pay.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/html/pay.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="353">
+              <caret line="110" column="22" lean-forward="true" selection-start-line="110" selection-start-column="22" selection-end-line="110" selection-end-column="22" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pay.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/css/pay.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="481">
+              <caret line="271" column="21" lean-forward="false" selection-start-line="271" selection-start-column="21" selection-end-line="271" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pay.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/js/pay.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="190">
+              <caret line="25" column="20" lean-forward="false" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/public/html/couponDisable.html" />
+        <option value="$PROJECT_DIR$/public/html/coupons.html" />
+        <option value="$PROJECT_DIR$/public/html/list.html" />
+        <option value="$PROJECT_DIR$/public/html/orderAll.html" />
+        <option value="$PROJECT_DIR$/public/html/orderDetail.html" />
+        <option value="$PROJECT_DIR$/public/html/person.html" />
+        <option value="$PROJECT_DIR$/public/html/ucenter.html" />
+        <option value="$PROJECT_DIR$/public/html/orderUsing.html" />
+        <option value="$PROJECT_DIR$/public/html/orderPaying.html" />
+        <option value="$PROJECT_DIR$/public/js/common/init.js" />
+        <option value="$PROJECT_DIR$/public/js/common/app.js" />
+        <option value="$PROJECT_DIR$/public/css/base.css" />
+        <option value="$PROJECT_DIR$/public/css/pay.css" />
+        <option value="$PROJECT_DIR$/public/js/pay.js" />
+        <option value="$PROJECT_DIR$/public/html/pay.html" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER">
+    <package-json value="$PROJECT_DIR$/package.json" />
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/node_modules" />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-7" />
+    <option name="width" value="1380" />
+    <option name="height" value="735" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="meeting" type="b2602c69:ProjectViewProjectNode" />
+              <item name="meeting" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="meeting" type="b2602c69:ProjectViewProjectNode" />
+              <item name="meeting" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="meeting" type="b2602c69:ProjectViewProjectNode" />
+              <item name="meeting" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="meeting" type="b2602c69:ProjectViewProjectNode" />
+              <item name="meeting" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="html" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="meeting" type="b2602c69:ProjectViewProjectNode" />
+              <item name="meeting" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="meeting" type="b2602c69:ProjectViewProjectNode" />
+              <item name="meeting" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="meeting" type="b2602c69:ProjectViewProjectNode" />
+              <item name="meeting" type="462c0819:PsiDirectoryNode" />
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="meeting" type="b2602c69:ProjectViewProjectNode" />
+              <item name="meeting" type="462c0819:PsiDirectoryNode" />
+              <item name="共享会议室接口文档" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
+    <property name="HbShouldOpenHtmlAsHb" value="" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="start" type="js.build_tools.npm" factoryName="npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+    </configuration>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="npm.start" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="87cda679-34c1-42bb-a533-1e13fb23f194" name="Default" comment="" />
+      <created>1508658808237</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1508658808237</updated>
+      <workItem from="1508658809750" duration="5929000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="5929000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.49423394" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294893" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294893" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.50576603" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/routes/interletter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="16" column="3" lean-forward="false" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/共享会议室接口文档/coupon.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/users.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1281">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="26" column="23" lean-forward="false" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/html/couponDisable.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="16" column="67" lean-forward="true" selection-start-line="16" selection-start-column="67" selection-end-line="16" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/html/coupons.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="16" column="43" lean-forward="false" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/html/person.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-70">
+          <caret line="20" column="25" lean-forward="true" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/html/ucenter.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="62" column="51" lean-forward="false" selection-start-line="62" selection-start-column="51" selection-end-line="62" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/list.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-336">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/html/orderUsing.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="27" column="51" lean-forward="false" selection-start-line="27" selection-start-column="51" selection-end-line="27" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/html/orderPaying.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="21" column="51" lean-forward="false" selection-start-line="21" selection-start-column="51" selection-end-line="21" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/html/orderDetail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="52" lean-forward="false" selection-start-line="14" selection-start-column="52" selection-end-line="14" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/html/orderAll.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-621">
+          <caret line="20" column="29" lean-forward="true" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/html/list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="17" column="7" lean-forward="true" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/common/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="410">
+          <caret line="31" column="35" lean-forward="false" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/common/init.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/base.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="410">
+          <caret line="1359" column="33" lean-forward="true" selection-start-line="1359" selection-start-column="33" selection-end-line="1359" selection-end-column="33" />
+          <folding>
+            <element signature="e#18287#18442#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/ucenter.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="64" column="34" lean-forward="true" selection-start-line="62" selection-start-column="3" selection-end-line="64" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/pay.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="481">
+          <caret line="271" column="21" lean-forward="false" selection-start-line="271" selection-start-column="21" selection-end-line="271" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/pay.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="25" column="20" lean-forward="false" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/html/pay.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="110" column="22" lean-forward="true" selection-start-line="110" selection-start-column="22" selection-end-line="110" selection-end-column="22" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
