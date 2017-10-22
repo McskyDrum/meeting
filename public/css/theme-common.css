@@ -1,0 +1,247 @@
+.clearfix::after {
+  display: table;
+  clear: both;
+  content: '';
+}
+.mainContFl {
+  float: left;
+  width: 40%;
+  border-right: 1px solid #eee;
+}
+.mainShowcase {
+  position: relative;
+  display: block;
+  float: left;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+  padding: 5px 0 5px 0;
+}
+.mainShowcase img {
+  width: 84%;
+  height: auto;
+  margin-bottom: 19px;
+  vertical-align: bottom;
+}
+.mainShowcase .mainTip {
+  position: absolute;
+  top: 5px;
+  left: 10px;
+  display: block;
+  width: 90%;
+}
+.mainShowcase .mainTip * {
+  font-style: normal;
+  display: block;
+  padding: 2px 0;
+}
+.mainShowcase .mainTip h2 {
+  font-size: 16px;
+  font-weight: normal;
+  display: block;
+  overflow: hidden;
+  width: 100px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #f01d01;
+}
+.mainShowcase .mainTip p {
+  font-size: 12px;
+  display: block;
+  overflow: hidden;
+  width: 110px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #999;
+}
+.mainShowcase .mainTip i {
+  font-size: 12px;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #29b6b0;
+}
+.mainShowcase .mainTip span {
+  font-size: 10px;
+  line-height: 14px;
+  height: 14px;
+  margin-top: 4px;
+  text-align: center;
+  color: #fff;
+  border-radius: 4px;
+}
+.mainShowcase .mainTip span.proceed {
+  width: 70px;
+  padding: 0 0 0 12px!important;
+  background: url('http://yun.duiba.com.cn/upload/nt9kbaxudq.png') rgba(51, 51, 51, 0.8) no-repeat 10px center;
+  background-size: auto 28px;
+}
+.mainShowcase .mainTip span.state {
+  width: 77px;
+  padding: 0 0 0 28px!important;
+  background: url('http://yun.duiba.com.cn/upload/u25wnubbyg.png') rgba(51, 51, 51, 0.8) no-repeat left 0;
+  background-size: auto 28px;
+}
+.mainShowcase .mainTip span.end {
+  width: 77px;
+  padding: 0 0 0 28px!important;
+  background: url('http://yun.duiba.com.cn/upload/u25wnubbyg.png') rgba(51, 51, 51, 0.8) no-repeat left -14px;
+  background-size: auto 28px;
+}
+.mainShowcase .mainTip span.disabled {
+  width: 48px;
+  padding: 0!important;
+  background: #d1d1d1;
+}
+.showcaseRight {
+  float: right;
+  overflow: hidden;
+  width: 60%;
+}
+.showcaseRight .showcaseTop,
+.showcaseRight .showcaseBottom {
+  width: 190px;
+  padding-left: 10px;
+  position: relative;
+  width: 100%;
+}
+.showcaseRight .showcaseTop h2,
+.showcaseRight .showcaseBottom h2 {
+  font-size: 16px;
+  font-weight: normal;
+  display: block;
+  overflow: hidden;
+  width: 100px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #f01d01;
+}
+.showcaseRight .showcaseTop p,
+.showcaseRight .showcaseBottom p {
+  font-size: 12px;
+  display: block;
+  overflow: hidden;
+  width: 110px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #999;
+}
+.showcaseRight .showcaseTop i,
+.showcaseRight .showcaseBottom i {
+  font-size: 12px;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #29b6b0;
+}
+.showcaseRight .showcaseTop span,
+.showcaseRight .showcaseBottom span {
+  font-size: 10px;
+  line-height: 14px;
+  display: block;
+  height: 14px;
+  margin-top: 4px;
+  text-align: center;
+  color: #fff;
+  border-radius: 4px;
+}
+.showcaseRight .showcaseTop span.proceed,
+.showcaseRight .showcaseBottom span.proceed {
+  width: 70px;
+  padding: 0 0 0 12px!important;
+  background: url('http://yun.duiba.com.cn/upload/nt9kbaxudq.png') rgba(51, 51, 51, 0.8) no-repeat 10px center;
+  background-size: auto 28px;
+}
+.showcaseRight .showcaseTop span.state,
+.showcaseRight .showcaseBottom span.state {
+  width: 77px;
+  padding: 0 0 0 28px!important;
+  background: url('http://yun.duiba.com.cn/upload/u25wnubbyg.png') rgba(51, 51, 51, 0.8) no-repeat left 0;
+  background-size: auto 28px;
+}
+.showcaseRight .showcaseTop span.end,
+.showcaseRight .showcaseBottom span.end {
+  width: 77px;
+  padding: 0 0 0 28px!important;
+  background: url('http://yun.duiba.com.cn/upload/u25wnubbyg.png') rgba(51, 51, 51, 0.8) no-repeat left -14px;
+  background-size: auto 28px;
+}
+.showcaseRight .showcaseTop span.disabled,
+.showcaseRight .showcaseBottom span.disabled {
+  width: 48px;
+  padding: 0!important;
+  background: #d1d1d1;
+}
+.showcaseRight .showcaseTop .rightImg,
+.showcaseRight .showcaseBottom .rightImg {
+  display: block;
+  width: 100%;
+  padding: 13px 0;
+  text-align: right;
+}
+.showcaseRight .showcaseTop .rightImg img,
+.showcaseRight .showcaseBottom .rightImg img {
+  width: 53%;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+.showcase {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-right: 0;
+  border-left: none;
+  background: #fff;
+}
+.stateImg {
+  line-height: 155px;
+  display: block;
+  text-align: center;
+}
+.mt10 {
+  margin-top: 5px;
+}
+.mt30 {
+  margin-top: 15px;
+}
+.mt50 {
+  margin-top: 25px;
+}
+.showcaseBottom .showTitle {
+  position: absolute;
+  top: 5px;
+  left: 10px;
+  width: 90%;
+}
+.showcaseBottom .showTitle * {
+  padding: 2px 0;
+}
+.showcaseBottom .showTitle h3 {
+  font-size: 16px;
+  font-weight: normal;
+  display: block;
+  overflow: hidden;
+  width: 100px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #fe6f0f;
+}
+.showcaseRight .showcaseTop .stateTop {
+  width: 90%;
+  position: absolute;
+  top: 5px;
+  left: 10px;
+  font-style: normal;
+  display: block;
+  padding: 2px 0;
+}
+.showcaseRight .showcaseTop .stateTop * {
+  padding: 2px 0;
+}
+.showcaseBottom {
+  border-top: 1px solid #eee;
+}
