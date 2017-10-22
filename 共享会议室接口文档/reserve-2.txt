@@ -1,0 +1,31 @@
+数据接口
+点击支付，创建订单 POST /order/createOrder
+
+这一步提交，首先创建订单，然后服务器和微信服务器进行交互
+交互过程详见https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=7_7&index=6
+
+
+request:{
+	meetingRoomId:会议室Id,
+	startTime:1508566101200 预定开始时间
+	endTime:1508566101200 预定结束时间
+	list<AmountInfo> amountList
+	list<Long> couponIds  用户使用优惠券的Id集合
+}
+response:{
+	success:true
+	payInfo:{
+	   "appId":"wx2421b1c4370ec43b",     //公众号名称，由商户传入     
+       "timeStamp":"1395712654",         //时间戳，自1970年以来的秒数     
+       "nonceStr":"e61463f8efa94090b1f366cccfbbb444", //随机串     
+       "package":"prepay_id=u802345jgfjsdfgsdg888",     
+       "signType":"MD5",         //微信签名方式：     
+       "paySign":"70EA570631E4BB79628FBCA90534C63FF7FADD89" //微信签名
+	}，
+	orderId:创建好的主订单Id    支付结果不管是否成功将跳转到订单详情
+}
+
+微信支付接口返回状态----前端使用
+get_brand_wcpay_request:ok	支付成功
+get_brand_wcpay_request:cancel	支付过程中用户取消
+get_brand_wcpay_request:fail	支付失败

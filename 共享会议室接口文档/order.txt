@@ -1,0 +1,100 @@
+我的订单
+上部分成三个TAB  所有的订单根据订单创建时间进行倒序排列
+全部订单：展示用户所有订单，其中的列表数据采用分页下拉加载
+待支付订单：展示用户所有的待支付订单，列表中的数据直接加载全部待支付订单，不进行分页。 原因：一般的业务场景下不会出现很多的待支付
+待使用：展示用户已经支付，且会议室的预定时间还未结束的订单，同样检索全部， 且可以进行开锁 的订单置顶展示
+
+注：在和服务端做交互的时候，资金有关参数全部是以分为单位的整数
+	时间全部以时间戳的形式进行交互
+	ajax交互规范，当success返回为false
+
+
+数据接口
+
+*****************************************************************************************
+分页加载全部订单 GET /order/allOrders
+注：pageSize由服务端自行维护
+request:{
+	pageIndex:1  Integer  页码   初始值为1，当此接口返回 nextPageIndex,pageIndex将以此字段进行更新,否则前端自行+1
+}
+response:{
+	success:true
+	nextPageIndex：下次请求的pageIndex ，如果返回-1，前端展示“无更多订单”,不再发起请求
+	list<Order> orderList  订单列表   Order 实体见后文
+}
+
+*****************************************************************************************
+
+加载单个订单 GET /order/loadOneOrder?id={orderId}  用于订单操作后的更新
+request:{
+	orderId:主订单Id
+}
+response:{
+	success:true
+	order:Order  
+}
+
+*****************************************************************************************
+
+待支付订单加载接口 GET: /order/waitPay
+request:{}
+response:{
+	success:true,
+	list<Order> orderList
+}
+
+*****************************************************************************************
+
+待使用订单加载接口 GET: /order/waitUse   注：可以开锁的订单置顶展示
+request:{}
+response:{
+	success:true,
+	list<Order> orderList
+}
+
+*****************************************************************************************
+
+解锁会议室 POST: /order/openMeetRoom
+request:{
+	orderId:orderId
+}
+response:{
+	success:true
+}
+
+*****************************************************************************************
+
+取消|退订 订单 POST: /order/cancelOrder   取消还是退订由服务端判定
+request:{
+	orderId:orderId
+}
+response:{
+	success:true
+}
+
+*****************************************************************************************
+
+
+Order：{
+	orderId:主订单Id，long
+	roomNum:"12A+12B" String 会议室编号
+	orderTitle:"首都大厦，优客工厂"，String  订单主题
+	orderStatus："待支付" String 订单状态文案
+	meetingTimeStart：1508566101200, Long  会议开始时间
+	meetingTimeEnd：1508566101200， Long 会议结束时间
+	totalAmount:20000 Integer 200.00元  订单总价格
+	couponAmount:1000 Integer 10.00元  优惠券
+	realAmount:19000 Integer 190.00元  订单实际支付金额
+	meetingTimeCount Integer  2  订购的时长数  2个（半小时）即1小时
+	bookingTime:1508566101200，预定时间|订单创建时间
+	operateType:["CAN_PAY","CAN_CANCEL","CANCELED","CAN_OPEN","CAN_TUIDING"]  用于展示列表中的按钮
+}
+
+OperateTypeEnum:{
+	CAN_PAY:"订单可以支付"，
+	CAN_CANCEL："订单可以取消"，
+	CANCELED："订单已经失效，列表卡片变成灰色"，
+	CAN_OPEN："是否可以开锁"，
+	CAN_TUIDING："订单可以退订"
+}
+

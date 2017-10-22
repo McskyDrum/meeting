@@ -1,0 +1,91 @@
+园区选择和时间选择
+
+预定会议室：/reserve/selectMeeting
+
+服务端渲染部分：用户选择园区后会把园区 id 存在 cookie 中
+在服务端返回页面的时候，应该把这个 id 从cookie中取出来，查询出对应的园区 渲染到页面的指定区域
+building：{
+	id:null，   cookie中没有就返回null
+	name:"大厦名称"   cookie中没有园区的Id 就返回 ""
+}
+now:1508566101200  下发服务端的今天0时0分0秒的时间戳
+
+*****************************************************************************************
+
+加载园区列表 GET /building/loadAllBuilding
+request:{
+	orderId:orderId
+}
+response:{
+	success:true
+	list<Building> list 
+}
+
+*****************************************************************************************
+
+加载会议室列表 /building/loadMeetingList
+
+注意，在这个请求提交的时候应该把buildingId写到cookie中 以便完成 /reserve/selectMeeting 服务端渲染的逻辑
+
+request:{
+	buildingId:园区Id,
+	time:预定当天0时0分的时间戳
+}
+response:{
+	success:true
+	list<ReserveMeetingRoom> list 
+}
+
+*****************************************************************************************
+
+提交选择会议室和时间段 POST /building/submitMeetingRoom
+request:{
+	meetingRoomId:会议室Id,
+	startTime:1508566101200 预定开始时间
+	endTime:1508566101200 预定结束时间
+}
+返回页面 reserve-2页面
+服务端渲染：
+{
+	meetingRoomId:会议室Id,
+	roomNum:"12A+12B" String 会议室编号
+	roomTitle:"首都大厦，优客工厂"，String  会议标题
+	startTime:1508566101200 预定开始时间
+	endTime:1508566101200 预定结束时间
+	meetingTimeCount:2  1个小时
+	address:"详细地址"
+	headCount:人头数
+	remark:"说明"
+	price:20000  200元/半小时
+	list<AmountInfo> amountList  附加消费信息  AmountInfo 见 orderDetails.txt
+
+	peopleName:"预定人"
+	list<Coupon> couponList  优惠券列表  
+}
+
+
+
+ReserveMeetingRoom:{
+	id:meetingRoomId   会议室Id
+	img:"图片地址"  会议室图片地址
+	roomName："会议室名称"，
+	headcount："会议室人数"，
+	price:200   200元每半小时
+	openTimeStart:1508566101200  开放的起始时间
+	openTimeEnd:1508566101200  开放的结束时间
+	allTimeListCount:6
+	canReserveList:[0,1,2,3,4,5]
+}
+
+canReserveList说明   如果 （结束时间-开始时间）/ 30分钟 = 6 (allTimeListCount)
+canReserveList的最大长度就是6   如果返回 [0,1,2,3,4,5] 则表示在开放的时间内都可以订
+如果返回[2,3]  则只有中间的1小时可以预定
+
+
+Building:{
+	id:1  园区
+	name:"大厦名称"
+}
+
+
+

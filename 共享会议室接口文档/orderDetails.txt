@@ -1,0 +1,35 @@
+订单详情
+页面链接：/order/orderDetails?orderId={主订单号}
+
+数据接口
+*****************************************************************************************
+加载订单详情内容 GET /order/orderDetailsInfo?orderId={主订单号}
+request:{
+	orderId:orderId
+}
+response:{
+	success:true
+	orderInfo:Order     Order 见 order.txt
+	meetingRoom：MeetingRoomInfo   会议室信息
+	list<AmountInfo> amountList  附加消费信息
+}
+
+*****************************************************************************************
+
+MeetingRoomInfo:{
+	meetingRoomId:会议室编号 long
+	address:"详细地址" String
+	headcount：30  Integer  可容纳人数
+	remark："免费设施说明"，
+	price：15000   150.00元/半小时
+}
+
+优惠券等优惠项 可以不传 price和unitName
+AmountInfo:{
+	itemId:1   long   商品Id
+	price:单价 20000  Integer 200元/量化单位  
+	unitName：单位名称  String
+	goodName:"商品名称" String
+	quantity：1 Integer 数量
+	allAmount:20000  Integer  总金额
+}

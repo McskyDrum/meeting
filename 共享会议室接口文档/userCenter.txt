@@ -1,0 +1,29 @@
+个人中心
+页面链接:/userCenter/index
+
+获取用户基本信息 GET /userCenter/userInfo
+无请求数据 用户Id通过解析登录态中的信息获取
+response：{
+	success:false boolean
+	message:错误原因 String
+}
+或
+response：{
+	success:true boolean
+	userInfo:{
+		userImg:用户头像图片，
+		name:用户昵称
+	},
+	orderInfo:{ //用于展示小红点
+		waitPayOrderCount:2  Integer  待支付订单总数
+		canOpenOrderCount:5  Integer  可以开锁的订单总数
+	}
+}
+
+页面相关链接
+我的订单：/order/allOrder
+待支付订单: /order/waitPay
+待使用订单：/order/haveToPay
+
+
+优惠券： /coupon/index

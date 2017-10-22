@@ -1,0 +1,23 @@
+手机绑定页面接口
+页面链接:/phone/phoneBinding
+
+数据接口
+发送手机验证码 POST : /phone/sendPhoneCode
+request:{
+	phone:手机号码 String
+}
+response：{
+	success:true boolean
+	message:错误原因 String
+}
+
+提交短信验证码 POST /phone/submitPhoneCode
+当验证成功跳转到个人中心页面
+request:{
+	phone:手机号码 String
+	code:短信验证码 String
+}
+response：{
+	success:true boolean
+	message:错误原因 String
+}
