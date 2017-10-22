@@ -98,7 +98,6 @@ var Pay = (function ($) {
                 },
                 'submit': function(){
                     //提交订单
-
                 }
             }
         })
