@@ -271,3 +271,9 @@
 .info-item-simple .addTotal{
     text-align: right;
 }
+.info-layout .coupon-hide{
+    display: none;
+}
+.info-layout .ricon{
+    top: 0;
+}

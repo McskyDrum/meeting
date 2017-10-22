@@ -105,8 +105,8 @@
                     <div class="item-cell">
                         代金券 <span class="coupon-count"><em data-set="couponNum">{{coupons.length}}</em>张可用</span>
                     </div>
-                    <a href="javascript:;" class="item-cell flex val-empty coupon-hide" data-text="去选择" data-toggle="modal" style="display: none;">去选择</a>
-                    <i class="uricon-arrow-right ricon coupon-hide" style="display: none;"></i>
+                    <a href="javascript:;" :class="{'coupon-hide' : coupons.length <= 0}" class="item-cell flex val-empty" data-text="去选择" data-toggle="modal">去选择</a>
+                    <i class="uricon-arrow-right ricon" :class="{'coupon-hide' : coupons.length<=0}"></i>
                 </div>
             </section>
 
