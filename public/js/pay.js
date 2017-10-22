@@ -1,14 +1,11 @@
 var Pay = (function ($) {
+    var meetInfo = {};
     function init() {
         /*重定义内容高度*/
         var wh = $(window).height();
         $('.container').css('min-height', wh - 63);
-        initEvent();
-    }
-
-    //页面事件初始化
-    function initEvent(){
-        var meetInfo = {
+        //获取会议室信息，更新meetInfo;
+        meetInfo = {
             meetInfo : {
                 'pic' : 'https://image.urwork.cn/df4649a7-7fc4-4009-a877-a219ee375fc5.jpg',
                 'meetingroomName' : '苍之风云1',
@@ -24,34 +21,84 @@ var Pay = (function ($) {
                 'roomPrice' : 200
             },
             'coupons' : [{
-                'couponCode': 1234,
-                'price' : 20,
-                'strType' : '满200减20',
-                'startDate' : '2017/6/6',
-                'endDate' : '2017/12/12',
-                'remark' : ''
+                'id': 1234,
+                'basicPrice' : 20,
+                'couponName' : '满200减20',
+                'timesStart' : '2017/6/6',
+                'timeEnd' : '2017/12/12'
+            },{
+                'id': 12345,
+                'basicPrice' : 20,
+                'couponName' : '满200减20',
+                'timesStart' : '2017/6/6',
+                'timeEnd' : '2017/12/12'
             }],
+            'checkCoupon' : {},
             'addItem' : [
                 {
                     'name' : '台签',
                     'price' : '5',
                     'num' : 0
                 }
-            ]
+            ],
+            'total' : 0
         }
+        initEvent();
+    }
+
+    //页面事件初始化
+    function initEvent(){
         var vm = new Vue({
             el: '#mInfo',
             data: meetInfo,
             mounted: function () {
+                var myScroll = new IScroll('.modal-body');
+                this.total = this.meetInfo.roomTotal;
             },
             methods:{
+                'calculate' : function(){
+                    var extraM = 0;
+                    this.addItem.forEach(function(item){
+                        extraM = extraM + (item.price * item.num);
+                    })
+                    var couponM = this.checkCoupon.basicPrice ? this.checkCoupon.basicPrice : 0;
+                    this.total = this.meetInfo.roomTotal + extraM - couponM;
+                },
                 'addNum' : function(index){
                     this.addItem[index].num++;
+                    this.calculate();
                 },
                 'delNum' : function(index){
                     this.addItem[index].num--;
                     var gdNum = this.addItem[index].num;
                     this.addItem[index].num = gdNum > 0 ? gdNum : 0;
+                    this.calculate();
+                },
+                'closeCoupon' : function(){
+                    $('#couponsModal').add('.modal-backdrop').removeClass('in');
+                    $('body').removeClass('modal-open');
+                    return false;
+                },
+                'showCoupon' : function(){
+                    $('#couponsModal').add('.modal-backdrop').addClass('in');
+                    $('body').addClass('modal-open');
+                },
+                'preventClose' : function(e){
+                    e.stopPropagation();
+                    return false;
+                },
+                'checkCou' : function(cou){
+                    if(cou.id == this.checkCoupon.id){
+                        this.checkCoupon = {};
+                    }else{
+                        this.checkCoupon = cou;
+                    }
+                    this.calculate();
+                    return false;
+                },
+                'submit': function(){
+                    //提交订单
+
                 }
             }
         })
