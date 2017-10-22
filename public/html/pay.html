@@ -106,7 +106,7 @@
                     <div class="item-cell">
                         代金券 <span class="coupon-count"><em data-set="couponNum">{{coupons.length}}</em>张可用</span>
                     </div>
-                    <a href="javascript:;" @click="showCoupon()" :class="{'coupon-hide' : coupons.length <= 0}" class="item-cell flex val-empty" data-text="去选择" data-toggle="modal">{{checkCoupon.couponName ? checkCoupon.couponName : '去选择'}}</a>
+                    <a href="javascript:;" @click="showCoupon()" :class="{'coupon-hide' : coupons.length <= 0}" class="item-cell flex val-empty" data-text="去选择" data-toggle="modal">{{checkCoupon.couponName ? ('-¥'+checkCoupon.couponPrice) : '去选择'}}</a>
                     <i class="uricon-arrow-right ricon" :class="{'coupon-hide' : coupons.length<=0}"></i>
                 </div>
             </section>
@@ -137,11 +137,11 @@
                     <div class="modal-content" @click="preventClose($event)">
                         <div class="modal-body" style="background-color: #f5f5f5;">
                             <div class="scroller" id="couponsContainer">
-                                <div class="coupon-item coupon-item-checkable" :class="{checked : checkCoupon.id == d.id}" v-for="(d, i) in coupons" :data-id="d.id" :data-num="d.basicPrice">
+                                <div class="coupon-item coupon-item-checkable" :class="{checked : checkCoupon.id == d.id}" v-for="(d, i) in coupons">
                                     <dl @click="checkCou(d)">
                                         <dt>
                                             <div class="coupon-info">
-                                                <p class="price">¥ <big>{{d.basicPrice}}</big></p>
+                                                <p class="price">¥ <big>{{d.couponPrice}}</big></p>
                                             </div>
                                         </dt>
                                         <dd>

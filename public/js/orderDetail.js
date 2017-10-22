@@ -1,4 +1,4 @@
-var Pay = (function ($) {
+var OrderDetail = (function ($) {
     var meetInfo = {};
     function init() {
         /*重定义内容高度*/
@@ -7,6 +7,7 @@ var Pay = (function ($) {
         //获取会议室信息，更新meetInfo;
         meetInfo = {
             meetInfo : {
+                'meetingRoomId' : '1',
                 'pic' : 'https://image.urwork.cn/df4649a7-7fc4-4009-a877-a219ee375fc5.jpg',
                 'meetingroomName' : '苍之风云1',
                 'stageName' : '阿里巴巴创新中心·优客工场',
@@ -27,15 +28,15 @@ var Pay = (function ($) {
                 'couponName' : '满200减20',
                 'timesStart' : '2017/6/6',
                 'timeEnd' : '2017/12/12'
-            },{
+            }],
+            'checkCoupon' : {
                 'id': 12345,
                 'couponPrice' : 20,
                 'basicPrice' : 200,
                 'couponName' : '满200减20',
                 'timesStart' : '2017/6/6',
                 'timeEnd' : '2017/12/12'
-            }],
-            'checkCoupon' : {},
+            },
             'addItem' : [
                 {
                     'name' : '台签',
@@ -54,8 +55,7 @@ var Pay = (function ($) {
             el: '#mInfo',
             data: meetInfo,
             mounted: function () {
-                var myScroll = new IScroll('.modal-body');
-                this.total = this.meetInfo.roomTotal;
+                this.calculate();
             },
             methods:{
                 'calculate' : function(){
@@ -65,41 +65,6 @@ var Pay = (function ($) {
                     })
                     var couponM = this.checkCoupon.couponPrice ? this.checkCoupon.couponPrice : 0;
                     this.total = this.meetInfo.roomTotal + extraM - couponM;
-                },
-                'addNum' : function(index){
-                    this.addItem[index].num++;
-                    this.calculate();
-                },
-                'delNum' : function(index){
-                    this.addItem[index].num--;
-                    var gdNum = this.addItem[index].num;
-                    this.addItem[index].num = gdNum > 0 ? gdNum : 0;
-                    this.calculate();
-                },
-                'closeCoupon' : function(){
-                    $('#couponsModal').add('.modal-backdrop').removeClass('in');
-                    $('body').removeClass('modal-open');
-                    return false;
-                },
-                'showCoupon' : function(){
-                    $('#couponsModal').add('.modal-backdrop').addClass('in');
-                    $('body').addClass('modal-open');
-                },
-                'preventClose' : function(e){
-                    e.stopPropagation();
-                    return false;
-                },
-                'checkCou' : function(cou){
-                    if(cou.id == this.checkCoupon.id){
-                        this.checkCoupon = {};
-                    }else{
-                        this.checkCoupon = cou;
-                    }
-                    this.calculate();
-                    return false;
-                },
-                'submit': function(){
-                    //提交订单
                 }
             }
         })
