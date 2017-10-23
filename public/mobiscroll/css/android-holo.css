@@ -1,0 +1,452 @@
+/*!
+* http://www.mobiscroll.cn
+* 
+* Copyright (c) 2013, Acid Media, Inc.
+* All rights reserved.
+*
+* Redistribution and use in any form, with or without modification,
+* are not permitted.
+*
+*/
+.mbsc-android-holo .mbsc-fr-w,
+.mbsc-android-holo .mbsc-cal-sc-c {
+  background: #f8f8f8;
+}
+.mbsc-android-holo .mbsc-fr-w,
+.mbsc-android-holo .mbsc-fr-btn,
+.mbsc-android-holo .mbsc-sc-itm,
+.mbsc-android-holo .mbsc-range-btn,
+.mbsc-android-holo .mbsc-cal-tabs .mbsc-cal-tab-i {
+  color: #333333;
+}
+.mbsc-android-holo .mbsc-fr-hdr {
+  color: #333333;
+  border-color: #333333;
+}
+.mbsc-android-holo .mbsc-sc-itm.mbsc-btn-a {
+  background: rgba(51, 51, 51, 0.5);
+}
+.mbsc-android-holo .mbsc-sc-btn {
+  color: #7d7d7d;
+  background: #f8f8f8;
+}
+.mbsc-android-holo.mbsc-no-touch .mbsc-sc-btn:hover,
+.mbsc-android-holo .mbsc-sc-btn-a {
+  color: #080808;
+  background: #f8f8f8;
+}
+.mbsc-android-holo .mbsc-sc-whl-l {
+  border-color: #333333;
+}
+.mbsc-android-holo.mbsc-no-touch .mbsc-fr-btn-e:not(.mbsc-fr-btn-d):hover,
+.mbsc-android-holo .mbsc-fr-btn-a {
+  background: rgba(51, 51, 51, 0.5);
+  color: white;
+}
+.mbsc-android-holo .mbsc-sc-whl-multi .mbsc-sc-itm:after {
+  border-color: #d9d4d4;
+}
+.mbsc-android-holo .mbsc-sc-whl-multi .mbsc-sc-itm-sel:before {
+  color: #333333;
+  text-shadow: 0 0 5px #000000;
+}
+.mbsc-android-holo .mbsc-sc-whl-o {
+  background: -webkit-gradient(linear, left bottom, left top, from(#f8f8f8), color-stop(0.52, rgba(248, 248, 248, 0)), color-stop(0.48, rgba(248, 248, 248, 0)), to(#f8f8f8));
+  background: -webkit-linear-gradient(#f8f8f8, rgba(248, 248, 248, 0) 52%, rgba(248, 248, 248, 0) 48%, #f8f8f8);
+  background: linear-gradient(#f8f8f8, rgba(248, 248, 248, 0) 52%, rgba(248, 248, 248, 0) 48%, #f8f8f8);
+}
+.mbsc-android-holo .mbsc-fr-btn-cont,
+.mbsc-android-holo .mbsc-fr-btn-w .mbsc-fr-btn {
+  border-color: #d9d4d4;
+}
+/* Bubble positioning */
+.mbsc-android-holo .mbsc-fr-bubble-bottom .mbsc-fr-arr {
+  border-color: transparent transparent #f8f8f8 transparent;
+}
+.mbsc-android-holo .mbsc-fr-bubble-top .mbsc-fr-arr {
+  border-color: #f8f8f8 transparent transparent transparent;
+}
+/* Calendar */
+.mbsc-android-holo .mbsc-cal-day-m-c {
+  background: #333333;
+}
+.mbsc-android-holo .mbsc-cal-hl-now .mbsc-cal-today {
+  color: #333333;
+}
+.mbsc-android-holo .mbsc-cal .mbsc-cal-sc-sel,
+.mbsc-android-holo .mbsc-cal .mbsc-cal-day-sel {
+  background: rgba(51, 51, 51, 0.5);
+  color: white;
+}
+.mbsc-android-holo .mbsc-fr-btn-a .mbsc-cal-btn-txt,
+.mbsc-android-holo.mbsc-no-touch .mbsc-cal-btn:hover .mbsc-cal-btn-txt {
+  color: #080808;
+}
+.mbsc-android-holo .mbsc-cal-tabs .mbsc-range-btn-sel,
+.mbsc-android-holo .mbsc-cal-tabs .mbsc-cal-tab-sel {
+  border-bottom: 5px solid #333333;
+}
+.mbsc-android-holo .mbsc-cal-event-color {
+  background: #333333;
+}
+.mbsc-android-holo .mbsc-cal .mbsc-cal-day-hl .mbsc-cal-day-i {
+  background: #333333;
+  color: white;
+}
+.mbsc-android-holo .mbsc-cal-tabs {
+  background: #e6e6e6;
+}
+.mbsc-android-holo .mbsc-cal-tab {
+  border-color: #e6e6e6;
+}
+.mbsc-android-holo .mbsc-cal-tabs .mbsc-cal-tab-i,
+.mbsc-android-holo .mbsc-cal-day,
+.mbsc-android-holo .mbsc-cal-sc-m-cell {
+  border-color: #d9d9d9;
+}
+.mbsc-android-holo .mbsc-cal-btn-txt {
+  color: #7d7d7d;
+}
+.mbsc-android-holo .mbsc-cal-week-nrs-c {
+  background: #f8f8f8;
+}
+.mbsc-android-holo .mbsc-cal-week-nr-i {
+  border-color: #d9d9d9;
+  color: #7d7d7d;
+}
+.mbsc-android-holo .mbsc-cal th {
+  color: #7d7d7d;
+}
+.mbsc-android-holo .mbsc-cal-events {
+  background: rgba(51, 51, 51, 0.8);
+}
+.mbsc-android-holo .mbsc-cal-events-arr {
+  border-color: rgba(51, 51, 51, 0.8) transparent transparent;
+}
+.mbsc-android-holo .mbsc-cal-events-b .mbsc-cal-events-arr {
+  border-color: transparent transparent rgba(51, 51, 51, 0.8);
+}
+.mbsc-android-holo .mbsc-cal-event {
+  background: #7d7d7d;
+  color: white;
+}
+/* Range */
+.mbsc-android-holo .mbsc-range-btn {
+  background: #d9d9d9;
+}
+.mbsc-android-holo .mbsc-range-btn-sel .mbsc-range-btn {
+  background: #333333;
+  color: white;
+}
+/* Timer */
+.mbsc-android-holo.mbsc-timer .mbsc-sc-lbl {
+  color: #333333;
+}
+/* Rating */
+.mbsc-android-holo .mbsc-rating-icon {
+  color: #333333;
+}
+/* Numpad */
+.mbsc-android-holo .mbsc-np-hdr {
+  border-color: #d9d9d9;
+}
+.mbsc-android-holo.mbsc-no-touch .mbsc-fr-c .mbsc-np-del:hover {
+  color: rgba(51, 51, 51, 0.5);
+  background: transparent;
+}
+/* Listview */
+.mbsc-lv-android-holo .mbsc-lv {
+  background: #dbdbdb;
+}
+.mbsc-lv-android-holo .mbsc-lv .mbsc-lv-item.mbsc-lv-item-dragging {
+  background: #333333;
+  background: rgba(51, 51, 51, 0.5);
+  border-color: rgba(51, 51, 51, 0.5);
+}
+.mbsc-lv-android-holo .mbsc-lv-item,
+.mbsc-lv-android-holo .mbsc-lv-gr-title {
+  background: #f8f8f8;
+  color: #333333;
+}
+.mbsc-lv-android-holo.mbsc-lv-alt-row .mbsc-lv-item:nth-child(even) {
+  background: #ededed;
+}
+.mbsc-lv-android-holo .mbsc-lv-item {
+  border-color: #dbdbdb;
+}
+.mbsc-lv-android-holo .mbsc-lv-gr-title {
+  border-color: #dbdbdb;
+}
+.mbsc-lv-android-holo .mbsc-lv .mbsc-lv-item.mbsc-lv-item-active {
+  background: #dbdbdb;
+}
+.mbsc-lv-android-holo .mbsc-lv-handle-bar-c,
+.mbsc-lv-android-holo.mbsc-lv-handle-left .mbsc-lv-handle-bar-c {
+  border-color: #b3b3b3;
+}
+.mbsc-lv-android-holo .mbsc-lv-handle-bar {
+  background: #b3b3b3;
+}
+/* Menustrip */
+.mbsc-android-holo.mbsc-ms-c {
+  color: #333333;
+  background: #f8f8f8;
+}
+.mbsc-android-holo.mbsc-ms-a .mbsc-ms-item-sel.mbsc-ms-item {
+  color: #333333;
+}
+.mbsc-android-holo.mbsc-ms-b.mbsc-ms-top {
+  border-color: #333333;
+}
+.mbsc-android-holo.mbsc-ms-b.mbsc-ms-bottom {
+  border-color: #333333;
+}
+.mbsc-android-holo.mbsc-ms-b .mbsc-ms-item-sel.mbsc-ms-item {
+  border-bottom-color: #333333;
+}
+.mbsc-android-holo.mbsc-ms-b.mbsc-ms-bottom .mbsc-ms-item-sel.mbsc-ms-item {
+  border-top-color: #333333;
+}
+.mbsc-android-holo.mbsc-ms-b .mbsc-ms-item:after {
+  background: #d9d9d9;
+}
+.mbsc-android-holo .mbsc-btn-a.mbsc-ms-item {
+  background: #000000;
+}
+/* Progress */
+.mbsc-android-holo .mbsc-progress-track {
+  background: #d9d4d4;
+}
+.mbsc-android-holo .mbsc-progress-bar {
+  background: #333333;
+}
+/* Slider */
+.mbsc-android-holo .mbsc-slider-step {
+  background: #333333;
+}
+.mbsc-android-holo .mbsc-slider-handle {
+  background: #333333;
+}
+.mbsc-android-holo .mbsc-slider-handle.mbsc-active {
+  background: #333333;
+}
+.mbsc-android-holo .mbsc-slider-handle:after {
+  background: rgba(51, 51, 51, 0.3);
+}
+.mbsc-android-holo .mbsc-slider-handle:focus:after,
+.mbsc-android-holo .mbsc-active .mbsc-slider-handle:after {
+  border-color: #000000;
+}
+.mbsc-android-holo .mbsc-slider-tooltip {
+  color: #333333;
+  background: #f8f8f8;
+}
+.mbsc-android-holo.mbsc-slider input:disabled ~ .mbsc-progress-cont .mbsc-progress-track {
+  background: #808080;
+}
+.mbsc-android-holo.mbsc-slider input:disabled ~ .mbsc-progress-cont .mbsc-slider-handle {
+  background: #333333;
+}
+.mbsc-android-holo.mbsc-slider input:disabled ~ .mbsc-progress-cont .mbsc-progress-bar {
+  background: #dbdbdb;
+}
+/* Form elements */
+.mbsc-android-holo.mbsc-page {
+  background: #f8f8f8;
+  color: #333333;
+}
+.mbsc-android-holo.mbsc-form {
+  background: #f8f8f8;
+  color: #333333;
+}
+.mbsc-android-holo .mbsc-input select,
+.mbsc-android-holo .mbsc-input textarea,
+.mbsc-android-holo .mbsc-input input {
+  background: #f8f8f8;
+  outline-color: #f8f8f8;
+  color: #333333;
+  border-color: #dbdbdb;
+}
+.mbsc-android-holo.mbsc-wdg .mbsc-input textarea,
+.mbsc-android-holo.mbsc-wdg .mbsc-input input,
+.mbsc-lv-android-holo .mbsc-input textarea,
+.mbsc-lv-android-holo .mbsc-input input {
+  background: #f8f8f8;
+  outline-color: #f8f8f8;
+}
+.mbsc-android-holo .mbsc-select .mbsc-input-wrap .mbsc-select-ic {
+  border-color: transparent #dbdbdb #dbdbdb transparent;
+}
+.mbsc-android-holo .mbsc-input textarea:-webkit-autofill,
+.mbsc-android-holo .mbsc-input input:-webkit-autofill {
+  box-shadow: 0 0 0 50em #f8f8f8 inset;
+  -webkit-text-fill-color: #333333;
+}
+.mbsc-android-holo .mbsc-radio-box,
+.mbsc-android-holo .mbsc-checkbox-box {
+  border-color: #808080;
+}
+/* Checkbox, Switch, Radio */
+.mbsc-android-holo .mbsc-checkbox input.mbsc-active + .mbsc-checkbox-box:before,
+.mbsc-android-holo .mbsc-radio input.mbsc-active + .mbsc-radio-box:before {
+  background: rgba(150, 150, 150, 0.2);
+}
+/* Button */
+.mbsc-android-holo .mbsc-btn {
+  border-color: #d4d4d4;
+  border-top: none;
+  background: #d4d4d4;
+  color: #333333;
+}
+.mbsc-android-holo.mbsc-no-touch .mbsc-btn:not(:disabled):not(.mbsc-active):hover {
+  background: #c9c9c9;
+}
+.mbsc-android-holo .mbsc-btn.mbsc-active {
+  background: #c2c2c2;
+}
+.mbsc-android-holo .mbsc-btn-flat {
+  background: transparent;
+  border-color: transparent;
+  color: #333333;
+}
+.mbsc-android-holo .mbsc-btn-flat.mbsc-active {
+  background: transparent;
+  border-color: transparent;
+}
+.mbsc-android-holo .mbsc-btn-flat:disabled {
+  color: #333333;
+}
+.mbsc-android-holo .mbsc-btn:disabled {
+  background: #e6e6e6;
+  color: #b5b5b5;
+}
+/* Text highlight */
+.mbsc-android-holo.mbsc-form *::-moz-selection {
+  background: #333333;
+}
+.mbsc-android-holo.mbsc-form *::selection {
+  background: #333333;
+}
+.mbsc-android-holo .mbsc-divider,
+.mbsc-android-holo .mbsc-form-group-title {
+  border-bottom: 1px solid #333333;
+  color: #333333;
+}
+.mbsc-android-holo a {
+  color: #333333;
+}
+.mbsc-android-holo .mbsc-input select:focus + input,
+.mbsc-android-holo .mbsc-input textarea:focus,
+.mbsc-android-holo .mbsc-input input:focus {
+  border-color: #333333;
+}
+.mbsc-android-holo .mbsc-input .mbsc-control:focus ~ .mbsc-select-ic {
+  border-color: transparent #333333 #333333 transparent;
+}
+.mbsc-android-holo .mbsc-checkbox-box:after {
+  border: 3px solid #333333;
+  border-top: 0;
+  border-right: 0;
+}
+.mbsc-android-holo .mbsc-radio-box:after {
+  background: #333333;
+}
+/* Switch */
+.mbsc-android-holo .mbsc-switch-handle {
+  color: #fff;
+  background: #c9c9c9;
+}
+.mbsc-android-holo .mbsc-switch .mbsc-switch-track {
+  background: #d9d9d9;
+}
+.mbsc-android-holo .mbsc-switch input:checked:not(:disabled) + .mbsc-switch-track .mbsc-switch-handle {
+  background: #333333;
+  background: rgba(51, 51, 51, 0.7);
+}
+/* Segmented control */
+.mbsc-android-holo .mbsc-segmented-content {
+  border-color: #333333;
+}
+.mbsc-android-holo .mbsc-segmented .mbsc-segmented-item input:checked + .mbsc-segmented-content {
+  background: #333333;
+}
+.mbsc-android-holo .mbsc-segmented .mbsc-segmented-item input.mbsc-active + .mbsc-segmented-content {
+  background: rgba(51, 51, 51, 0.35);
+}
+.mbsc-android-holo .mbsc-segmented .mbsc-segmented-item.mbsc-stepper-control.mbsc-active .mbsc-segmented-content {
+  background: #c2c2c2;
+}
+.mbsc-android-holo .mbsc-stepper .mbsc-segmented-content {
+  border-color: #d4d4d4;
+}
+.mbsc-android-holo .mbsc-stepper .mbsc-stepper-val {
+  background: #cccccc;
+  border-color: #cccccc;
+  color: #f8f8f8;
+}
+.mbsc-android-holo .mbsc-stepper-control .mbsc-segmented-content {
+  background: #d4d4d4;
+}
+.mbsc-android-holo .mbsc-segmented .mbsc-segmented-item input:disabled + .mbsc-segmented-content {
+  border-color: #d4d4d4;
+  color: #333333;
+  background: transparent;
+}
+.mbsc-android-holo .mbsc-segmented .mbsc-segmented-item input:disabled:checked + .mbsc-segmented-content,
+.mbsc-android-holo .mbsc-segmented input:disabled ~ .mbsc-segmented-item .mbsc-segmented-content,
+.mbsc-android-holo .mbsc-segmented .mbsc-segmented-item.mbsc-stepper-control.mbsc-step-disabled .mbsc-segmented-content {
+  background: #d4d4d4;
+  border-color: #d4d4d4;
+  color: #333333;
+}
+.mbsc-android-holo .mbsc-stepper .mbsc-segmented-item input:disabled ~ .mbsc-segmented-item .mbsc-stepper-val {
+  background: #f5f5f5;
+}
+.mbsc-android-holo .mbsc-segmented input:disabled:checked + .mbsc-segmented-content,
+.mbsc-android-holo .mbsc-stepper input:disabled ~ .mbsc-segmented-item .mbsc-segmented-content,
+.mbsc-android-holo .mbsc-stepper .mbsc-step-disabled .mbsc-segmented-content {
+  background: #e6e6e6;
+  color: #b5b5b5;
+}
+.mbsc-android-holo .mbsc-stepper input:disabled {
+  color: #b5b5b5;
+  -webkit-text-fill-color: #b5b5b5;
+}
+.mbsc-android-holo .mbsc-stepper input {
+  color: #f8f8f8;
+}
+.mbsc-android-holo .mbsc-stepper-val-left input,
+.mbsc-android-holo .mbsc-stepper-val-right input {
+  color: #333333;
+}
+.mbsc-android-holo.mbsc-no-touch .mbsc-segmented-item:hover .mbsc-segmented-content {
+  background: rgba(51, 51, 51, 0.2);
+}
+.mbsc-android-holo.mbsc-no-touch .mbsc-stepper-control:hover .mbsc-segmented-content {
+  background: #c9c9c9;
+}
+/* Colorpicker */
+.mbsc-android-holo .mbsc-color-active,
+.mbsc-no-touch.mbsc-android-holo .mbsc-color-item-c:hover {
+  box-shadow: inset 0 0 0 0.1875em #333333;
+}
+.mbsc-android-holo .mbsc-color-preview-item-empty {
+  border-color: #c9c9c9;
+}
+.mbsc-android-holo .mbsc-color-preview-cont {
+  border-color: #d9d4d4;
+}
+.mbsc-android-holo.mbsc-form .mbsc-color-input {
+  background: #f8f8f8;
+  outline-color: #f8f8f8;
+  color: #333333;
+  border-color: #dbdbdb;
+}
+.mbsc-android-holo .mbsc-color-clear-item {
+  background: rgba(223, 222, 222, 0.6);
+}
+/* Select filter */
+.mbsc-android-holo .mbsc-input .mbsc-sel-filter-input {
+  background: #f8f8f8;
+  outline: 4px solid #f8f8f8;
+}

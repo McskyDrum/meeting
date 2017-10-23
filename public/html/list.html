@@ -14,10 +14,15 @@
     <title>首页</title>
     <script type="text/javascript" src="../js/common/init.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/list.css">
+    <link rel="stylesheet" type="text/css" href="../mobiscroll/css/mobiscroll.javascript.min.css">
+    <link rel="stylesheet" type="text/css" href="../mobiscroll/css/android-holo.css">
+    <script type="text/javascript" src="../js/libs/iscroll.js"></script>
+    <script type="text/javascript" src="../mobiscroll/js/mobiscroll.javascript.min.js"></script>
+    <script type="text/javascript" src="../js/libs/vue.min.js"></script>
     <script type="text/javascript" src="../js/list.js"></script>
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="meetingList">
         <div class="header">
             <div class="title-bar">
                 <span class="title">会议室列表</span>
@@ -26,14 +31,14 @@
         <div class="main">
             <div class="ur-searcher">
                 <div class="search-wrapper clearfix">
-                    <div class="menu-item">
-                        <span>阿里巴巴创新中心·优客工场</span>
+                    <div class="menu-item" @click="showStage()">
+                        <span>{{stageCheck.stageName}}</span>
                         <i class="icon-arrow-dropdown menu-arrow"></i>
                     </div>
                     <ul>
-                        <li class="active today"><span>今天</span></li>
-                        <li class="tomorrow"><span>明天</span></li>
-                        <li class="last" data-id="">
+                        <li class="today" :class="{active: (setDay == today) && !setDayElse}" @click="setDate(today)"><span>今天</span></li>
+                        <li class="tomorrow" :class="{active: setDay == tomorrow && !setDayElse}" @click="setDate(tomorrow)"><span>明天</span></li>
+                        <li class="last" :class="{active: setDayElse}" @click="getDate()">
                             <span>
                                 <input type="text" class="input-text" placeholder="其他日期" id="mobiscroll" readonly="">
                             </span>
@@ -179,7 +184,33 @@
                 </div>
             </div>
         </div>
+        <!-- 社区列表 modal -->
+        <div class="modal primary-modal" @click="closeStage()" id="plantIdModal" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content" @click="preventClose($event)">
+                    <div class="modal-body">
+                        <div class="scroller" id="plantIdContainer">
+                            <div class="select-list stage-list">
+                                <div v-for="stage in stageInfo">
+                                    <div class="stage-title">{{stage.cityName}}</div>
+                                    <ul>
+                                        <li v-for="s in stage.stageList" @click="checkStage(s)" data-id="s.id" :class="{active:s.id==reCheck.id}">{{s.stageName}}<i class="uricon-success-circle"></i></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default cancel" @click="closeStage()" data-dismiss="modal">取消</button>
+                        <button type="button" class="btn btn-primary save" @click="saveStage()">保存</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 社区列表 modal -->
+        <div class="modal-backdrop"></div>
     </div>
+
     <div class="nav-menu nav-fixed nav-menu-bottom nav-menu-1 has-menu-2">
         <div class="nav-item">
             <a class="mainmenu js-mainmenu " href="main.html">
