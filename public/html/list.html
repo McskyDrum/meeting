@@ -48,18 +48,18 @@
             </div>
 
             <div class="meeting-room-list">
-                <div class="bigpictext-item">
+                <div class="bigpictext-item" v-for="(room,index) in rooms">
                     <dl>
                         <dt>
-                            <img class="js-lazy" data-src="https://image.urwork.cn/df4649a7-7fc4-4009-a877-a219ee375fc5.jpg">
+                            <img class="js-lazy" :data-src="room.img">
                         </dt>
                         <dd>
                             <div class="bigpictext-title">
                                 <div class="bigpictext-title-cont">
-                                    <h2 class="bigpictext-title-txt">苍之风云</h2>
-                                    <small> | 8人</small>
+                                    <h2 class="bigpictext-title-txt">{{room.roomName}}</h2>
+                                    <small> | {{room.headcount}}人</small>
                                 </div>
-                                <em>¥50
+                                <em>¥{{room.price}}
                                     <small>/ 0.5小时</small>
                                 </em>
                             </div>
@@ -67,112 +67,15 @@
                                 <button class="btn-prev"></button>
                                 <button class="btn-next"></button>
                                 <div class="bar-list">
-                                    <ul style="width: 840px;" data-move="6">
-
-                                        <li data-id="20" class="">
-                                            <label>10时</label>
+                                    <ul :style="'width: ' + (room.timeArr.length * 42) + 'px;'">
+                                        <li v-for="(s,t) in room.timeArr" @click="checkTime(index,t)" :class="{'disabled' : room.canReserveList.indexOf(t) < 0, 'selected': room.checkArr.indexOf(t) >= 0}">
+                                            <label>{{(t%2==0) ? (room.startNum +  t / 2) + '时' : ''}}</label>
                                             <div></div>
                                         </li>
-
-                                        <li data-id="21" class="">
-                                            <label></label>
-                                            <div></div>
-                                        </li>
-
-                                        <li data-id="22" class="">
-                                            <label>11时</label>
-                                            <div></div>
-                                        </li>
-
-                                        <li data-id="23" class="">
-                                            <label></label>
-                                            <div></div>
-                                        </li>
-
-                                        <li data-id="24" class="">
-                                            <label>12时</label>
-                                            <div></div>
-                                        </li>
-
-                                        <li data-id="25" class="">
-                                            <label></label>
-                                            <div></div>
-                                        </li>
-
-                                        <li data-id="26" class="">
-                                            <label>13时</label>
-                                            <div></div>
-                                        </li>
-
-                                        <li data-id="27" class="">
-                                            <label></label>
-                                            <div></div>
-                                        </li>
-
-                                        <li data-id="28" class="">
-                                            <label>14时</label>
-                                            <div></div>
-                                        </li>
-
-                                        <li data-id="29" class="">
-                                            <label></label>
-                                            <div></div>
-                                        </li>
-
-                                        <li data-id="30" class="">
-                                            <label>15时</label>
-                                            <div></div>
-                                        </li>
-
-                                        <li data-id="31" class="">
-                                            <label></label>
-                                            <div></div>
-                                        </li>
-
-                                        <li data-id="32" class="">
-                                            <label>16时</label>
-                                            <div></div>
-                                        </li>
-
-                                        <li data-id="33" class="">
-                                            <label></label>
-                                            <div></div>
-                                        </li>
-
-                                        <li data-id="34" class="">
-                                            <label>17时</label>
-                                            <div></div>
-                                        </li>
-
-                                        <li data-id="35" class="">
-                                            <label></label>
-                                            <div></div>
-                                        </li>
-
-                                        <li data-id="36" class="">
-                                            <label>18时</label>
-                                            <div></div>
-                                        </li>
-
-                                        <li data-id="37" class="">
-                                            <label></label>
-                                            <div></div>
-                                        </li>
-
-                                        <li data-id="38" class="">
-                                            <label>19时</label>
-                                            <div></div>
-                                        </li>
-
-                                        <li data-id="39" class="">
-                                            <label></label>
-                                            <div></div>
-                                        </li>
-
                                     </ul>
                                 </div>
                             </div>
-                            <div class="tool-action" data-id="19820608" data-type="1">
+                            <div class="tool-action">
                                 <div class="tool-info">
                                     <span data-set="timeRange" class="timeRange">12:30-13:30</span>
                                     <span> (共<i data-set="hour">1</i>小时）</span>

@@ -1,5 +1,4 @@
 var List = (function ($) {
-    var defaultList = {};
     var stageList = [{
         'cityName' : '北京市',
         'stageList' : [{
@@ -40,20 +39,22 @@ var List = (function ($) {
     //页面事件初始化
     function initEvent(){
         var data = {};
-        data.meetings = defaultList;
-        data.stageInfo = stageList;
-        data.stageCheck = stageCheck;
-        data.reCheck = reCheck;
-        data.setDay = '';
-        data.setDayElse = false;
-        data.today = '';
-        data.tomorrow = '';
+        data.rooms = [];    //会议室数组
+        data.stageInfo = stageList; //大厦数组
+        data.stageCheck = stageCheck;   //选择的大厦obj
+        data.reCheck = reCheck; //预选大厦obj，在不按确认按钮时保存的大厦obj
+        data.setDay = '';   //选择用来筛选的日期
+        data.setDayElse = false;    //是否通过其他日期来选择的
+        data.today = '';    //今天的日期 ‘2017-10-24’
+        data.tomorrow = ''; //明天的日期
         var vm = new Vue({
             el: '#meetingList',
             data: data,
             mounted: function () {
                 var _this = this;
                 var myScroll = new IScroll('.modal-body');
+
+                //其他日期选择
                 mobiscroll.date('#mobiscroll', {
                     buttons: ['cancel','set'],
                     circular: [false,false,false],
@@ -65,36 +66,72 @@ var List = (function ($) {
                     onSet: function(e){
                         _this.setDay = e.valueText.replace(/\//g,'-');
                         _this.setDayElse = true;
-                        this.getMeetings();
+                        _this.getMeetings();
                     }
                 });
 
+                _this.resetDate();
+                this.getMeetings();
+            },
+            updated: function(){
                 $(".js-lazy").scrollLoading();
-                this.resetDate();
-                //this.getMeetings();
             },
             methods:{
-                'getMeetings' : function(){
+                'getMeetings' : function(){ //获取会议室列表
                     var _this = this;
-                    $.ajax({
-                        type: "post",
-                        url: API_URL + "api/getMeetings",
-                        dataType: 'json',
-                        data: {
-                            'plantId' : _this.stageCheck.id,
-                            'date' : _this.setDay
-                        },
-                        isLoading: true,
-                        success: function (result) {
-                            if (!result.success) {
-                                initEvent();
-                                console.log(result.error.message);
-                                return false;
-                            } else {
-                                initEvent();
+                    var roomList = [{
+                        'id' : 19820608,
+                        'roomName' : '苍之风云',
+                        'openTimeStart' : '10:00',
+                        'openTimeEnd' : '20:00',
+                        'headcount' : 8,
+                        'img' : 'https://image.urwork.cn/df4649a7-7fc4-4009-a877-a219ee375fc5.jpg',
+                        'price' : 50,
+                        'allTimeListCount': 20,
+                        'canReserveList': [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
+                    }];
+                    _this.resetRoomData(roomList);
+                    // $.ajax({
+                    //     type: "post",
+                    //     url: API_URL + "api/getMeetings",
+                    //     dataType: 'json',
+                    //     data: {
+                    //         'plantId' : _this.stageCheck.id,
+                    //         'date' : _this.setDay
+                    //     },
+                    //     isLoading: true,
+                    //     success: function (result) {
+                    //         _this.rooms = result.data;
+                    //     }
+                    // });
+                },
+                'resetRoomData' : function(list){   //重置会议室时间数据
+                    list.forEach(function(item){
+                        item.timeArr = new Array(item.allTimeListCount);
+                        item.startNum = parseInt(item.openTimeStart);
+                        item.checkArr = [];
+                        item.cfirst = '';   //第一个选择的时间
+                    })
+                    this.rooms = list;
+                },
+                'checkTime' : function(index,t){   //时间段选取
+                    if(this.rooms[index].canReserveList.indexOf(t) < 0){
+                        return false;
+                    }else{
+                        if(this.rooms[index].cfirst == ''){
+                            this.rooms[index].cfirst = t;
+                            this.rooms[index].checkArr.push(t);
+                        }else{
+                            (this.rooms[index].cfirst == t)&&(this.rooms[index].cfirst='',this.rooms[index].checkArr=[]);
+                            if(t > this.rooms[index].cfirst){
+                                //判断选中是否含有不可选的时间段
+                                var isvalid = false,cArr = [];
+                                for(var x = this.rooms[index].cfirst; x<=t; x++){
+
+                                }
                             }
                         }
-                    });
+                    }
                 },
                 'resetDate' : function(){
                     //获取当前日期
@@ -121,12 +158,12 @@ var List = (function ($) {
                     $('#mobiscroll').val('');
                     this.getMeetings();
                 },
-                'closeStage' : function(){
+                'closeStage' : function(){  //关闭大厦选择弹窗
                     $('#plantIdModal').add('.modal-backdrop').removeClass('in');
                     $('body').removeClass('modal-open');
                     return false;
                 },
-                'showStage' : function(){
+                'showStage' : function(){   //开启大厦弹窗
                     $('#plantIdModal').add('.modal-backdrop').addClass('in');
                     $('body').addClass('modal-open');
                 },

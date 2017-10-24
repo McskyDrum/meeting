@@ -270,6 +270,16 @@
     overflow: hidden;
     border-bottom: 1px solid #d9d9d9;
 }
+.meeting-room-list .bigpictext-item .bigpictext-bar .bar-list:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 48px;
+    background: url(../image/bg-disabled.png);
+    background-size: 6px;
+}
 .meeting-room-list .bigpictext-item .bigpictext-bar ul {
     height: 100%;
 }
@@ -323,6 +333,12 @@
     height: 36px;
     line-height: 26px;
     font-size: 14px;
+}
+.meeting-room-list .bigpictext-item .bigpictext-bar ul li.disabled div {
+    background-color: transparent;
+}
+.meeting-room-list .bigpictext-item .bigpictext-bar ul li.selected div {
+    background-color: #ffbd30;
 }
 
 
