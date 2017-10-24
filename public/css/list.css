@@ -267,18 +267,9 @@
     height: 100%;
     margin-right: 33px;
     margin-left: 33px;
-    overflow: hidden;
+    overflow-y: hidden;
+    overflow-x: auto;
     border-bottom: 1px solid #d9d9d9;
-}
-.meeting-room-list .bigpictext-item .bigpictext-bar .bar-list:before {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 48px;
-    background: url(../image/bg-disabled.png);
-    background-size: 6px;
 }
 .meeting-room-list .bigpictext-item .bigpictext-bar ul {
     height: 100%;
@@ -335,7 +326,8 @@
     font-size: 14px;
 }
 .meeting-room-list .bigpictext-item .bigpictext-bar ul li.disabled div {
-    background-color: transparent;
+    background: url(../image/bg-disabled.png);
+    background-size: 6px;
 }
 .meeting-room-list .bigpictext-item .bigpictext-bar ul li.selected div {
     background-color: #ffbd30;

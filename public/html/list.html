@@ -75,12 +75,12 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="tool-action">
+                            <div class="tool-action" v-show="room.CTimeNum > 0">
                                 <div class="tool-info">
-                                    <span data-set="timeRange" class="timeRange">12:30-13:30</span>
-                                    <span> (共<i data-set="hour">1</i>小时）</span>
+                                    <span data-set="timeRange" class="timeRange">{{room.cTimeStr}}</span>
+                                    <span> (共<i data-set="hour">{{room.CTimeNum}}</i>小时）</span>
                                 </div>
-                                <button type="button" class="btn btn-primary booking">确认预定</button>
+                                <button type="button" class="btn btn-primary booking" @click="reserve(index)">确认预定</button>
                             </div>
                         </dd>
                     </dl>
