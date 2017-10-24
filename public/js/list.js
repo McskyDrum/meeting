@@ -120,6 +120,9 @@ var List = (function ($) {
                     })
                     this.rooms = list;
                 },
+                'reserve' : function(index){    //预约当前会议室
+                    var roomInfo = this.rooms[index];
+                },
                 'resetCanTArr' : function(item){
                     //获取当前时间
                     var date = new Date();
