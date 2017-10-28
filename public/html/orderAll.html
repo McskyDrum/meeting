@@ -32,10 +32,10 @@
                 </div>
                 <div class="block block-list border-top-0 border-bottom-0">
                     <div class="block-item name-card name-card-3col clearfix">
-                        <a href="/html/orderDetail.html?orderId={{orderId}}">
+                        <a href="/html/orderDetail.html?orderId={{item.orderId}}">
                             <div class="detail">
                                 <h3>{{item.roomNum+" "+item.orderTitle}}</h3>
-                                <p>会议时间:{{item.meetingTimeStart | time item.meetingTimeStart 'YYYY-MM-DD hh:mm'}}-{{item.meetingTimeEnd | time 'hh:mm'}}</p>
+                                <p>会议时间:{{item.meetingTimeStart | time('YYYY-MM-DD hh:mm')}}-{{item.meetingTimeEnd | time('hh:mm')}}</p>
                             </div>
                         </a>
                     </div>

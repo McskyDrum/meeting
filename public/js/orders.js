@@ -4,7 +4,6 @@ var Orders = (function ($) {
 
     function TimeFilters(time,format){
         var data = new Date(time);
-        console.error(format);
         return moment(data).format(format);
     }
 

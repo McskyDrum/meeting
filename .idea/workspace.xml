@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="87cda679-34c1-42bb-a533-1e13fb23f194" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/orders.css" afterPath="$PROJECT_DIR$/public/css/orders.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/html/orderAll.html" afterPath="$PROJECT_DIR$/public/html/orderAll.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/common/init.js" afterPath="$PROJECT_DIR$/public/js/common/init.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/orders.js" afterPath="$PROJECT_DIR$/public/js/orders.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -29,11 +27,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="orders.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="orders.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/js/orders.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="167">
-              <caret line="118" column="20" selection-start-line="118" selection-start-column="16" selection-end-line="118" selection-end-column="20" />
+            <state relative-caret-position="90">
+              <caret line="6" column="42" selection-start-line="6" selection-start-column="42" selection-end-line="6" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -42,14 +40,14 @@
       <file leaf-file-name="orderAll.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/html/orderAll.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="113">
-              <caret line="37" column="85" selection-start-line="37" selection-start-column="85" selection-end-line="37" selection-end-column="85" />
+            <state relative-caret-position="68">
+              <caret line="26" column="29" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="orders.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="orders.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/css/orders.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="133">
@@ -123,9 +121,9 @@
         <option value="$PROJECT_DIR$/routes/order.js" />
         <option value="$PROJECT_DIR$/public/html/coupons.html" />
         <option value="$PROJECT_DIR$/public/js/common/init.js" />
-        <option value="$PROJECT_DIR$/public/js/orders.js" />
-        <option value="$PROJECT_DIR$/public/html/orderAll.html" />
         <option value="$PROJECT_DIR$/public/css/orders.css" />
+        <option value="$PROJECT_DIR$/public/html/orderAll.html" />
+        <option value="$PROJECT_DIR$/public/js/orders.js" />
       </list>
     </option>
   </component>
@@ -1014,26 +1012,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/orders.js">
+    <entry file="file://$PROJECT_DIR$/public/css/orders.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="118" column="20" selection-start-line="118" selection-start-column="16" selection-end-line="118" selection-end-column="20" />
+        <state relative-caret-position="133">
+          <caret line="234" column="23" selection-start-line="234" selection-start-column="23" selection-end-line="234" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/html/orderAll.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="37" column="85" selection-start-line="37" selection-start-column="85" selection-end-line="37" selection-end-column="85" />
+        <state relative-caret-position="68">
+          <caret line="26" column="29" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/orders.css">
+    <entry file="file://$PROJECT_DIR$/public/js/orders.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="234" column="23" selection-start-line="234" selection-start-column="23" selection-end-line="234" selection-end-column="23" />
+        <state relative-caret-position="90">
+          <caret line="6" column="42" selection-start-line="6" selection-start-column="42" selection-end-line="6" selection-end-column="42" />
           <folding />
         </state>
       </provider>
