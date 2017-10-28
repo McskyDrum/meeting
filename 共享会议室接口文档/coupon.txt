@@ -20,7 +20,7 @@ Coupon：{
 	couponName:优惠券名称  10元代金券
 	couponPrice: 1000  减10元
 	basicPrice：10000   满100元才能使用
-	timesStart: 1508566101200  生效时间
+	timeStart: 1508566101200  生效时间
 	timeEnd：1508566101200  有效期
 	getTime: 1508566101200 获取时间
 }
