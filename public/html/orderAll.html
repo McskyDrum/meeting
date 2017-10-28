@@ -11,7 +11,7 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="Cache" content="no-cache">
-    <title>全部订单</title>
+    <title>订单中心</title>
     <script type="text/javascript" src="../js/common/init.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/orders.css">
     <script type="text/javascript" src="../js/libs/vue.min.js"></script>
@@ -19,6 +19,11 @@
 </head>
 <body>
     <div class="container" id="orders">
+        <div class="tabber tabber-n4 tabber-double-11 clearfix">
+            <a v-bind:class="{ active:type=='all'}" v-on:click="goByType('all')" >全部订单</a>
+            <a v-bind:class="{ active:type=='waitPay'}" v-on:click="goByType('waitPay')">待支付</a>
+            <a v-bind:class="{ active:type=='waitUse'}" v-on:click="goByType('waitUse')">待使用</a>
+        </div>
         <div id="ordersList">
             <li class="block order-list-item">
                 <div class="header">

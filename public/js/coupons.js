@@ -1,4 +1,5 @@
 var Coupon = (function ($) {
+
     var vm = {};
 
     function TimeFilters(time){

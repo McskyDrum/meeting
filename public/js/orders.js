@@ -3,9 +3,23 @@ var Orders = (function ($) {
     var vm = {};
     vm.orders = [];
 
+    function TimeFilters(time,format){
+        var data = new Date(time);
+        return moment(data).format(format);
+    }
+
+    function CashFilters(money){
+        return money/100;
+    }
+
+    /**
+     * 分页加载全部订单
+     * @type {number}
+     */
     var pageIndex = 1;
     function loadAllOrders(){
         if(pageIndex==-1){
+            //不能加载更多
             return;
         }
         $.get("/order/allOrders?pageIndex="+pageIndex,function(result){
@@ -58,17 +72,55 @@ var Orders = (function ($) {
         })
     }
 
-    function init() {
+    function init(type) {
         /*重定义内容高度*/
         var wh = $(window).height();
         var fh = $('.footer').height();
         $('.container').css('min-height', wh - fh - 45);
-        initEvent();
+        initEvent(type);
+    }
+
+    function goByType(type){
+        if(vm.type == type){
+            return;
+        }
+        vm.type = type;
+        if(type=="all"){
+            pageIndex = 1;
+            loadAllOrders();
+        }
+        if(type=="waitPay"){
+            pageIndex = -1;
+            loadWaitPayOrder();
+        }
+        if(type=="waitUse"){
+            pageIndex = -1;
+            loadWaitUseOrder();
+        }
     }
 
     //页面事件初始化
-    function initEvent(){
-    
+    function initEvent(type){
+
+        var data = {};
+        data.orders = [];
+
+        vm = new Vue({
+            el: '#orders',
+            data: data,
+            mounted: function () {
+
+            },
+            methods:{
+                goByType:goByType,
+                loadAllOrders:loadAllOrders//下拉刷新
+            },
+            filters: {
+                time:TimeFilters,
+                cash:CashFilters
+            }
+        });
+        goByType(type);
     }
 
     return {
