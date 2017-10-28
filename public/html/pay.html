@@ -14,7 +14,8 @@
     <title>会议室确认</title>
     <script type="text/javascript" src="../js/common/init.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/pay.css">
-    <script type="text/javascript" src="../js/libs/vue.js"></script>
+    <script type="text/javascript" src="../js/libs/iscroll.js"></script>
+    <script type="text/javascript" src="../js/libs/vue.min.js"></script>
     <script type="text/javascript" src="../js/pay.js"></script>
 </head>
 <body>
@@ -105,7 +106,7 @@
                     <div class="item-cell">
                         代金券 <span class="coupon-count"><em data-set="couponNum">{{coupons.length}}</em>张可用</span>
                     </div>
-                    <a href="javascript:;" :class="{'coupon-hide' : coupons.length <= 0}" class="item-cell flex val-empty" data-text="去选择" data-toggle="modal">去选择</a>
+                    <a href="javascript:;" @click="showCoupon()" :class="{'coupon-hide' : coupons.length <= 0}" class="item-cell flex val-empty" data-text="去选择" data-toggle="modal">{{checkCoupon.couponName ? ('-¥'+checkCoupon.couponPrice) : '去选择'}}</a>
                     <i class="uricon-arrow-right ricon" :class="{'coupon-hide' : coupons.length<=0}"></i>
                 </div>
             </section>
@@ -114,7 +115,7 @@
                 <div class="info-item">
                     <label class="info-label" style="width: 200px;">商品金额</label>
                     <div class="info-cont price text-right">
-                        ¥100.00
+                        ¥{{total}}
                     </div>
                 </div>
             </section>
@@ -125,31 +126,28 @@
 
             <footer class="btn-group fixed-bottom">
                 <div class="flex">
-                    实付：<span class="price" data-set="payMoney">¥100</span>
+                    实付：<span class="price" data-set="payMoney">¥{{total}}</span>
                 </div>
-                <a href="javascript:;" class="btn btn-primary" id="submit">提交订单</a>
+                <a href="javascript:;" class="btn btn-primary" @click="submit()">提交订单</a>
             </footer>
 
             <!-- 个人优惠券 modal -->
-            <div class="modal primary-modal" id="couponsModal" role="dialog" data-param="couponCodes" data-val="">
+            <div class="modal primary-modal" @click="closeCoupon()" id="couponsModal" role="dialog" data-param="couponCodes" data-val="">
                 <div class="modal-dialog">
-                    <div class="modal-content">
+                    <div class="modal-content" @click="preventClose($event)">
                         <div class="modal-body" style="background-color: #f5f5f5;">
                             <div class="scroller" id="couponsContainer">
-                                <div class="coupon-item coupon-item-checkable checked" v-for="(d, i) in coupons" :data-id="d.couponCode" :data-num="d.price">
-                                    <dl>
+                                <div class="coupon-item coupon-item-checkable" :class="{checked : checkCoupon.id == d.id}" v-for="(d, i) in coupons">
+                                    <dl @click="checkCou(d)">
                                         <dt>
                                             <div class="coupon-info">
-                                                <p class="price">¥ <big>{{d.price}}</big></p>
+                                                <p class="price">¥ <big>{{d.couponPrice}}</big></p>
                                             </div>
                                         </dt>
                                         <dd>
-                                            <p class="coupon-title">{{d.strType}}</p>
+                                            <p class="coupon-title">{{d.couponName}}</p>
                                             <div class="coupon-desc">
-                                                <p>{{d.startDate}}-{{d.endDate}}</p>
-                                            </div>
-                                            <div class="coupon-desc">
-                                                <p>{{d.remark}}</p>
+                                                <p>{{d.timesStart}}-{{d.timeEnd}}</p>
                                             </div>
                                         </dd>
                                     </dl>
@@ -157,7 +155,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-default text-primary save">确定</button>
+                            <button type="button" class="btn btn-default text-primary" @click="closeCoupon()">确定</button>
                         </div>
                     </div>
                 </div>

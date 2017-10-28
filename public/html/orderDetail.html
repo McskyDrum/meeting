@@ -13,8 +13,120 @@
     <meta http-equiv="Cache" content="no-cache">
     <title>订单详情</title>
     <script type="text/javascript" src="../js/common/init.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/pay.css">
+    <script type="text/javascript" src="../js/libs/vue.min.js"></script>
+    <script type="text/javascript" src="../js/orderDetail.js"></script>
 </head>
 <body>
+<div class="container">
 
+<div id="mInfo">
+    <div class="banner-image-box">
+        <a class="banner-image" href="javascript:;" :style="'background-image: url(' + meetInfo.pic + ')'">
+        </a>
+    </div>
+    <section class="info-layout">
+        <div class="info-item-simple">
+            <div class="info-cont">
+                <span>{{meetInfo.meetingroomName}}</span>
+                <span>{{meetInfo.stageName}}</span>
+            </div>
+        </div>
+        <div class="info-sprite"></div>
+        <div class="info-item-simple flexbox">
+            <div class="info-cont">
+                预订时间：<span>{{meetInfo.selectDate}}</span>
+                <span>{{meetInfo.seletcTime}}</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="info-layout ">
+        <div class="info-title info-title-sm">服务说明</div>
+        <div class="info-item-simple ">
+            <div class="info-cont">
+                <i class="uricon-locationB location"></i><span>{{meetInfo.workstageAddress}}</span>
+            </div>
+        </div>
+        <div class="info-item-simple">
+            <div class="info-cont">
+                <i class="uricon-time time"></i><span>{{meetInfo.openStartTime}}-{{meetInfo.openEndTime}} 开放</span>
+            </div>
+        </div>
+
+        <div class="info-item-simple">
+            <div class="info-cont">
+                <i class="uricon-duogongneng"></i><span>投影仪 电视</span>
+            </div>
+        </div>
+
+        <div class="info-item-simple">
+            <div class="info-cont">
+                <i class="uricon-people"></i><span>可容纳{{meetInfo.peopleNumber}}人</span>
+            </div>
+        </div>
+        <div class="info-sprite"></div>
+        <div class="info-item-simple">
+            <div class="info-cont">
+                预订人：{{meetInfo.tel}}
+            </div>
+        </div>
+    </section>
+
+    <section class="info-layout">
+        <div class="info-item-simple flexbox">
+            <div class="info-cont">
+                会议室费用：<span class="c-orange">¥{{meetInfo.roomTotal}}</span>
+                <span class="c-orange">(¥{{meetInfo.roomPrice}}/半小时)</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="info-layout ">
+        <div class="info-title info-title-sm">收费项目(可选)</div>
+        <div class="info-item-simple flexbox" v-for="(item,index) in addItem">
+            <div class="add-item">
+                <div class="item-name">
+                    <span>{{item.name}}({{item.price}}元/份)</span>
+                </div>
+            </div>
+            <div class="number">
+                X<span class="number">{{ item.num}}</span>
+            </div>
+            <div class="addTotal">
+                <span class="c-orange">¥{{item.price * item.num}}</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="info-layout" v-show="checkCoupon.couponPrice">
+        <div class="info-item">
+            <label class="info-label" style="width: 200px;">代金券</label>
+            <div class="info-cont price text-right">
+                -¥{{checkCoupon.couponPrice}}
+            </div>
+        </div>
+    </section>
+
+    <section class="info-layout">
+        <div class="info-item">
+            <label class="info-label" style="width: 200px;">商品金额</label>
+            <div class="info-cont price text-right">
+                ¥{{total}}
+            </div>
+        </div>
+    </section>
+
+    <section class="tip-wrapper">
+        <p>您可在会议开始1小时前取消订单</p>
+    </section>
+    <script>
+        $(function(){
+            OrderDetail.init();
+        })
+    </script>
+</div>
+
+</div>
 </body>
 </html>

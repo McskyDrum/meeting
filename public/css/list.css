@@ -111,6 +111,9 @@
     color: #999;
     font-size: 14px;
 }
+.search-wrapper ul li.last{
+    font-size: 12px;
+}
 .search-wrapper ul li.active{
     color: #333;
 }
@@ -119,7 +122,7 @@
     border-bottom: 2px solid #333;
 }
 .search-wrapper .input-text {
-    width: 74px;
+    width: 80px;
     text-align: center;
     font-size: 14px;
     -webkit-box-shadow: none;
@@ -264,7 +267,8 @@
     height: 100%;
     margin-right: 33px;
     margin-left: 33px;
-    overflow: hidden;
+    overflow-y: hidden;
+    overflow-x: auto;
     border-bottom: 1px solid #d9d9d9;
 }
 .meeting-room-list .bigpictext-item .bigpictext-bar ul {
@@ -320,4 +324,62 @@
     height: 36px;
     line-height: 26px;
     font-size: 14px;
+}
+.meeting-room-list .bigpictext-item .bigpictext-bar ul li.disabled div {
+    background: url(../image/bg-disabled.png);
+    background-size: 6px;
+}
+.meeting-room-list .bigpictext-item .bigpictext-bar ul li.selected div {
+    background-color: #ffbd30;
+}
+
+
+.select-list {
+    background-color: #fff;
+    padding: 0 10px;
+}
+.select-list.stage-list {
+    padding-right: 20px;
+    padding-left: 20px;
+}
+.select-list.stage-list .stage-title {
+    margin-right: -20px;
+    margin-left: -20px;
+    padding-right: 10px;
+    padding-left: 10px;
+    height: 35px;
+    line-height: 35px;
+    font-size: 14px;
+    color: #999;
+    background-color: #f5f5f5;
+    border-bottom: none;
+}
+.select-list li {
+    position: relative;
+    height: 50px;
+    color: #333;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 50px;
+    -webkit-border-image: url(../image/border-line.png) 2 stretch;
+    -moz-border-image: url(../image/border-line.png) 2 stretch;
+    border-image: url(../image/border-line.png) 2 stretch;
+    border-bottom: 1px solid #e5e5e5;
+}
+.select-list.stage-list li {
+    height: 44px;
+    line-height: 44px;
+}
+.select-list li i {
+    display: none;
+}
+.select-list li.active i {
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    position: absolute;
+    display: block;
+    right: 0;
+    font-size: 24px;
+    color: #4e4e4e;
 }

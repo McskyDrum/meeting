@@ -277,3 +277,115 @@
 .info-layout .ricon{
     top: 0;
 }
+
+.coupon-item {
+    width: 90%;
+    margin: 0 auto 12px;
+    position: relative;
+}
+.coupon-item:nth-of-type(1) {
+    margin-top: 15px;
+}
+.coupon-item::before {
+    content: '';
+    overflow: hidden;
+    display: block;
+    width: 100%;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAR4AAAEgCAYAAABiuRwLAAAAGXRFW…fGdA7TIJz0RaK6z62ozLQ2q9HfPxYTqQ8iw+BqOeR/AgwAQAd/lIuGx/cAAAAASUVORK5CYII=) center no-repeat #f5f5f5;
+    background-size: 25%;
+    padding-top: 35.522%;
+}
+
+.coupon-item-checkable:after, input[type=radio], input[type=checkbox] {
+    content: '';
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    right: 10px;
+    width: 22px;
+    height: 22px;
+    display: block;
+    appearance: none;
+    -webkit-appearance: none;
+    background: url(../image/ui/checkicon.png) no-repeat;
+    background-size: cover;
+    border: none;
+    outline: 0;
+    shadow: none;
+}
+
+.modal .coupon-item-checkable:after {
+    width: 16px;
+    height: 16px;
+}
+
+.coupon-item dl {
+    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(../image/coupon/coupon-bg.png) no-repeat;
+    background-size: 100%;
+    display: flex;
+    align-items: center;
+    -webkit-box-align: center;
+}
+.coupon-item dt {
+    width: 31%;
+    text-align: center;
+    flex-shrink: 0;
+}
+.coupon-item dt .coupon-info {
+    width: 100%;
+    margin-top: -10px;
+    color: #fff;
+    font-size: 10px;
+}
+.modal .coupon-item dt .price {
+    font-size: 12px;
+    font-weight: 600;
+}
+.modal .coupon-item dt big {
+    font-size: 18px;
+}
+.coupon-item dd {
+    -webkit-box-flex: 1;
+    flex: 1;
+    width: 69%;
+    padding-right: 24px;
+    padding-left: 24px;
+    padding-bottom: 5px;
+}
+.coupon-item .coupon-title {
+    max-height: 22px;
+    margin-bottom: 5px;
+    overflow: hidden;
+    font-size: 16px;
+    line-height: 22px;
+    color: #333;
+}
+.modal .coupon-title {
+    font-size: 14px;
+}
+.coupon-item .coupon-desc {
+    line-height: 16px;
+    font-size: 12px;
+    color: #999;
+}
+.modal .coupon-desc {
+    font-size: 10px;
+}
+.coupon-item .coupon-desc {
+    line-height: 16px;
+    font-size: 12px;
+    color: #999;
+}
+.modal .coupon-desc {
+    font-size: 10px;
+}
+.modal .coupon-item-checkable.checked:after {
+    background-position: 0 -32px;
+}

@@ -14,6 +14,7 @@
     <title>我的优惠券</title>
     <script type="text/javascript" src="../js/common/init.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/coupons.css">
+    <script type="text/javascript" src="../js/libs/vue.min.js"></script>
     <script type="text/javascript" src="../js/coupons.js"></script>
 </head>
 <body>
@@ -23,18 +24,18 @@
             <a class="" href="couponDisable.html">失效</a>
         </div>
         <div id="coupons">
-            <div class="coupon-item clearfix">
+            <div class="coupon-item clearfix" :class="{used : type=='disable'}" v-for="item in coupons">
                 <div class="limit">
                     <div>
                         <p class="cou-name">
-                            50元代金券
+                            {{item.couponName}}
                         </p>
-                        <p>2017-03-01 至 2088-04-08</p>
+                        <p>{{item.timesStart}} 至 {{item.timeEnd}}</p>
                     </div>
                 </div>
                 <div class="money">
-                    <p>￥<span>50</span></p>
-                    <p class="mit">满300可用</p>
+                    <p>￥<span>{{item.basicPrice}}</span></p>
+                    <p class="mit">{{item.limit>0 ? ('满'+item.limit+'可用') : '无限制'}}</p>
                 </div>
             </div>
         </div>
@@ -54,7 +55,7 @@
     </div>
     <script type="text/javascript">
         $(function(){
-            Coupon.init();
+            Coupon.init('can');
         })
     </script>
 </body>

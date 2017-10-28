@@ -14,10 +14,15 @@
     <title>首页</title>
     <script type="text/javascript" src="../js/common/init.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/list.css">
+    <link rel="stylesheet" type="text/css" href="../mobiscroll/css/mobiscroll.javascript.min.css">
+    <link rel="stylesheet" type="text/css" href="../mobiscroll/css/android-holo.css">
+    <script type="text/javascript" src="../js/libs/iscroll.js"></script>
+    <script type="text/javascript" src="../mobiscroll/js/mobiscroll.javascript.min.js"></script>
+    <script type="text/javascript" src="../js/libs/vue.min.js"></script>
     <script type="text/javascript" src="../js/list.js"></script>
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="meetingList">
         <div class="header">
             <div class="title-bar">
                 <span class="title">会议室列表</span>
@@ -26,14 +31,14 @@
         <div class="main">
             <div class="ur-searcher">
                 <div class="search-wrapper clearfix">
-                    <div class="menu-item">
-                        <span>阿里巴巴创新中心·优客工场</span>
+                    <div class="menu-item" @click="showStage()">
+                        <span>{{stageCheck.stageName}}</span>
                         <i class="icon-arrow-dropdown menu-arrow"></i>
                     </div>
                     <ul>
-                        <li class="active today"><span>今天</span></li>
-                        <li class="tomorrow"><span>明天</span></li>
-                        <li class="last" data-id="">
+                        <li class="today" :class="{active: (setDay == today) && !setDayElse}" @click="setDate(today)"><span>今天</span></li>
+                        <li class="tomorrow" :class="{active: setDay == tomorrow && !setDayElse}" @click="setDate(tomorrow)"><span>明天</span></li>
+                        <li class="last" :class="{active: setDayElse}" @click="getDate()">
                             <span>
                                 <input type="text" class="input-text" placeholder="其他日期" id="mobiscroll" readonly="">
                             </span>
@@ -43,18 +48,18 @@
             </div>
 
             <div class="meeting-room-list">
-                <div class="bigpictext-item">
+                <div class="bigpictext-item" v-for="(room,index) in rooms">
                     <dl>
                         <dt>
-                            <img class="js-lazy" data-src="https://image.urwork.cn/df4649a7-7fc4-4009-a877-a219ee375fc5.jpg">
+                            <img class="js-lazy" :data-src="room.img">
                         </dt>
                         <dd>
                             <div class="bigpictext-title">
                                 <div class="bigpictext-title-cont">
-                                    <h2 class="bigpictext-title-txt">苍之风云</h2>
-                                    <small> | 8人</small>
+                                    <h2 class="bigpictext-title-txt">{{room.roomName}}</h2>
+                                    <small> | {{room.headcount}}人</small>
                                 </div>
-                                <em>¥50
+                                <em>¥{{room.price}}
                                     <small>/ 0.5小时</small>
                                 </em>
                             </div>
@@ -62,124 +67,53 @@
                                 <button class="btn-prev"></button>
                                 <button class="btn-next"></button>
                                 <div class="bar-list">
-                                    <ul style="width: 840px;" data-move="6">
-
-                                        <li data-id="20" class="">
-                                            <label>10时</label>
+                                    <ul :style="'width: ' + (room.timeArr.length * 42) + 'px;'">
+                                        <li v-for="(s,t) in room.timeArr" @click="checkTime(index,t)" :class="{'disabled' : room.canReserveList.indexOf(t) < 0, 'selected': room.checkArr.indexOf(t) >= 0}">
+                                            <label>{{(t%2==0) ? (room.startNum +  t / 2) + '时' : ''}}</label>
                                             <div></div>
                                         </li>
-
-                                        <li data-id="21" class="">
-                                            <label></label>
-                                            <div></div>
-                                        </li>
-
-                                        <li data-id="22" class="">
-                                            <label>11时</label>
-                                            <div></div>
-                                        </li>
-
-                                        <li data-id="23" class="">
-                                            <label></label>
-                                            <div></div>
-                                        </li>
-
-                                        <li data-id="24" class="">
-                                            <label>12时</label>
-                                            <div></div>
-                                        </li>
-
-                                        <li data-id="25" class="">
-                                            <label></label>
-                                            <div></div>
-                                        </li>
-
-                                        <li data-id="26" class="">
-                                            <label>13时</label>
-                                            <div></div>
-                                        </li>
-
-                                        <li data-id="27" class="">
-                                            <label></label>
-                                            <div></div>
-                                        </li>
-
-                                        <li data-id="28" class="">
-                                            <label>14时</label>
-                                            <div></div>
-                                        </li>
-
-                                        <li data-id="29" class="">
-                                            <label></label>
-                                            <div></div>
-                                        </li>
-
-                                        <li data-id="30" class="">
-                                            <label>15时</label>
-                                            <div></div>
-                                        </li>
-
-                                        <li data-id="31" class="">
-                                            <label></label>
-                                            <div></div>
-                                        </li>
-
-                                        <li data-id="32" class="">
-                                            <label>16时</label>
-                                            <div></div>
-                                        </li>
-
-                                        <li data-id="33" class="">
-                                            <label></label>
-                                            <div></div>
-                                        </li>
-
-                                        <li data-id="34" class="">
-                                            <label>17时</label>
-                                            <div></div>
-                                        </li>
-
-                                        <li data-id="35" class="">
-                                            <label></label>
-                                            <div></div>
-                                        </li>
-
-                                        <li data-id="36" class="">
-                                            <label>18时</label>
-                                            <div></div>
-                                        </li>
-
-                                        <li data-id="37" class="">
-                                            <label></label>
-                                            <div></div>
-                                        </li>
-
-                                        <li data-id="38" class="">
-                                            <label>19时</label>
-                                            <div></div>
-                                        </li>
-
-                                        <li data-id="39" class="">
-                                            <label></label>
-                                            <div></div>
-                                        </li>
-
                                     </ul>
                                 </div>
                             </div>
-                            <div class="tool-action" data-id="19820608" data-type="1">
+                            <div class="tool-action" v-show="room.CTimeNum > 0">
                                 <div class="tool-info">
-                                    <span data-set="timeRange" class="timeRange">12:30-13:30</span>
-                                    <span> (共<i data-set="hour">1</i>小时）</span>
+                                    <span data-set="timeRange" class="timeRange">{{room.cTimeStr}}</span>
+                                    <span> (共<i data-set="hour">{{room.CTimeNum}}</i>小时）</span>
                                 </div>
-                                <button type="button" class="btn btn-primary booking">确认预定</button>
+                                <button type="button" class="btn btn-primary booking" @click="reserve(index)">确认预定</button>
                             </div>
                         </dd>
                     </dl>
                 </div>
             </div>
         </div>
+        <!-- 社区列表 modal -->
+        <div class="modal primary-modal" @click="closeStage()" id="plantIdModal" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content" @click="preventClose($event)">
+                    <div class="modal-body">
+                        <div class="scroller" id="plantIdContainer">
+                            <div class="select-list stage-list">
+                                <div v-for="stage in stageInfo">
+                                    <div class="stage-title">{{stage.cityName}}</div>
+                                    <ul>
+                                        <li v-for="s in stage.stageList" @click="checkStage(s)" data-id="s.id" :class="{active:s.id==reCheck.id}">{{s.stageName}}<i class="uricon-success-circle"></i></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default cancel" @click="closeStage()" data-dismiss="modal">取消</button>
+                        <button type="button" class="btn btn-primary save" @click="saveStage()">保存</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 社区列表 modal -->
+        <div class="modal-backdrop"></div>
     </div>
+
     <div class="nav-menu nav-fixed nav-menu-bottom nav-menu-1 has-menu-2">
         <div class="nav-item">
             <a class="mainmenu js-mainmenu " href="main.html">
