@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87cda679-34c1-42bb-a533-1e13fb23f194" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/common/moment.min.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/html/couponDisable.html" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/routes/index.js" afterPath="$PROJECT_DIR$/routes/coupon.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/html/coupons.html" afterPath="$PROJECT_DIR$/public/html/coupons.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/common/init.js" afterPath="$PROJECT_DIR$/public/js/common/init.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/coupons.js" afterPath="$PROJECT_DIR$/public/js/coupons.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/共享会议室接口文档/coupon.txt" afterPath="$PROJECT_DIR$/共享会议室接口文档/coupon.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/coupon.js" afterPath="$PROJECT_DIR$/routes/coupon.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -36,8 +29,8 @@
       <file leaf-file-name="coupon.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/共享会议室接口文档/coupon.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="22" column="28" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="28" />
+            <state relative-caret-position="347">
+              <caret line="24" column="26" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -46,8 +39,8 @@
       <file leaf-file-name="coupons.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/html/coupons.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="32" column="43" selection-start-line="32" selection-start-column="34" selection-end-line="32" selection-end-column="43" />
+            <state relative-caret-position="510">
+              <caret line="34" column="22" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -76,8 +69,8 @@
       <file leaf-file-name="coupons.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/coupons.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="23" column="37" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
+            <state relative-caret-position="195">
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -86,8 +79,8 @@
       <file leaf-file-name="coupon.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/coupon.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="137">
-              <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
+            <state relative-caret-position="332">
+              <caret line="25" column="19" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -162,8 +155,8 @@
         <option value="$PROJECT_DIR$/public/js/common/moment.min.js" />
         <option value="$PROJECT_DIR$/public/js/common/init.js" />
         <option value="$PROJECT_DIR$/public/js/coupons.js" />
-        <option value="$PROJECT_DIR$/routes/coupon.js" />
         <option value="$PROJECT_DIR$/public/html/coupons.html" />
+        <option value="$PROJECT_DIR$/routes/coupon.js" />
       </list>
     </option>
   </component>
@@ -225,6 +218,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="meeting" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="meeting" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="meeting" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="共享会议室接口文档" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -794,7 +801,7 @@
         <state relative-caret-position="353">
           <caret line="110" column="22" selection-start-line="110" selection-start-column="22" selection-end-line="110" selection-end-column="22" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -896,7 +903,7 @@
         <state relative-caret-position="1620">
           <caret line="108" column="54" selection-start-line="108" selection-start-column="49" selection-end-line="108" selection-end-column="54" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -962,7 +969,7 @@
         <state relative-caret-position="90">
           <caret line="6" column="3275" selection-start-line="6" selection-start-column="3275" selection-end-line="6" selection-end-column="3275" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -985,32 +992,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/共享会议室接口文档/coupon.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="22" column="28" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="28" />
+        <state relative-caret-position="347">
+          <caret line="24" column="26" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/html/coupons.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="32" column="43" selection-start-line="32" selection-start-column="34" selection-end-line="32" selection-end-column="43" />
+        <state relative-caret-position="510">
+          <caret line="34" column="22" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/coupons.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="23" column="37" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
+        <state relative-caret-position="195">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/coupon.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
+        <state relative-caret-position="332">
+          <caret line="25" column="19" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
           <folding />
         </state>
       </provider>
