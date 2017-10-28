@@ -15,10 +15,12 @@ var Orders = (function ($) {
      * 分页加载全部订单
      * @type {number}
      */
-    var pageIndex = 1;
+    var pageIndex = 1,loading = false;
     function loadAllOrders(){
+        loading = true;
         if(pageIndex==-1){
             //不能加载更多
+            $("#ordersList").append('<div class="list-finished">已经没有更多订单了！</div>');
             return;
         }
         $.get("/order/allOrders?pageIndex="+pageIndex,function(result){
@@ -98,6 +100,15 @@ var Orders = (function ($) {
         }
     }
 
+    function getDocHeight() {
+        var D = document;
+        return Math.max(
+            D.body.scrollHeight, D.documentElement.scrollHeight,
+            D.body.offsetHeight, D.documentElement.offsetHeight,
+            D.body.clientHeight, D.documentElement.clientHeight
+        );
+    }
+
     //页面事件初始化
     function initEvent(type){
 
@@ -108,7 +119,16 @@ var Orders = (function ($) {
             el: '#orders',
             data: data,
             mounted: function () {
+                if(type == 'all'){
+                    $(window).scroll(function () {
+                        //console.log($("#goodsListContainer").scrollTop(), $(window).height(),getDocHeight(),$(".js-footer").offset().top );
+                        if (($(window).scrollTop() + $(window).height() >= (getDocHeight() - 100)) && !loading) {
+                            this.loadAllOrders();
+                        }
+                    });
+                }
 
+                this.goByType(type);
             },
             methods:{
                 goByType:goByType,
@@ -119,7 +139,6 @@ var Orders = (function ($) {
                 cash:CashFilters
             }
         });
-        goByType(type);
     }
 
     return {
