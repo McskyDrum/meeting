@@ -21,6 +21,10 @@ var Coupon = (function ($) {
         loadCouponsByType(type);
     }
 
+    /**
+     * 加载优惠券数据
+     * @param type
+     */
     function loadCouponsByType(type){
         var status = {"can":1,"disable":2};
         $.get("/coupon/loadUserCoupon?status="+status[type],function(result){

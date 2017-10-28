@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="87cda679-34c1-42bb-a533-1e13fb23f194" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/coupon.js" afterPath="$PROJECT_DIR$/routes/coupon.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/coupons.js" afterPath="$PROJECT_DIR$/public/js/coupons.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -66,21 +66,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="coupons.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="coupons.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/js/coupons.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+            <state relative-caret-position="45">
+              <caret line="3" column="31" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="coupon.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="coupon.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/coupon.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="332">
-              <caret line="25" column="19" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
+            <state relative-caret-position="212">
+              <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -154,9 +154,9 @@
         <option value="$PROJECT_DIR$/共享会议室接口文档/coupon.txt" />
         <option value="$PROJECT_DIR$/public/js/common/moment.min.js" />
         <option value="$PROJECT_DIR$/public/js/common/init.js" />
-        <option value="$PROJECT_DIR$/public/js/coupons.js" />
         <option value="$PROJECT_DIR$/public/html/coupons.html" />
         <option value="$PROJECT_DIR$/routes/coupon.js" />
+        <option value="$PROJECT_DIR$/public/js/coupons.js" />
       </list>
     </option>
   </component>
@@ -1006,18 +1006,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/coupons.js">
+    <entry file="file://$PROJECT_DIR$/routes/coupon.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        <state relative-caret-position="212">
+          <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/coupon.js">
+    <entry file="file://$PROJECT_DIR$/public/js/coupons.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="25" column="19" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
+        <state relative-caret-position="45">
+          <caret line="3" column="31" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
           <folding />
         </state>
       </provider>
