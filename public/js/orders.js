@@ -20,17 +20,21 @@ var Orders = (function ($) {
         loading = true;
         if(pageIndex==-1){
             //不能加载更多
-            $("#ordersList").append('<div class="list-finished">已经没有更多订单了！</div>');
             return;
         }
         $.get("/order/allOrders?pageIndex="+pageIndex,function(result){
             if(!result.success){
+                loading = false;
                 return;
             }
             pageIndex = result.nextPageIndex;
             for(index in result.orderList){
                 vm.orders.push(result.orderList[index]);
             }
+            if(pageIndex==-1){
+                $("#ordersList").append('<div class="list-finished">已经没有更多订单了！</div>');
+            }
+            loading = false;
         })
     }
 
@@ -119,16 +123,17 @@ var Orders = (function ($) {
             el: '#orders',
             data: data,
             mounted: function () {
+                var _this = this;
                 if(type == 'all'){
                     $(window).scroll(function () {
                         //console.log($("#goodsListContainer").scrollTop(), $(window).height(),getDocHeight(),$(".js-footer").offset().top );
                         if (($(window).scrollTop() + $(window).height() >= (getDocHeight() - 100)) && !loading) {
-                            this.loadAllOrders();
+                            _this.loadAllOrders();
                         }
                     });
                 }
 
-                this.goByType(type);
+                _this.goByType(type);
             },
             methods:{
                 goByType:goByType,
