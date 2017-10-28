@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var coupon = require('./routes/coupon');
-var users = require('./routes/users');
+var order = require('./routes/order');
 var testdata = require('./routes/testData');
 
 var app = express();
@@ -24,7 +24,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/coupon', coupon);
-app.use('/users', users);
+app.use('/order', order);
 app.use('/data',testdata);
 
 
