@@ -14,21 +14,22 @@
     <title>全部订单</title>
     <script type="text/javascript" src="../js/common/init.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/orders.css">
+    <script type="text/javascript" src="../js/libs/vue.min.js"></script>
     <script type="text/javascript" src="../js/orders.js"></script>
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="orders">
         <div id="ordersList">
             <li class="block order-list-item">
                 <div class="header">
-                    <a href="/share-meeting/orderDetail.html"><span class="font-size-12">订单号：<span>R17081811321372</span></span></a>
+                    <a href="/html/orderDetail.html?orderId={{orderId}}"><span class="font-size-12">订单号：<span>R17081811321372</span></span></a>
                     <a class="float-r font-size-12">已完成</a>
                 </div>
                 <div class="block block-list border-top-0 border-bottom-0">
                     <div class="block-item name-card name-card-3col clearfix">
-                        <a href="/share-meeting/orderDetail.html">
+                        <a href="/html/orderDetail.html?orderId={{orderId}}">
                             <div class="thumb">
-                                <img src="image/d-huiyi.png">
+                                <img src="/image/d-huiyi.png">
                             </div>
                             <div class="detail">
                                 <h3>首都大厦</h3>

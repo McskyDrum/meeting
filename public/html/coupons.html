@@ -34,8 +34,8 @@
                     </div>
                 </div>
                 <div class="money">
-                    <p>￥<span>{{item.basicPrice}}</span></p>
-                    <p class="mit">{{item.limit>0 ? ('满'+item.limit+'可用') : '无限制'}}</p>
+                    <p>￥<span>{{item.couponPrice | cash}}</span></p>
+                    <p class="mit">{{item.basicPrice>0 ? ('满'+(item.basicPrice/100)+'可用') : '无限制'}}</p>
                 </div>
             </div>
         </div>

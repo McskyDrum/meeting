@@ -6,6 +6,10 @@ var Coupon = (function ($) {
         return moment(data).format("YYYY-MM-DD");
     }
 
+    function CashFilters(money){
+        return money/100;
+    }
+
     function init(fun) {
         /*重定义内容高度*/
         var wh = $(window).height();
@@ -47,7 +51,8 @@ var Coupon = (function ($) {
                 goByType:goByType
             },
             filters: {
-                time:TimeFilters
+                time:TimeFilters,
+                cash:CashFilters
             }
         });
         loadCouponsByType(type);

@@ -3,8 +3,8 @@ var router = express.Router();
 
 var Coupon = {
     'id': 1234,
-    'basicPrice' : 30,
-    'limit': 200,
+    'basicPrice' : 0,
+    'couponPrice': 20000,
     'couponName' : '满200减20',
     'timeStart' : 1508566101200,
     'timeEnd' : 1508566101200,
@@ -15,8 +15,8 @@ var Coupon = {
 router.get('/loadUserCoupon', function(req, res, next) {
 	var array = [Coupon,{
             'id': 12345,
-            'basicPrice' : 20,
-            'limit': 0,
+            'basicPrice' : 20000,
+            'couponPrice' : 2000,
             'couponName' : '满200减20',
             'timeStart' : 1508566101200,
             'timeEnd' : 1508566101200,
