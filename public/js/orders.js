@@ -28,6 +28,7 @@ var Orders = (function ($) {
             }
             pageIndex = result.nextPageIndex;
             for(var order in result.orderList){
+                console.log(order);
                 vm.orders.push(order);
             }
         })
@@ -77,6 +78,8 @@ var Orders = (function ($) {
         var wh = $(window).height();
         var fh = $('.footer').height();
         $('.container').css('min-height', wh - fh - 45);
+
+        console.log("haha");
         initEvent(type);
     }
 
@@ -104,7 +107,7 @@ var Orders = (function ($) {
 
         var data = {};
         data.orders = [];
-
+        data.type = "";
         vm = new Vue({
             el: '#orders',
             data: data,

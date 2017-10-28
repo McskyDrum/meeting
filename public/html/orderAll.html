@@ -19,32 +19,29 @@
 </head>
 <body>
     <div class="container" id="orders">
-        <div class="tabber tabber-n4 tabber-double-11 clearfix">
+        <div class="tabber tabber-n3 tabber-double-11 clearfix">
             <a v-bind:class="{ active:type=='all'}" v-on:click="goByType('all')" >全部订单</a>
             <a v-bind:class="{ active:type=='waitPay'}" v-on:click="goByType('waitPay')">待支付</a>
             <a v-bind:class="{ active:type=='waitUse'}" v-on:click="goByType('waitUse')">待使用</a>
         </div>
         <div id="ordersList">
-            <li class="block order-list-item">
+            <li class="block order-list-item" v-for="item in orders">
                 <div class="header">
-                    <a href="/html/orderDetail.html?orderId={{orderId}}"><span class="font-size-12">订单号：<span>R17081811321372</span></span></a>
-                    <a class="float-r font-size-12">已完成</a>
+                    <a href="/html/orderDetail.html?orderId={{item.orderId}}"><span class="font-size-12">订单号：<span>{{item.orderId}}</span></span></a>
+                    <a class="float-r font-size-12">{{item.orderStatus}}</a>
                 </div>
                 <div class="block block-list border-top-0 border-bottom-0">
                     <div class="block-item name-card name-card-3col clearfix">
                         <a href="/html/orderDetail.html?orderId={{orderId}}">
-                            <div class="thumb">
-                                <img src="/image/d-huiyi.png">
-                            </div>
                             <div class="detail">
-                                <h3>首都大厦</h3>
-                                <p>会议时间:2017-08-18_09:00-15:00</p>
+                                <h3>{{item.roomNum+" "+item.orderTitle}}</h3>
+                                <p>会议时间:{{item.meetingTimeStart | time(item.meetingTimeStart,'YYYY-MM-DD hh:mm' )}}-{{item.meetingTimeEnd | time(item.meetingTimeEnd,'hh:mm')}}</p>
                             </div>
                         </a>
                     </div>
                 </div>
                 <div class="bottom">
-                    总价：<span class="c-orange">￥200 </span>
+                    总价：<span class="c-orange">￥{{item.realAmount | cash}}</span>
                     <div class="opt-btn">
                         <a class="tag tag-orange btn-in-order-list" href="/share-meeting/orderDetail.html">付款</a>
                     </div>
