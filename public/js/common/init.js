@@ -9,7 +9,7 @@ var API_URL = strProtocal + "//" + API_DOMAIN + "/api/services/mall/";
 var ua = navigator.userAgent.toLowerCase();
 var isWeixin = ua.indexOf('micromessenger') != -1;
 var ROOT_URL = strProtocal + "//" + API_DOMAIN;
-var fbDate = "20171021";
+var fbDate = "20171022";
 
 document.write('<link rel="stylesheet" href="' + APP_CONTEXT + '/css/base.css?'+ fbDate +'" />');
 document.write('<script type="text/javascript" src="' + APP_CONTEXT + '/js/libs/jquery-1.10.2.min.js"></script>');
@@ -19,3 +19,4 @@ document.write('<script type="text/javascript" src="' + APP_CONTEXT + '/js/libs/
 document.write('<script type="text/javascript" src="' + APP_CONTEXT + '/js/common/app.js?'+ fbDate +'"></script>');
 document.write('<script type="text/javascript" src="' + APP_CONTEXT + '/js/common/templateheper.js?'+ fbDate +'"></script>');
 document.write('<script type="text/javascript" src="' + APP_CONTEXT + '/js/common/mtap.js?'+ fbDate +'"></script>');
+document.write('<script type="text/javascript" src="' + APP_CONTEXT + '/js/common/moment.min.js?'+ fbDate +'"></script>');

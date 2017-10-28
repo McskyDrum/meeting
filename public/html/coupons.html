@@ -18,24 +18,24 @@
     <script type="text/javascript" src="../js/coupons.js"></script>
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="coupons">
         <div class="tabber tabber-n4 tabber-double-11 clearfix">
-            <a class="active" href="coupons.html" >有效</a>
-            <a class="" href="couponDisable.html">失效</a>
+            <a v-bind:class="{ active:type=='can'}" v-on:click="goByType('can')" >可用代金券</a>
+            <a v-bind:class="{ active:type=='disable'}" v-on:click="goByType('disable')">已使用代金券</a>
         </div>
-        <div id="coupons">
+        <div>
             <div class="coupon-item clearfix" :class="{used : type=='disable'}" v-for="item in coupons">
                 <div class="limit">
                     <div>
                         <p class="cou-name">
                             {{item.couponName}}
                         </p>
-                        <p>{{item.timesStart}} 至 {{item.timeEnd}}</p>
+                        <p>{{item.timeStart | time}} 至 {{item.timeEnd | time}}</p>
                     </div>
                 </div>
                 <div class="money">
-                    <p>￥<span>{{item.basicPrice}}</span></p>
-                    <p class="mit">{{item.limit>0 ? ('满'+item.limit+'可用') : '无限制'}}</p>
+                    <p>￥<span>{{item.couponPrice | cash}}</span></p>
+                    <p class="mit">{{item.basicPrice>0 ? ('满'+(item.basicPrice/100)+'可用') : '无限制'}}</p>
                 </div>
             </div>
         </div>
@@ -55,8 +55,8 @@
     </div>
     <script type="text/javascript">
         $(function(){
-            Coupon.init('can');
-        })
+            Coupon.init('can');//有效优惠券:"can" 无效:"disable"
+        });
     </script>
 </body>
 </html>
