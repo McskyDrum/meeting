@@ -1,10 +1,10 @@
 var Orders = (function ($) {
 
     var vm = {};
-    vm.orders = [];
 
     function TimeFilters(time,format){
         var data = new Date(time);
+        console.error(format);
         return moment(data).format(format);
     }
 
@@ -27,9 +27,8 @@ var Orders = (function ($) {
                 return;
             }
             pageIndex = result.nextPageIndex;
-            for(var order in result.orderList){
-                console.log(order);
-                vm.orders.push(order);
+            for(index in result.orderList){
+                vm.orders.push(result.orderList[index]);
             }
         })
     }
@@ -44,7 +43,6 @@ var Orders = (function ($) {
             if(!result.success){
                 return;
             }
-            pageIndex = result.nextPageIndex;
             vm.orders[index] = result.order;
         })
     }
@@ -78,8 +76,6 @@ var Orders = (function ($) {
         var wh = $(window).height();
         var fh = $('.footer').height();
         $('.container').css('min-height', wh - fh - 45);
-
-        console.log("haha");
         initEvent(type);
     }
 
@@ -88,6 +84,7 @@ var Orders = (function ($) {
             return;
         }
         vm.type = type;
+        vm.orders = [];
         if(type=="all"){
             pageIndex = 1;
             loadAllOrders();

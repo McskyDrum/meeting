@@ -35,7 +35,7 @@
                         <a href="/html/orderDetail.html?orderId={{orderId}}">
                             <div class="detail">
                                 <h3>{{item.roomNum+" "+item.orderTitle}}</h3>
-                                <p>会议时间:{{item.meetingTimeStart | time(item.meetingTimeStart,'YYYY-MM-DD hh:mm' )}}-{{item.meetingTimeEnd | time(item.meetingTimeEnd,'hh:mm')}}</p>
+                                <p>会议时间:{{item.meetingTimeStart | time item.meetingTimeStart 'YYYY-MM-DD hh:mm'}}-{{item.meetingTimeEnd | time 'hh:mm'}}</p>
                             </div>
                         </a>
                     </div>

@@ -1,4 +1,4 @@
-var isDebug = true;
+var isDebug = false;
 var APP_CONTEXT = window.location.pathname.substring(0, window.location.pathname.indexOf("/", 2));
 APP_CONTEXT = '';
 var API_DOMAIN = /\.(com|net|org|cn)$/i.test(location.hostname)

@@ -231,7 +231,6 @@ only screen and (min-device-pixel-ratio: 1.5) {
     width: auto;
 }
 .name-card .detail {
-    margin-left: 68px;
     min-height: 60px;
     position: relative;
     width: auto;
