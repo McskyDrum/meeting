@@ -142,7 +142,10 @@ var List = (function ($) {
                 },
                 'resetCanTArr' : function(item){
                     //获取当前时间
+                    var now = $.cookie('now');
+                    now = now ? now : '';
                     var date = new Date();
+                    date.setTime(now);
                     var h = date.getHours();
                     var m = date.getMinutes() > 30 ? 2 : 1;
                     var max = (h - item.startNum) * 2 + m;
@@ -238,7 +241,10 @@ var List = (function ($) {
                 },
                 'resetDate' : function(){
                     //获取当前日期
+                    var now = $.cookie('now');
+                    now = now ? now : '';
                     var date = new Date();
+                    date.setTime(now);
                     var year = date.getFullYear();
                     var mouth = date.getMonth() +1;
                     var day = date.getDate();
