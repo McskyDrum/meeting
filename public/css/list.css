@@ -383,3 +383,28 @@
     font-size: 24px;
     color: #4e4e4e;
 }
+
+.swiper-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+.swiper-container .swiper-wrapper {
+    left: 0;
+    top: 0;
+}
+.swiper-container .swiper-wrapper .swiper-slide {
+    background-color: #f8f8f8;
+    display: block;
+    text-align: center;
+}
+.swiper-container .swiper-wrapper .swiper-slide a {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+.swiper-container .swiper-wrapper .swiper-slide img {
+    width: 100%;
+    height: auto;
+    vertical-align: top;
+}

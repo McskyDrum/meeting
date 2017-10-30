@@ -27,6 +27,13 @@ var List = (function ($) {
         'stageName' : "望京凯德MALL·优客工场",
         'stageNameEn' : "Wangjing Kaide MALL·UR WORK"
     };
+    var ads = [{
+        'href' : '',
+        'img' : 'https://image.urwork.cn/df4649a7-7fc4-4009-a877-a219ee375fc5.jpg'
+    },{
+        'href' : '',
+        'img' : 'https://image.urwork.cn/d77acf90-a1de-44b2-81ef-25ea3d23f8c4.jpg'
+    }];
     function init() {
         /*重定义内容高度*/
         var wh = $(window).height();
@@ -39,6 +46,7 @@ var List = (function ($) {
     //页面事件初始化
     function initEvent(){
         var data = {};
+        data.ads = ads;
         data.rooms = [];    //会议室数组
         data.stageInfo = stageList; //大厦数组
         data.stageCheck = stageCheck;   //选择的大厦obj
@@ -53,6 +61,13 @@ var List = (function ($) {
             mounted: function () {
                 var _this = this;
                 var myScroll = new IScroll('.modal-body');
+                var swiper = new Swiper('.swiper-container', {
+                    autoplay: 5000,
+                    autoplayDisableOnInteraction: false,
+                    loop: true,
+                    speed: 1000,
+                    pagination: '.swiper-container .swiper-pagination'
+                });
 
                 //其他日期选择
                 mobiscroll.date('#mobiscroll', {
@@ -114,9 +129,11 @@ var List = (function ($) {
                         item.cTimeStr = '';
                         item.CTimeNum = 0;
                         item.cfirst = '';   //第一个选择的时间
+                        item.leftDis = 0;//第一个有效的时间段
 
                         //如果选中的日期是今天,重置有效选择数值canReserveList
                         (_this.setDay == _this.today)&&(new Date().getHours()>=item.startNum)&&(item.canReserveList = _this.resetCanTArr(item));
+                        item.leftDis = _this.resetLeftDis(item);
                     })
                     this.rooms = list;
                 },
@@ -134,6 +151,31 @@ var List = (function ($) {
                         (item>=max) && (arr.push(item));
                     })
                     return arr;
+                },
+                'resetLeftDis' : function(item){
+                    var maxWidth = item.allTimeListCount * 42;
+                    var leftDis = item.canReserveList.length>0 ?  item.canReserveList[0]* 42 : maxWidth;
+                    var maxleft = maxWidth - $(window).width() + 66;
+                    leftDis = leftDis > maxleft ? -maxleft : -leftDis;
+                    return leftDis + 'px';
+                },
+                'rollLeft' : function(index){
+                    var leftDis = parseInt(this.rooms[index].leftDis);
+                    var n = parseInt(($(window).width() - 66) / 42);
+                    n = n > 6 ? 6 : n;
+                    leftDis = leftDis + (42*n);
+                    leftDis = leftDis > 0 ? 0 : leftDis;
+                    this.rooms[index].leftDis = leftDis + 'px';
+                },
+                'rollRight' : function(index){
+                    var maxWidth = this.rooms[index].allTimeListCount * 42;
+                    var leftDis = parseInt(this.rooms[index].leftDis);
+                    var n = parseInt(($(window).width() - 66) / 42);
+                    var maxleft = maxWidth - $(window).width() + 66;
+                    n = n > 6 ? 6 : n;
+                    leftDis = leftDis - (42*n);
+                    leftDis = leftDis < -maxleft ? -maxleft : leftDis;
+                    this.rooms[index].leftDis = leftDis + 'px';
                 },
                 'checkTime' : function(index,t){   //时间段选取
                     if(this.rooms[index].canReserveList.indexOf(t) < 0){
