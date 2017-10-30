@@ -1,32 +1,29 @@
 var List = (function ($) {
     var stageList = [{
-        'cityName' : '北京市',
-        'stageList' : [{
-            'id' : 10091,
-            'stageName' : "望京凯德MALL·优客工场",
-            'stageNameEn' : "Wangjing Kaide MALL·UR WORK"
-        },{
-            'id' : 10088,
-            'stageName' : "鸿坤·优客工场",
-            'stageNameEn' : "Urwork Beijing hongkun community"
-        }]
+        'id' : '',
+        'stageName' : "北京",
+        'stageNameEn' : "Beijing"
     },{
-        'cityName' : '上海市',
-        'stageList' : [{
-            'id' : 10096,
-            'stageName' : "歌斐中心·优客工场",
-            'stageNameEn' : "Gopher Center · Urwork"
-        },{
-            'id' : 10071,
-            'stageName' : "金陵大厦·优客工场",
-            'stageNameEn' : "Jinling Building·UR WORK"
-        }]
-    }];
-    var stageCheck = reCheck = {
         'id' : 10091,
         'stageName' : "望京凯德MALL·优客工场",
         'stageNameEn' : "Wangjing Kaide MALL·UR WORK"
-    };
+    },{
+        'id' : 10088,
+        'stageName' : "鸿坤·优客工场",
+        'stageNameEn' : "Urwork Beijing hongkun community"
+    },{
+        'id' : '',
+        'stageName' : "上海",
+        'stageNameEn' : "Shanghai"
+    },{
+        'id' : 10096,
+        'stageName' : "歌斐中心·优客工场",
+        'stageNameEn' : "Gopher Center · Urwork"
+    },{
+        'id' : 10071,
+        'stageName' : "金陵大厦·优客工场",
+        'stageNameEn' : "Jinling Building·UR WORK"
+    }];
     var ads = [{
         'href' : '',
         'img' : 'https://image.urwork.cn/df4649a7-7fc4-4009-a877-a219ee375fc5.jpg'
@@ -34,23 +31,35 @@ var List = (function ($) {
         'href' : '',
         'img' : 'https://image.urwork.cn/d77acf90-a1de-44b2-81ef-25ea3d23f8c4.jpg'
     }];
-    function init() {
+
+    function init(building,now) {
         /*重定义内容高度*/
         var wh = $(window).height();
         var fh = $('.footer').height();
         $('.container').css('min-height', wh - fh - 90);
 
-        initEvent();
+        initEvent(building,now);
     }
 
     //页面事件初始化
-    function initEvent(){
+    function initEvent(building,now){
         var data = {};
         data.ads = ads;
         data.rooms = [];    //会议室数组
         data.stageInfo = stageList; //大厦数组
-        data.stageCheck = stageCheck;   //选择的大厦obj
-        data.reCheck = reCheck; //预选大厦obj，在不按确认按钮时保存的大厦obj
+        data.stageCheck = {};   //选择的大厦obj
+        data.reCheck = {}; //预选大厦obj，在不按确认按钮时保存的大厦obj
+        data.stageCheck = data.reCheck = {
+            'id' : '',
+            'stageName' : "请选择"
+        }
+        stageList.forEach(function(item){
+            if(item.id == building){
+                data.stageCheck = item;
+                data.reCheck = item;
+                return false;
+            }
+        })
         data.setDay = '';   //选择用来筛选的日期
         data.setDayElse = false;    //是否通过其他日期来选择的
         data.today = '';    //今天的日期 ‘2017-10-24’
@@ -142,8 +151,6 @@ var List = (function ($) {
                 },
                 'resetCanTArr' : function(item){
                     //获取当前时间
-                    var now = $.cookie('now');
-                    now = now ? now : '';
                     var date = new Date();
                     date.setTime(now);
                     var h = date.getHours();
@@ -241,8 +248,6 @@ var List = (function ($) {
                 },
                 'resetDate' : function(){
                     //获取当前日期
-                    var now = $.cookie('now');
-                    now = now ? now : '';
                     var date = new Date();
                     date.setTime(now);
                     var year = date.getFullYear();
