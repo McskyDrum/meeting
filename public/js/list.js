@@ -1,4 +1,4 @@
-var List = (function ($) {
+var MeetingList = (function ($) {
     var stageList = [{
         'id' : '',
         'stageName' : "北京",
@@ -32,17 +32,20 @@ var List = (function ($) {
         'img' : 'https://image.urwork.cn/d77acf90-a1de-44b2-81ef-25ea3d23f8c4.jpg'
     }];
 
-    function init(building,now) {
+    function init(cfg) {
         /*重定义内容高度*/
         var wh = $(window).height();
         var fh = $('.footer').height();
         $('.container').css('min-height', wh - fh - 90);
 
-        initEvent(building,now);
+        initEvent(cfg);
     }
 
     //页面事件初始化
-    function initEvent(building,now){
+    function initEvent(cfg){
+        var building = cfg.buildingId;
+        var now = cfg.now;
+
         var data = {};
         data.ads = ads;
         data.rooms = [];    //会议室数组

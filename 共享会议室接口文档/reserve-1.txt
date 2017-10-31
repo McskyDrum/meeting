@@ -5,15 +5,13 @@
 服务端渲染部分：用户选择园区后会把园区 id 存在 cookie 中
 在服务端返回页面的时候，应该把这个 id 从cookie中取出来，查询出对应的园区 渲染到页面的指定区域
 
-building:1 // cookie中没有就返回null
+buildingId:1 // cookie中没有就返回null
 now:1508566101200  //下发服务端的今天0时0分0秒的时间戳
 
 *****************************************************************************************
 
 加载园区列表 GET /building/loadAllBuilding
-request:{
-	orderId:orderId
-}
+request:{}
 response:{
 	success:true
 	list<BuildingForCity> list
