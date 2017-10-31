@@ -1,48 +1,65 @@
 var List = (function ($) {
     var stageList = [{
-        'cityName' : '北京市',
-        'stageList' : [{
-            'id' : 10091,
-            'stageName' : "望京凯德MALL·优客工场",
-            'stageNameEn' : "Wangjing Kaide MALL·UR WORK"
-        },{
-            'id' : 10088,
-            'stageName' : "鸿坤·优客工场",
-            'stageNameEn' : "Urwork Beijing hongkun community"
-        }]
+        'id' : '',
+        'stageName' : "北京",
+        'stageNameEn' : "Beijing"
     },{
-        'cityName' : '上海市',
-        'stageList' : [{
-            'id' : 10096,
-            'stageName' : "歌斐中心·优客工场",
-            'stageNameEn' : "Gopher Center · Urwork"
-        },{
-            'id' : 10071,
-            'stageName' : "金陵大厦·优客工场",
-            'stageNameEn' : "Jinling Building·UR WORK"
-        }]
-    }];
-    var stageCheck = reCheck = {
         'id' : 10091,
         'stageName' : "望京凯德MALL·优客工场",
         'stageNameEn' : "Wangjing Kaide MALL·UR WORK"
-    };
-    function init() {
+    },{
+        'id' : 10088,
+        'stageName' : "鸿坤·优客工场",
+        'stageNameEn' : "Urwork Beijing hongkun community"
+    },{
+        'id' : '',
+        'stageName' : "上海",
+        'stageNameEn' : "Shanghai"
+    },{
+        'id' : 10096,
+        'stageName' : "歌斐中心·优客工场",
+        'stageNameEn' : "Gopher Center · Urwork"
+    },{
+        'id' : 10071,
+        'stageName' : "金陵大厦·优客工场",
+        'stageNameEn' : "Jinling Building·UR WORK"
+    }];
+    var ads = [{
+        'href' : '',
+        'img' : 'https://image.urwork.cn/df4649a7-7fc4-4009-a877-a219ee375fc5.jpg'
+    },{
+        'href' : '',
+        'img' : 'https://image.urwork.cn/d77acf90-a1de-44b2-81ef-25ea3d23f8c4.jpg'
+    }];
+
+    function init(building,now) {
         /*重定义内容高度*/
         var wh = $(window).height();
         var fh = $('.footer').height();
         $('.container').css('min-height', wh - fh - 90);
 
-        initEvent();
+        initEvent(building,now);
     }
 
     //页面事件初始化
-    function initEvent(){
+    function initEvent(building,now){
         var data = {};
+        data.ads = ads;
         data.rooms = [];    //会议室数组
         data.stageInfo = stageList; //大厦数组
-        data.stageCheck = stageCheck;   //选择的大厦obj
-        data.reCheck = reCheck; //预选大厦obj，在不按确认按钮时保存的大厦obj
+        data.stageCheck = {};   //选择的大厦obj
+        data.reCheck = {}; //预选大厦obj，在不按确认按钮时保存的大厦obj
+        data.stageCheck = data.reCheck = {
+            'id' : '',
+            'stageName' : "请选择"
+        }
+        stageList.forEach(function(item){
+            if(item.id == building){
+                data.stageCheck = item;
+                data.reCheck = item;
+                return false;
+            }
+        })
         data.setDay = '';   //选择用来筛选的日期
         data.setDayElse = false;    //是否通过其他日期来选择的
         data.today = '';    //今天的日期 ‘2017-10-24’
@@ -53,6 +70,13 @@ var List = (function ($) {
             mounted: function () {
                 var _this = this;
                 var myScroll = new IScroll('.modal-body');
+                var swiper = new Swiper('.swiper-container', {
+                    autoplay: 5000,
+                    autoplayDisableOnInteraction: false,
+                    loop: true,
+                    speed: 1000,
+                    pagination: '.swiper-container .swiper-pagination'
+                });
 
                 //其他日期选择
                 mobiscroll.date('#mobiscroll', {
@@ -114,9 +138,11 @@ var List = (function ($) {
                         item.cTimeStr = '';
                         item.CTimeNum = 0;
                         item.cfirst = '';   //第一个选择的时间
+                        item.leftDis = 0;//第一个有效的时间段
 
                         //如果选中的日期是今天,重置有效选择数值canReserveList
                         (_this.setDay == _this.today)&&(new Date().getHours()>=item.startNum)&&(item.canReserveList = _this.resetCanTArr(item));
+                        item.leftDis = _this.resetLeftDis(item);
                     })
                     this.rooms = list;
                 },
@@ -126,6 +152,7 @@ var List = (function ($) {
                 'resetCanTArr' : function(item){
                     //获取当前时间
                     var date = new Date();
+                    date.setTime(now);
                     var h = date.getHours();
                     var m = date.getMinutes() > 30 ? 2 : 1;
                     var max = (h - item.startNum) * 2 + m;
@@ -134,6 +161,31 @@ var List = (function ($) {
                         (item>=max) && (arr.push(item));
                     })
                     return arr;
+                },
+                'resetLeftDis' : function(item){
+                    var maxWidth = item.allTimeListCount * 42;
+                    var leftDis = item.canReserveList.length>0 ?  item.canReserveList[0]* 42 : maxWidth;
+                    var maxleft = maxWidth - $(window).width() + 66;
+                    leftDis = leftDis > maxleft ? -maxleft : -leftDis;
+                    return leftDis + 'px';
+                },
+                'rollLeft' : function(index){
+                    var leftDis = parseInt(this.rooms[index].leftDis);
+                    var n = parseInt(($(window).width() - 66) / 42);
+                    n = n > 6 ? 6 : n;
+                    leftDis = leftDis + (42*n);
+                    leftDis = leftDis > 0 ? 0 : leftDis;
+                    this.rooms[index].leftDis = leftDis + 'px';
+                },
+                'rollRight' : function(index){
+                    var maxWidth = this.rooms[index].allTimeListCount * 42;
+                    var leftDis = parseInt(this.rooms[index].leftDis);
+                    var n = parseInt(($(window).width() - 66) / 42);
+                    var maxleft = maxWidth - $(window).width() + 66;
+                    n = n > 6 ? 6 : n;
+                    leftDis = leftDis - (42*n);
+                    leftDis = leftDis < -maxleft ? -maxleft : leftDis;
+                    this.rooms[index].leftDis = leftDis + 'px';
                 },
                 'checkTime' : function(index,t){   //时间段选取
                     if(this.rooms[index].canReserveList.indexOf(t) < 0){
@@ -197,6 +249,7 @@ var List = (function ($) {
                 'resetDate' : function(){
                     //获取当前日期
                     var date = new Date();
+                    date.setTime(now);
                     var year = date.getFullYear();
                     var mouth = date.getMonth() +1;
                     var day = date.getDate();

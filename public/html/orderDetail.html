@@ -120,6 +120,13 @@
     <section class="tip-wrapper">
         <p>您可在会议开始1小时前取消订单</p>
     </section>
+
+    <footer class="btn-group fixed-bottom">
+        <div class="flex">
+            实付：<span class="price" data-set="payMoney">¥{{total}}</span>
+        </div>
+        <a href="javascript:;" class="btn btn-primary" @click="submit()">提交订单</a>
+    </footer>
     <script>
         $(function(){
             OrderDetail.init();
