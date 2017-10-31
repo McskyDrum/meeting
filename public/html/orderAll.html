@@ -25,7 +25,7 @@
             <a v-bind:class="{ active:type=='waitUse'}" v-on:click="goByType('waitUse')">待使用</a>
         </div>
         <div id="ordersList">
-            <li class="block order-list-item" v-for="item in orders">
+            <li class="block order-list-item" v-for="(item,index) in orders">
                 <div class="header">
                     <a href="/html/orderDetail.html?orderId={{item.orderId}}"><span class="font-size-12">订单号：<span>{{item.orderId}}</span></span></a>
                     <a class="float-r font-size-12">{{item.orderStatus}}</a>
@@ -42,16 +42,16 @@
                 </div>
                 <div class="bottom">
                     总价：<span class="c-orange">￥{{item.realAmount | cash}}</span>
-                    <div class="opt-btn">
+                    <div class="opt-btn" v-if="hasOperate(index,'CAN_PAY')">
                         <a class="tag tag-orange btn-in-order-list" href="/share-meeting/orderDetail.html">付款</a>
                     </div>
-                    <div class="opt-btn">
+                    <div class="opt-btn" v-if="hasOperate(index,'CAN_TUIDING')">
                         <a class="tag tag-orange js-cancel-order">退订</a>
                     </div>
-                    <div class="opt-btn">
+                    <div class="opt-btn" v-if="hasOperate(index,'CAN_CANCEL')">
                         <a class="tag tag-danger-empty js-delete-order">取消订单</a>
                     </div>
-                    <div class="opt-btn">
+                    <div class="opt-btn" v-if="hasOperate(index,'CAN_OPEN')">
                         <a class="tag tag-blue js-delete-order">开锁</a>
                     </div>
                 </div>

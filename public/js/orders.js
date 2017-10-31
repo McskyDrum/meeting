@@ -104,6 +104,14 @@ var Orders = (function ($) {
         }
     }
 
+    function hasOperate(index,operate){
+        var operateTypes = vm.orders[index].operateType;
+        for (var i in operateTypes) {
+            if (operateTypes[i] == operate) return true;
+        }
+        return false;
+    }
+
     function getDocHeight() {
         var D = document;
         return Math.max(
@@ -118,7 +126,7 @@ var Orders = (function ($) {
 
         var data = {};
         data.orders = [];
-        data.type = "";
+        data.type = type;
         vm = new Vue({
             el: '#orders',
             data: data,
@@ -137,7 +145,8 @@ var Orders = (function ($) {
             },
             methods:{
                 goByType:goByType,
-                loadAllOrders:loadAllOrders//下拉刷新
+                loadAllOrders:loadAllOrders,//下拉刷新
+                hasOperate:hasOperate
             },
             filters: {
                 time:TimeFilters,
