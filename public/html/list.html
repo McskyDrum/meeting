@@ -72,7 +72,7 @@
                                     <h2 class="bigpictext-title-txt">{{room.roomName}}</h2>
                                     <small> | {{room.headcount}}人</small>
                                 </div>
-                                <em>¥{{room.price}}
+                                <em>¥{{room.price | cash}}
                                     <small>/ 0.5小时</small>
                                 </em>
                             </div>
@@ -100,15 +100,15 @@
                 </div>
             </div>
         </div>
-        <!-- 社区列表 modal -->
-        <div class="modal primary-modal modal-backdrop" v-bind:class="{in:isOpen}" @click="closeStage()" id="plantIdModal" role="dialog">
+        <!-- 社区列表 modal  -->
+        <div id="plantIdModal" class="modal primary-modal modal-backdrop" :class="{in:isOpen}" @click="closeStage()" role="dialog">
             <div class="modal-dialog">
                 <div class="modal-content" @click="preventClose($event)">
                     <div class="modal-body">
                         <div class="scroller" id="plantIdContainer">
                             <ul class="select-list stage-list">
-                                <li v-for="stage in buildingList" @click="checkStage(stage)" :data-id="stage.id" :class="{'active':stage.id==reCheck.id,'stage-title':stage.id==''}">
-                                    {{stage.stageName}}<i class="uricon-success-circle"></i>
+                                <li v-for="(item,index) in buildingList" @click="checkStage(index)" :disable="!item.id" :data-id="item.id" :class="{'active':item.id==cherkId && !!item.id,'stage-title':!item.id}">
+                                    {{item.name}}<i class="uricon-success-circle"></i>
                                 </li>
                             </ul>
                         </div>

@@ -3,28 +3,28 @@ var router = express.Router();
 
 var Building1 = {
     'id': 1,
-    'name':"望京凯德MALL·优客工场1"
+    'name':"1望京凯德MALL·优客工场1"
 };
 var Building2 = {
     'id': 2,
-    'name':"望京凯德MALL·优客工场2"
+    'name':"2望京凯德MALL·优客工场2"
 };
 var Building3 = {
     'id': 3,
-    'name':"望京凯德MALL·优客工场3"
+    'name':"3望京凯德MALL·优客工场3"
 };
 var Building4 = {
     'id': 4,
-    'name':"望京凯德MALL·优客工场4"
+    'name':"4望京凯德MALL·优客工场4"
 };
 var Building5 = {
     'id': 5,
-    'name':"望京凯德MALL·优客工场5"
+    'name':"5望京凯德MALL·优客工场5"
 };
 
 var BuildingForCitys = [
-    {cityName:"北京",meetingList:[Building1,Building2,Building3]},
-    {cityName:"上海",meetingList:[Building4,Building5]}
+    {cityName:"北京",buildingList:[Building1,Building2,Building3]},
+    {cityName:"上海",buildingList:[Building4,Building5]}
 ]
 
 /* GET home page. */

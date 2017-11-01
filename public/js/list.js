@@ -1,7 +1,6 @@
 var MeetingList = (function ($) {
 
     var vm = {};
-    var buildingVm = {};
     var buildingService = new BuildingService();
 
 
@@ -43,23 +42,25 @@ var MeetingList = (function ($) {
          * 加载园区列表
          */
         function loadBuildings(callback){
-            if(buildingList.length!=null){
+            if(buildingList.length!=0){
                 callback.call(this,buildingList);
                 return;
             }
             $.get("/building/loadAllBuilding",function(result){
-                if(result.success){
+                if(!result.success){
                     return;
                 }
+                var newList = [];
                 for(var index in result.list){
                     var building = result.list[index];
-                    buildingList.push({name:building.cityName});
+                    newList.push({name:building.cityName});
                     for(var index2 in building.buildingList){
                         var build = building.buildingList[index2];
-                        buildingList.push({name:build.name,id:build.id});
+                        newList.push({name:build.name,id:build.id});
                     }
                 }
-                callback.call(this,buildingList);
+                buildingList = newList;
+                callback.call(this,newList);
             });
         }
     }
@@ -79,69 +80,7 @@ var MeetingList = (function ($) {
         $('.container').css('min-height', wh - fh - 90);
 
         buildingService.setBuildingId(cfg.buildingId);
-        initBuildingVM(cfg);
         initEvent(cfg);
-    }
-
-    function initBuildingVM(cfg){
-        buildingVm = new Vue({
-            el: '#plantIdModal',
-            data:{
-                cherkId:cfg.buildingId,
-                isOpen:false,
-                buildingList:[]
-            },
-            mounted:function(){
-                buildingService.loadBuildings(function(list){
-                    buildingVm.buildingList = list;
-                });
-            },
-            methods:{
-                closeStage:closeStage,
-                checkStage:checkStage,
-                saveStage:saveStage,
-                preventClose:preventClose
-            }
-        });
-
-        /**
-         * 关闭园区选择框
-         */
-        function closeStage(){
-            buildingVm.isOpen = false;
-            $('body').removeClass('modal-open');
-        }
-
-        /**
-         * 选择园区
-         * @param index
-         */
-        function checkStage(index){
-            var building = buildingVm.buildingList[index];
-            if(!building.id){
-                return;
-            }
-            buildingVm.cherkId = building.id;
-        }
-
-        /**
-         * 保存园区
-         */
-        function saveStage(){
-            //保存数据并刷新会议列表
-            buildingService.setBuildingId(buildingVm.cherkId);
-            buildingService.getCurrentBuilding(function(building){
-                vm.building = building;
-                vm.getMeetings();
-            });
-            closeStage();
-        }
-
-        function preventClose(e){
-            e.stopPropagation();
-            return false;
-        }
-
     }
 
 
@@ -159,6 +98,10 @@ var MeetingList = (function ($) {
         data.today = 0;    //今天的日期 ‘2017-10-24’
         data.tomorrow = 1; //明天的日期
 
+        data.cherkId = cfg.buildingId;
+        data.isOpen = false;
+        data.buildingList = [];
+
         vm = new Vue({
             el: '#meetingList',
             data: data,
@@ -167,6 +110,10 @@ var MeetingList = (function ($) {
 
                 buildingService.getCurrentBuilding(function(building){
                     _this.building = building;
+                });
+
+                buildingService.loadBuildings(function(list){
+                    vm.buildingList = list;
                 });
 
                 var myScroll = new IScroll('.modal-body');
@@ -347,11 +294,54 @@ var MeetingList = (function ($) {
                     this.getMeetings();
                 },
                 'showStage' : function(){   //开启大厦弹窗
-                    buildingVm.isOpen = true;
+                    vm.isOpen = true;
                     $('body').addClass('modal-open');
-                }
+                },
+                closeStage:closeStage,
+                checkStage:checkStage,
+                saveStage:saveStage,
+                preventClose:preventClose
             }
-        })
+        });
+
+
+        /**
+         * 关闭园区选择框
+         */
+        function closeStage(){
+            vm.isOpen = false;
+            $('body').removeClass('modal-open');
+        }
+
+        /**
+         * 选择园区
+         * @param index
+         */
+        function checkStage(index){
+            var building = vm.buildingList[index];
+            if(!building.id){
+                return;
+            }
+            vm.cherkId = building.id;
+        }
+
+        /**
+         * 保存园区
+         */
+        function saveStage(){
+            //保存数据并刷新会议列表
+            buildingService.setBuildingId(vm.cherkId);
+            buildingService.getCurrentBuilding(function(building){
+                vm.building = building;
+                vm.getMeetings();
+            });
+            closeStage();
+        }
+
+        function preventClose(e){
+            e.stopPropagation();
+            return false;
+        }
     }
 
     return {
