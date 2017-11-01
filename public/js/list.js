@@ -1,29 +1,69 @@
 var MeetingList = (function ($) {
-    var stageList = [{
-        'id' : '',
-        'stageName' : "北京",
-        'stageNameEn' : "Beijing"
-    },{
-        'id' : 10091,
-        'stageName' : "望京凯德MALL·优客工场",
-        'stageNameEn' : "Wangjing Kaide MALL·UR WORK"
-    },{
-        'id' : 10088,
-        'stageName' : "鸿坤·优客工场",
-        'stageNameEn' : "Urwork Beijing hongkun community"
-    },{
-        'id' : '',
-        'stageName' : "上海",
-        'stageNameEn' : "Shanghai"
-    },{
-        'id' : 10096,
-        'stageName' : "歌斐中心·优客工场",
-        'stageNameEn' : "Gopher Center · Urwork"
-    },{
-        'id' : 10071,
-        'stageName' : "金陵大厦·优客工场",
-        'stageNameEn' : "Jinling Building·UR WORK"
-    }];
+
+    var vm = {};
+    var buildingVm = {};
+    var buildingService = new BuildingService();
+
+
+    function BuildingService(){
+        var buildingId = null;
+        var buildingList = [];
+
+        return {
+            setBuildingId:setBuildingId,
+            getCurrentBuilding:getCurrentBuilding,
+            loadBuildings:loadBuildings
+        }
+
+        function setBuildingId(id){
+            buildingId = id;
+        }
+
+        function getCurrentBuilding(callback,obj){
+            var _this = !!obj?obj:callback;
+            if(!buildingId){
+                callback.call(_this,{'name':"请选择"})
+            }
+            findBuilding(buildingId,callback);
+        }
+
+        function findBuilding(id,callback){
+            loadBuildings(function(buildingList){
+                for(var index in buildingList){
+                    var building = buildingList[index];
+                    if(building.id == id){
+                        callback.call(this,building);
+                        return;
+                    }
+                }
+            })
+        }
+
+        /**
+         * 加载园区列表
+         */
+        function loadBuildings(callback){
+            if(buildingList.length!=null){
+                callback.call(this,buildingList);
+                return;
+            }
+            $.get("/building/loadAllBuilding",function(result){
+                if(result.success){
+                    return;
+                }
+                for(var index in result.list){
+                    var building = result.list[index];
+                    buildingList.push({name:building.cityName});
+                    for(var index2 in building.buildingList){
+                        var build = building.buildingList[index2];
+                        buildingList.push({name:build.name,id:build.id});
+                    }
+                }
+                callback.call(this,buildingList);
+            });
+        }
+    }
+
     var ads = [{
         'href' : '',
         'img' : 'https://image.urwork.cn/df4649a7-7fc4-4009-a877-a219ee375fc5.jpg'
@@ -38,40 +78,97 @@ var MeetingList = (function ($) {
         var fh = $('.footer').height();
         $('.container').css('min-height', wh - fh - 90);
 
+        buildingService.setBuildingId(cfg.buildingId);
+        initBuildingVM(cfg);
         initEvent(cfg);
     }
 
+    function initBuildingVM(cfg){
+        buildingVm = new Vue({
+            el: '#plantIdModal',
+            data:{
+                cherkId:cfg.buildingId,
+                isOpen:false,
+                buildingList:[]
+            },
+            mounted:function(){
+                buildingService.loadBuildings(function(list){
+                    buildingVm.buildingList = list;
+                });
+            },
+            methods:{
+                closeStage:closeStage,
+                checkStage:checkStage,
+                saveStage:saveStage,
+                preventClose:preventClose
+            }
+        });
+
+        /**
+         * 关闭园区选择框
+         */
+        function closeStage(){
+            buildingVm.isOpen = false;
+            $('body').removeClass('modal-open');
+        }
+
+        /**
+         * 选择园区
+         * @param index
+         */
+        function checkStage(index){
+            var building = buildingVm.buildingList[index];
+            if(!building.id){
+                return;
+            }
+            buildingVm.cherkId = building.id;
+        }
+
+        /**
+         * 保存园区
+         */
+        function saveStage(){
+            //保存数据并刷新会议列表
+            buildingService.setBuildingId(buildingVm.cherkId);
+            buildingService.getCurrentBuilding(function(building){
+                vm.building = building;
+                vm.getMeetings();
+            });
+            closeStage();
+        }
+
+        function preventClose(e){
+            e.stopPropagation();
+            return false;
+        }
+
+    }
+
+
     //页面事件初始化
     function initEvent(cfg){
-        var building = cfg.buildingId;
+        var buildingId = cfg.buildingId;
         var now = cfg.now;
 
         var data = {};
         data.ads = ads;
         data.rooms = [];    //会议室数组
-        data.stageInfo = stageList; //大厦数组
-        data.stageCheck = {};   //选择的大厦obj
-        data.reCheck = {}; //预选大厦obj，在不按确认按钮时保存的大厦obj
-        data.stageCheck = data.reCheck = {
-            'id' : '',
-            'stageName' : "请选择"
-        }
-        stageList.forEach(function(item){
-            if(item.id == building){
-                data.stageCheck = item;
-                data.reCheck = item;
-                return false;
-            }
-        })
-        data.setDay = '';   //选择用来筛选的日期
+        data.building = {id:buildingId,name:"请选择"};
+        data.setDay = 0;   //选择用来筛选的日期
         data.setDayElse = false;    //是否通过其他日期来选择的
-        data.today = '';    //今天的日期 ‘2017-10-24’
-        data.tomorrow = ''; //明天的日期
-        var vm = new Vue({
+        data.today = 0;    //今天的日期 ‘2017-10-24’
+        data.tomorrow = 1; //明天的日期
+
+        vm = new Vue({
             el: '#meetingList',
             data: data,
             mounted: function () {
                 var _this = this;
+
+                buildingService.getCurrentBuilding(function(building){
+                    _this.building = building;
+                });
+
                 var myScroll = new IScroll('.modal-body');
                 var swiper = new Swiper('.swiper-container', {
                     autoplay: 5000,
@@ -88,7 +185,7 @@ var MeetingList = (function ($) {
                     display: 'center',
                     dateWheels: 'yy mm dd',
                     lang: 'zh',
-                    min: new Date(),
+                    min: new Date(now),
                     theme: 'android-holo',
                     onSet: function(e){
                         _this.setDay = e.valueText.replace(/\//g,'-');
@@ -98,7 +195,7 @@ var MeetingList = (function ($) {
                 });
 
                 _this.resetDate();
-                this.getMeetings();
+                _this.getMeetings();
             },
             updated: function(){
                 $(".js-lazy").scrollLoading();
@@ -106,31 +203,14 @@ var MeetingList = (function ($) {
             methods:{
                 'getMeetings' : function(){ //获取会议室列表
                     var _this = this;
-                    var roomList = [{
-                        'id' : 19820608,
-                        'roomName' : '苍之风云',
-                        'openTimeStart' : '10:00',
-                        'openTimeEnd' : '20:00',
-                        'headcount' : 8,
-                        'img' : 'https://image.urwork.cn/df4649a7-7fc4-4009-a877-a219ee375fc5.jpg',
-                        'price' : 50,
-                        'allTimeListCount': 20,
-                        'canReserveList': [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
-                    }];
-                    _this.resetRoomData(roomList);
-                    // $.ajax({
-                    //     type: "post",
-                    //     url: API_URL + "api/getMeetings",
-                    //     dataType: 'json',
-                    //     data: {
-                    //         'plantId' : _this.stageCheck.id,
-                    //         'date' : _this.setDay
-                    //     },
-                    //     isLoading: true,
-                    //     success: function (result) {
-                    //         _this.rooms = result.data;
-                    //     }
-                    // });
+                    if(!_this.building.id || !_this.setDay){
+                        return;
+                    }
+                    $.get("/building/loadMeetingList?buildingId="+_this.building.id+"&time="+_this.setDay,function(result){
+                        if(result.success){
+                            vm.resetRoomData(result.list);
+                        }
+                    });
                 },
                 'resetRoomData' : function(list){   //重置会议室时间数据
                     var _this = this;
@@ -253,49 +333,22 @@ var MeetingList = (function ($) {
                     //获取当前日期
                     var date = new Date();
                     date.setTime(now);
-                    var year = date.getFullYear();
-                    var mouth = date.getMonth() +1;
                     var day = date.getDate();
-                    var today = year + '-' + mouth + '-' + day;
-
+                    this.today = date.getTime();
                     date.setDate(day + 1);
-                    var y = date.getFullYear();
-                    var m = date.getMonth() +1;
-                    var d = date.getDate();
-                    var tomorrow = y + '-' + m + '-' + d;
-
-                    this.today = today;
-                    this.tomorrow = tomorrow;
-                    this.setDay = today;
+                    this.tomorrow = date.getTime();
+                    this.setDay = this.today;
                 },
-                'setDate': function(day){
+                'setDate': function(time){
                     //选择今天或明天
-                    this.setDay = day;
+                    this.setDay = time;
                     this.setDayElse = false;
                     $('#mobiscroll').val('');
                     this.getMeetings();
                 },
-                'closeStage' : function(){  //关闭大厦选择弹窗
-                    $('#plantIdModal').add('.modal-backdrop').removeClass('in');
-                    $('body').removeClass('modal-open');
-                    return false;
-                },
                 'showStage' : function(){   //开启大厦弹窗
-                    $('#plantIdModal').add('.modal-backdrop').addClass('in');
+                    buildingVm.isOpen = true;
                     $('body').addClass('modal-open');
-                },
-                'preventClose' : function(e){
-                    e.stopPropagation();
-                    return false;
-                },
-                'checkStage' : function(stage){
-                    this.reCheck = stage;
-                },
-                'saveStage' : function(){
-                    //保存数据并刷新会议列表
-                    this.stageCheck = this.reCheck;
-                    this.getMeetings();
-                    this.closeStage();
                 }
             }
         })

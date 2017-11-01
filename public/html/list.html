@@ -11,7 +11,7 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="Cache" content="no-cache">
-    <title>首页</title>
+    <title>会议室列表</title>
     <script type="text/javascript" src="../js/common/init.js"></script>
     <link rel="stylesheet" type="text/css" href="../swiper/css/swiper.min.css">
     <link rel="stylesheet" type="text/css" href="../css/list.css">
@@ -34,7 +34,7 @@
             <div class="ur-searcher">
                 <div class="search-wrapper clearfix">
                     <div class="menu-item" @click="showStage()">
-                        <span>{{stageCheck.stageName}}</span>
+                        <span>{{building.name}}</span>
                         <i class="icon-arrow-dropdown menu-arrow"></i>
                     </div>
                     <ul>
@@ -101,13 +101,13 @@
             </div>
         </div>
         <!-- 社区列表 modal -->
-        <div class="modal primary-modal" @click="closeStage()" id="plantIdModal" role="dialog">
+        <div class="modal primary-modal modal-backdrop" v-bind:class="{in:isOpen}" @click="closeStage()" id="plantIdModal" role="dialog">
             <div class="modal-dialog">
                 <div class="modal-content" @click="preventClose($event)">
                     <div class="modal-body">
                         <div class="scroller" id="plantIdContainer">
                             <ul class="select-list stage-list">
-                                <li v-for="stage in stageInfo" @click="checkStage(stage)" :data-id="stage.id" :class="{'active':stage.id==reCheck.id,'stage-title':stage.id==''}">
+                                <li v-for="stage in buildingList" @click="checkStage(stage)" :data-id="stage.id" :class="{'active':stage.id==reCheck.id,'stage-title':stage.id==''}">
                                     {{stage.stageName}}<i class="uricon-success-circle"></i>
                                 </li>
                             </ul>
@@ -123,7 +123,6 @@
         <!-- 社区列表 modal -->
         <div class="modal-backdrop"></div>
     </div>
-
     <div class="nav-menu nav-fixed nav-menu-bottom nav-menu-1 has-menu-2">
         <div class="nav-item">
             <a class="mainmenu js-mainmenu " href="main.html">
@@ -137,10 +136,10 @@
             </a>
         </div>
     </div>
-    <script type="text/javascript">
+    <script>
         $(function(){
             MeetingList.init({
-                buildingId:10088,
+                buildingId:1,
                 now:1509351552133
             });
         })

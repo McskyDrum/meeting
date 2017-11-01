@@ -19,13 +19,13 @@ response:{
 
 *****************************************************************************************
 
-加载会议室列表 /building/loadMeetingList
+加载会议室列表 GET /building/loadMeetingList
 
 注意，在这个请求提交的时候应该把buildingId写到cookie中 以便完成 /reserve/selectMeeting 服务端渲染的逻辑
 
 request:{
 	buildingId:园区Id,
-	time:预定当天0时0分的时间戳
+	time:预定当天0时0分的时间戳 (不保证是0时0分，如果服务端有强制需求，就在服务端进行转化)
 }
 response:{
 	success:true
@@ -79,7 +79,7 @@ canReserveList的最大长度就是6   如果返回 [0,1,2,3,4,5] 则表示在�
 
 BuildingForCity:{
 	cityName:"北京"，
-	list<Building> meetingList
+	list<Building> buildingList
 }
 
 Building:{
