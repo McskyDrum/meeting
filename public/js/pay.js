@@ -22,18 +22,18 @@ var Pay = (function ($) {
             },
             'coupons' : [{
                 'id': 1234,
-                'couponPrice' : 20,
-                'basicPrice' : 200,
+                'couponPrice' : 2000,
+                'basicPrice' : 20000,
                 'couponName' : '满200减20',
-                'timesStart' : '2017/6/6',
-                'timeEnd' : '2017/12/12'
+                'timeStart' : 1509465600000,
+                'timeEnd' : 1512000000000
             },{
                 'id': 12345,
-                'couponPrice' : 20,
-                'basicPrice' : 200,
+                'couponPrice' : 2000,
+                'basicPrice' : 20000,
                 'couponName' : '满200减20',
-                'timesStart' : '2017/6/6',
-                'timeEnd' : '2017/12/12'
+                'timeStart' : 1509465600000,
+                'timeEnd' : 1512000000000
             }],
             'checkCoupon' : {},
             'addItem' : [

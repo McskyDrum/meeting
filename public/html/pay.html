@@ -166,8 +166,41 @@
     </div>
     <script>
         $(function(){
-            Pay.init();
-        })
+            Pay.init({
+                meetingRoomId: 1,
+                roomNum: "12A+12B",
+                roomTitle: "首都大厦",//String  会议标题
+                startTime: 1509786000000, //预定开始时间
+                endTime: 1509789600000, //预定结束时间
+                meetingTimeCount: 2,//  1个小时
+                address: "北京市朝阳区酒仙桥路14号兆维工业园C3号楼2层",
+                headCount: 8,
+                remark: "说明",
+                price: 20000,  //200元/半小时
+                amountListlist: [{
+                    itemId:1,//long   商品Id
+                    price:20000,//Integer 200元/量化单位
+                    unitName:"个",//单位名称  String
+                    goodName:"商品1",//String
+                }],//AmountInfo 见 orderDetails.txt
+                peopleName: "预定人",
+                couponList: [{
+                    'id': 1234,
+                    'couponPrice' : 2000,
+                    'basicPrice' : 20000,
+                    'couponName' : '满200减20',
+                    'timeStart' : 1509465600000,
+                    'timeEnd' : 1512000000000
+                },{
+                    'id': 12345,
+                    'couponPrice':2000,
+                    'basicPrice':20000,
+                    'couponName':'满200减20',
+                    'timeStart':1509465600000,
+                    'timeEnd':1512000000000
+                }]
+            })
+        });
     </script>
 </body>
 </html>

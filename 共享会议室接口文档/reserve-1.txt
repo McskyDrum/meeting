@@ -54,9 +54,8 @@ request:{
 	remark:"说明"
 	price:20000  200元/半小时
 	list<AmountInfo> amountList  附加消费信息  AmountInfo 见 orderDetails.txt
-
 	peopleName:"预定人"
-	list<Coupon> couponList  优惠券列表  
+	list<Coupon> couponList  优惠券列表  优惠券的加载根据有效期
 }
 
 

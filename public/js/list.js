@@ -253,7 +253,6 @@ var MeetingList = (function ($) {
             return date.getTime();
         }
 
-
         function TimeFilters(time,format){
             var data = new Date(time);
             return moment(data).format(format);

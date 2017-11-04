@@ -14,14 +14,14 @@ var Coupon = {
 /* GET home page. */
 router.get('/loadUserCoupon', function(req, res, next) {
 	var array = [Coupon,{
-            'id': 12345,
-            'basicPrice' : 20000,
-            'couponPrice' : 2000,
-            'couponName' : '满200减20',
-            'timeStart' : 1508566101200,
-            'timeEnd' : 1508566101200,
-            'getTime':1508566101200
-        }
+        'id': 12345,
+        'basicPrice' : 20000,
+        'couponPrice' : 2000,
+        'couponName' : '满200减20',
+        'timeStart' : 1508566101200,
+        'timeEnd' : 1508566101200,
+        'getTime':1508566101200
+    }
     ];
     var data = {success:true};
 
