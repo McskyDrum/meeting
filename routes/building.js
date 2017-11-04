@@ -41,10 +41,10 @@ var ReserveMeetingRoom = {
     roomName:"望京凯德MALL·优客工场3",
     headcount:8,
     price:20000,
-    openTimeStart:1508518080000,//  ���ŵ���ʼʱ��
-    openTimeEnd:1508525280000,//  ���ŵĽ���ʱ��
-    allTimeListCount:4,
-    canReserveList:[1,2]
+    openTimeStart:1509753600000,//  ���ŵ���ʼʱ��
+    openTimeEnd:1509796800000,//  ���ŵĽ���ʱ��
+    allTimeListCount:24,
+    canReserveList:[16,17,18,19,20]
 };
 
 /* GET home page. */

@@ -34,7 +34,7 @@ response:{
 
 *****************************************************************************************
 
-提交选择会议室和时间段 POST /building/submitMeetingRoom
+提交选择会议室和时间段 GET /building/submitMeetingRoom   跳页
 request:{
 	meetingRoomId:会议室Id,
 	startTime:1508566101200 预定开始时间
