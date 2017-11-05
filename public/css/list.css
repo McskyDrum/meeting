@@ -1,5 +1,5 @@
 .container{
-    padding: 45px 0;
+    padding:90px 0 35px;
 }
 .header {
     position: fixed;
@@ -17,10 +17,9 @@
     height: 90px;
 }
 .main.hasadds{
-    padding-top: 45px;
+    padding-top: 90px;
 }
 .title-bar {
-    position: relative;
     height: 45px;
     padding: 9px 16px;
     text-align: center;
@@ -29,6 +28,7 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    background: #f9f9f9;
 }
 .title-bar .title {
     display: block;
@@ -46,10 +46,6 @@
     margin-bottom: 10px;
 }
 .search-wrapper{
-    position: fixed;
-    top: 45px;
-    left: 0;
-    right: 0;
     z-index: 850;
     -webkit-border-image: url(../image/border-line.png) 2 stretch;
     -moz-border-image: url(../image/border-line.png) 2 stretch;
