@@ -4,3 +4,4 @@ node_modules/
 .idea/workspace.xml
 .idea/meeting.iml
 .idea/workspace.xml
+*.xml

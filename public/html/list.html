@@ -25,12 +25,22 @@
 </head>
 <body>
     <div class="container" id="meetingList">
-        <div class="header">
+        <div class="header" :class="{hasadds: ads.length>0}">
+            <div class="swiper-container">
+                <span class="close" @click="closeAdd()">&times;</span>
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" v-for="ad in ads">
+                        <a :href="ad.href ? ad.href: 'javascript:void(0)'">
+                            <img class="js-lazy" :data-src="ad.img" />
+                        </a>
+                    </div>
+                </div>
+            </div>
             <div class="title-bar">
                 <span class="title">会议室列表</span>
             </div>
         </div>
-        <div class="main">
+        <div class="main" :class="{hasadds: ads.length>0}">
             <div class="ur-searcher">
                 <div class="search-wrapper clearfix">
                     <div class="menu-item" @click="showStage()">
@@ -47,17 +57,6 @@
                         </li>
                     </ul>
                 </div>
-            </div>
-
-            <div class="swiper-container">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide" v-for="ad in ads">
-                        <a :href="ad.href ? ad.href: 'javascript:void(0)'">
-                            <img class="js-lazy" :data-src="ad.img" />
-                        </a>
-                    </div>
-                </div>
-                <div class="swiper-pagination"></div>
             </div>
 
             <div class="meeting-room-list">

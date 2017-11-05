@@ -136,8 +136,7 @@ var MeetingList = (function ($) {
                     autoplay: 5000,
                     autoplayDisableOnInteraction: false,
                     loop: true,
-                    speed: 1000,
-                    pagination: '.swiper-container .swiper-pagination'
+                    speed: 1000
                 });
 
                 //其他日期选择
@@ -217,6 +216,10 @@ var MeetingList = (function ($) {
                 'showStage' : function(){   //开启大厦弹窗
                     vm.isOpen = true;
                     $('body').addClass('modal-open');
+                },
+                closeAdd:function(){
+                    $('.swiper-container').hide();
+                    $('.header').add('.main').removeClass('hasadds');
                 },
                 closeStage:closeStage,
                 checkStage:checkStage,
