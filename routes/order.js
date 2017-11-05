@@ -6,7 +6,7 @@ var router = express.Router();
 
 var Order = {
     orderId:17081811321372,//long
-    roomNum:"12A+12B",//String 会议室编号
+    roomName:"苍之风云",//String 会议室编号
     orderTitle:"首都大厦，优客工厂",//String  订单主题
     orderStatus:"待支付",// String 订单状态文案
     meetingTimeStart:1508566101200, //Long  会议开始时间

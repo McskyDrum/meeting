@@ -44,10 +44,14 @@ request:{
 服务端渲染：
 {
 	meetingRoomId:会议室Id,
-	roomNum:"12A+12B" String 会议室编号
-	roomTitle:"首都大厦，优客工厂"，String  会议标题
+	roomImg:"会议室图片地址"
+	roomName:"苍之风云" String 会议室名称
+	roomTitle:"首都大厦，优客工厂"，String  园区地址
 	startTime:1508566101200 预定开始时间
 	endTime:1508566101200 预定结束时间
+	openStartTime:data.openStartTime,//会议室开放的开始时间
+    openEndTime:data.openEndTime,//会议室开放的结束时间
+	phoneNum:"13900000000", //预定人的电话号码(绑定的电话)
 	meetingTimeCount:2  1个小时
 	address:"详细地址"
 	headCount:人头数

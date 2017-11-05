@@ -1,53 +1,37 @@
 var Pay = (function ($) {
     var meetInfo = {};
-    function init() {
+    function init(data) {
         /*重定义内容高度*/
         var wh = $(window).height();
         $('.container').css('min-height', wh - 63);
         //获取会议室信息，更新meetInfo;
         meetInfo = {
             meetInfo : {
-                'meetingRoomId': 1,
-                'img' : 'https://image.urwork.cn/df4649a7-7fc4-4009-a877-a219ee375fc5.jpg',
-                'roomName' : '苍之风云1',
-                'roomTitle' : '阿里巴巴创新中心·优客工场',
-                'selectDate' : '2017/10/22 (周日)',
-                'seletcTime' : '12:00-14:00',
-                'address' : '北京市朝阳区酒仙桥路14号兆维工业园C3号楼2层',
-                'endTime' : 1509789600000,
-                'startTime' : 1509786000000,
-                'headCount' : 8,
-                'tel': '13900000000',
-                'meetingTimeCount' : 2,
-                'price' : 20000
+                'meetingRoomId': data.meetingRoomId,
+                'img' : data.roomImg,
+                'roomName' : data.roomName,
+                'roomTitle' : data.roomTitle,
+                'address' : data.address,
+                'endTime' : data.endTime,
+                startTime : data.startTime,
+                openStartTime:data.openStartTime,//会议室开放的开始时间
+                openEndTime:data.openEndTime,//会议室开放的结束时间
+                'headCount' : data.headCount,
+                'tel': data.phoneNum,
+                'meetingTimeCount' : data.meetingTimeCount,
+                'price' : data.price,
+                peopleName:data.peopleName,
+                remark:data.remark
             },
-            'coupons' : [{
-                'id': 1234,
-                'couponPrice' : 2000,
-                'basicPrice' : 20000,
-                'couponName' : '满200减20',
-                'timeStart' : 1512000000000,
-                'timeEnd' : 1512000000000
-            },{
-                'id': 12345,
-                'couponPrice' : 2000,
-                'basicPrice' : 20000,
-                'couponName' : '满200减20',
-                'timeStart' : 1512000000000,
-                'timeEnd' : 1512000000000
-            }],
+            'coupons' : data.couponList,
             'checkCoupon' : {},
-            'amountListlist' : [
-                {
-                    itemId:1,//long   商品Id
-                    price:20000,//Integer 200元/量化单位
-                    unitName:"个",//单位名称  String
-                    goodName:"商品1",//String
-                    num : 0
-                }
-            ],
+            'amountList' : data.amountList,
             'total' : 0
-        }
+        };
+
+        meetInfo.amountList.forEach(function(good){
+            good.num = 0;
+        });
         initEvent();
     }
 
@@ -63,21 +47,21 @@ var Pay = (function ($) {
             methods:{
                 'calculate' : function(){
                     var extraM = 0;
-                    this.amountListlist.forEach(function(item){
+                    this.amountList.forEach(function(item){
                         extraM = extraM + (item.price * item.num);
                     });
                     var couponM = this.checkCoupon.couponPrice ? this.checkCoupon.couponPrice : 0;
                     this.total = this.meetInfo.price * this.meetInfo.meetingTimeCount + extraM - couponM;
                 },
                 'addNum' : function(index){
-                    this.amountListlist[index].num++;
+                    this.amountList[index].num++;
                     this.checkCoupon = {};
                     this.calculate();
                 },
                 'delNum' : function(index){
-                    this.amountListlist[index].num--;
-                    var gdNum = this.amountListlist[index].num;
-                    this.amountListlist[index].num = gdNum > 0 ? gdNum : 0;
+                    this.amountList[index].num--;
+                    var gdNum = this.amountList[index].num;
+                    this.amountList[index].num = gdNum > 0 ? gdNum : 0;
                     this.checkCoupon = {};
                     this.calculate();
                 },
@@ -98,7 +82,7 @@ var Pay = (function ($) {
                     if(cou.id == this.checkCoupon.id){
                         this.checkCoupon = {};
                     }else{
-                        if(this.total<d.basicPrice){
+                        if(this.total<cou.basicPrice){
                             return false;
                         }
                         this.checkCoupon = cou;

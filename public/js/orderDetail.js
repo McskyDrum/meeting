@@ -80,7 +80,7 @@ var OrderDetail = (function ($) {
                 cash:CashFilters,
                 time:TimeFilters
             }
-        })
+        });
 
         function CashFilters(money){
             return money/100;
