@@ -90,15 +90,13 @@ var Pay = (function ($) {
                     this.calculate();
                     return false;
                 },
-                'submit': function(){
-                    //提交订单
-                }
+                submit:submit
             },
             filters: {
                 cash:CashFilters,
                 time:TimeFilters
             }
-        })
+        });
 
         function CashFilters(money){
             return money/100;
@@ -108,6 +106,14 @@ var Pay = (function ($) {
             var data = new Date(time);
             return moment(data).format(format);
         }
+
+        /**
+         * 提交订单
+         */
+        function submit(){
+
+        }
+
     }
 
     return {
