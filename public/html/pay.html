@@ -142,7 +142,7 @@
                     <div class="modal-content" @click="preventClose($event)">
                         <div class="modal-body" style="background-color: #f5f5f5;">
                             <div class="scroller" id="couponsContainer">
-                                <div class="coupon-item coupon-item-checkable" :class="{'checked' : checkCoupon.id == d.id,'gray': total<d.basicPrice}" v-for="(d, i) in coupons">
+                                <div v-for="(d, i) in coupons" class="coupon-item coupon-item-checkable" :class="{'checked' : checkCoupon.id == d.id,'gray': total<d.basicPrice}">
                                     <dl @click="checkCou(d)">
                                         <dt>
                                             <div class="coupon-info">
