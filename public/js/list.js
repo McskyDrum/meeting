@@ -74,14 +74,6 @@ var MeetingList = (function ($) {
         }
     }
 
-    var ads = [{
-        'href' : '',
-        'img' : 'https://image.urwork.cn/df4649a7-7fc4-4009-a877-a219ee375fc5.jpg'
-    },{
-        'href' : '',
-        'img' : 'https://image.urwork.cn/d77acf90-a1de-44b2-81ef-25ea3d23f8c4.jpg'
-    }];
-
     function init(cfg) {
         /*重定义内容高度*/
         var wh = $(window).height();
@@ -134,14 +126,7 @@ var MeetingList = (function ($) {
                    }
                 });
 
-
                 var myScroll = new IScroll('.modal-body');
-                var swiper = new Swiper('.swiper-container', {
-                    autoplay: 5000,
-                    autoplayDisableOnInteraction: false,
-                    loop: true,
-                    speed: 1000
-                });
 
                 //其他日期选择
                 mobiscroll.date('#mobiscroll', {
@@ -163,6 +148,12 @@ var MeetingList = (function ($) {
             },
             updated: function(){
                 $(".js-lazy").scrollLoading();
+                var swiper = new Swiper('.swiper-container', {
+                    autoplay: 5000,
+                    autoplayDisableOnInteraction: false,
+                    loop: true,
+                    speed: 1000
+                });
             },
             methods:{
                 'getMeetings' : function(){ //获取会议室列表

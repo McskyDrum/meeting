@@ -1,11 +1,11 @@
 var OrderDetail = (function ($) {
-    var meetInfo = {};
+    var orderInfo = {};
     function init() {
         /*重定义内容高度*/
         var wh = $(window).height();
         $('.container').css('min-height', wh - 63);
         //获取会议室信息，更新meetInfo;
-        meetInfo = {
+        orderInfo = {
             meetInfo : {
                 'meetingRoomId': 1,
                 'img' : 'https://image.urwork.cn/df4649a7-7fc4-4009-a877-a219ee375fc5.jpg',
@@ -53,6 +53,7 @@ var OrderDetail = (function ($) {
                     num : 1
                 }
             ],
+            'operateType':["CAN_PAY","CAN_CANCEL","CANCELED","CAN_OPEN","CAN_TUIDING"],
             'total' : 0
         };
         initEvent();
@@ -62,7 +63,7 @@ var OrderDetail = (function ($) {
     function initEvent(){
         var vm = new Vue({
             el: '#mInfo',
-            data: meetInfo,
+            data: orderInfo,
             mounted: function () {
                 this.calculate();
             },
@@ -74,6 +75,18 @@ var OrderDetail = (function ($) {
                     });
                     var couponM = this.checkCoupon.couponPrice ? this.checkCoupon.couponPrice : 0;
                     this.total = this.meetInfo.price * this.meetInfo.meetingTimeCount + extraM - couponM;
+                },
+                'cancel': function(){
+                    //取消订单
+                    console.log('cancel');
+                },
+                'quit': function(){
+                    //退订
+                    console.log('quit');
+                },
+                'open': function(){
+                    //开锁
+                    console.log('open');
                 }
             },
             filters: {

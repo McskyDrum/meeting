@@ -20,3 +20,4 @@ document.write('<script type="text/javascript" src="' + APP_CONTEXT + '/js/commo
 document.write('<script type="text/javascript" src="' + APP_CONTEXT + '/js/common/templateheper.js?'+ fbDate +'"></script>');
 document.write('<script type="text/javascript" src="' + APP_CONTEXT + '/js/common/mtap.js?'+ fbDate +'"></script>');
 document.write('<script type="text/javascript" src="' + APP_CONTEXT + '/js/common/moment.min.js?'+ fbDate +'"></script>');
+document.write('<script type="text/javascript" src="' + APP_CONTEXT + '/js/common/infotap.js?'+ fbDate +'"></script>');

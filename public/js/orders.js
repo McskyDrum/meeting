@@ -25,6 +25,7 @@ var Orders = (function ($) {
         $.get("/order/allOrders?pageIndex="+vm.pageIndex,function(result){
             if(!result.success){
                 loading = false;
+                $.wiseinfo('获取订单失败');
                 return;
             }
             vm.pageIndex = result.nextPageIndex;

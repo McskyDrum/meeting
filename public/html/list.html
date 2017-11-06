@@ -18,16 +18,16 @@
     <link rel="stylesheet" type="text/css" href="../mobiscroll/css/mobiscroll.javascript.min.css">
     <link rel="stylesheet" type="text/css" href="../mobiscroll/css/android-holo.css">
     <script type="text/javascript" src="../js/libs/iscroll.js"></script>
-    <script type="text/javascript" src="../swiper/js/swiper.jquery.min.js"></script>
+    <script type="text/javascript" src="../swiper/js/swiper.min.js"></script>
     <script type="text/javascript" src="../mobiscroll/js/mobiscroll.javascript.min.js"></script>
     <script type="text/javascript" src="../js/libs/vue.min.js"></script>
     <script type="text/javascript" src="../js/list.js"></script>
 </head>
 <body>
     <div class="container" id="meetingList">
-        <div class="header">
+        <div class="header" :class="{hasadds: ads.length>0}">
             <!--广告-->
-            <div class="swiper-container" :class="{hasadds: ads.length>0}">
+            <div class="swiper-container">
                 <span class="close" @click="closeAdd()">&times;</span>
                 <div class="swiper-wrapper">
                     <div class="swiper-slide" v-for="ad in ads">

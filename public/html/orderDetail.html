@@ -122,10 +122,9 @@
     </section>
 
     <footer class="btn-group fixed-bottom">
-        <div class="flex">
-            实付：<span class="price" data-set="payMoney">¥{{total | cash}}</span>
-        </div>
-        <a href="javascript:;" class="btn btn-primary" @click="submit()">提交订单</a>
+        <a href="javascript:;" v-if="operateType.indexOf('CAN_CANCEL')>0" class="btn btn-primary" @click="cancel()">取消订单</a>
+        <a href="javascript:;" v-else-if="operateType.indexOf('CAN_TUIDING')>0" class="btn btn-red" @click="quit()">退订</a>
+        <a href="javascript:;" v-else class="btn btn-orange" @click="open()">开锁</a>
     </footer>
     <script>
         $(function(){
