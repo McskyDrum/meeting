@@ -21,7 +21,7 @@ var Order = {
 
 router.get('/allOrders', function(req, res, next) {
     var data = {success:true};
-    data.nextPageIndex = 2;
+    data.nextPageIndex = -1;
     data.orderList = [Order,Order,Order,Order,Order,Order];
     res.send(data);
 });

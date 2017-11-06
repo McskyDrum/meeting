@@ -319,3 +319,9 @@ only screen and (min-device-pixel-ratio: 1.5) {
     font-size: 14px;
     line-height: 16px;
 }
+
+.list-finished{
+    text-align: center;
+    padding-bottom: 10px;
+    color: #eaeaea;
+}
