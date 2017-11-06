@@ -62,6 +62,18 @@ request:{
 	list<Coupon> couponList  优惠券列表  优惠券的加载根据有效期
 }
 
+*****************************************************************************************
+获取广告列表  GET /ad/adlist
+request:{}
+response:{
+	success:true,
+	list:[AdInfo,AdInfo]
+}
+
+AdInfo:{
+	image:"图片地址"
+	url:"广告链接地址"
+}
 
 
 ReserveMeetingRoom:{

@@ -13,9 +13,6 @@ var MeetingList = (function ($) {
     var buildingService = new BuildingService();
     var timeStap = 30;
 
-
-
-
     function BuildingService(){
         var buildingId = null;
         var buildingList = [];
@@ -102,7 +99,7 @@ var MeetingList = (function ($) {
         var now = lowTime(cfg.now);
 
         var data = {};
-        data.ads = ads;
+        data.ads = [];
 
         data.rooms = [];    //会议室数组
         data.operaIndex = -1; //当前正在操作的会议室序号
@@ -130,6 +127,13 @@ var MeetingList = (function ($) {
                 buildingService.loadBuildings(function(list){
                     vm.buildingList = list;
                 });
+
+                $.get("/ad/adlist",function(result){
+                   if(result.success){
+                       vm.ads = result.list;
+                   }
+                });
+
 
                 var myScroll = new IScroll('.modal-body');
                 var swiper = new Swiper('.swiper-container', {

@@ -9,6 +9,7 @@ var coupon = require('./routes/coupon');
 var order = require('./routes/order');
 var building = require('./routes/building');
 var users = require('./routes/users');
+var ad = require('./routes/ad');
 
 var app = express();
 
@@ -28,6 +29,7 @@ app.use('/coupon', coupon);
 app.use('/order', order);
 app.use('/building',building);
 app.use('/users',users);
+app.use('/ad',ad);
 
 
 // catch 404 and forward to error handler

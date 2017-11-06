@@ -31,8 +31,8 @@
                 <span class="close" @click="closeAdd()">&times;</span>
                 <div class="swiper-wrapper">
                     <div class="swiper-slide" v-for="ad in ads">
-                        <a :href="ad.href ? ad.href: 'javascript:void(0)'">
-                            <img class="js-lazy" :data-src="ad.img" />
+                        <a :href="ad.url ? ad.url: 'javascript:void(0)'">
+                            <img class="js-lazy" :data-src="ad.image" />
                         </a>
                     </div>
                 </div>
