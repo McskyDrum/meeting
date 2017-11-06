@@ -28,7 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/coupon', coupon);
 app.use('/order', order);
 app.use('/building',building);
-app.use('/users',users);
+app.use('/userCenter',users);
 app.use('/ad',ad);
 
 
