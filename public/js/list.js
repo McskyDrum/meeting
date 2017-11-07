@@ -69,7 +69,6 @@ var MeetingList = (function ($) {
                     }
                 }
                 buildingList = newList;
-                console.log(buildingList);
                 callback.call(this,newList);
             });
         }
@@ -393,12 +392,7 @@ var MeetingList = (function ($) {
             var endTime = startTime+timeNum*timeStap*60000;
 
             return TimeFilters(startTime,"H:mm")+"-"+TimeFilters(endTime,"H:mm");
-
-
-
-
         }
-
     }
 
     function findFristIndex(timeArray){
