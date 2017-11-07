@@ -24,6 +24,12 @@ var Building5 = {
 
 var BuildingForCitys = [
     {cityName:"北京",buildingList:[Building1,Building2,Building3]},
+    {cityName:"上海",buildingList:[Building4,Building5]},
+    {cityName:"上海",buildingList:[Building4,Building5]},
+    {cityName:"上海",buildingList:[Building4,Building5]},
+    {cityName:"上海",buildingList:[Building4,Building5]},
+    {cityName:"上海",buildingList:[Building4,Building5]},
+    {cityName:"上海",buildingList:[Building4,Building5]},
     {cityName:"上海",buildingList:[Building4,Building5]}
 ]
 

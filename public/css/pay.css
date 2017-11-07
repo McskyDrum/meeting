@@ -421,3 +421,7 @@
 .modal .coupon-item-checkable.checked:after {
     background-position: 0 -32px;
 }
+.primary-modal .modal-body{
+    overflow-x: hidden;
+    overflow-y: auto;
+}

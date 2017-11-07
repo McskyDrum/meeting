@@ -41,7 +41,7 @@ var Pay = (function ($) {
             el: '#mInfo',
             data: meetInfo,
             mounted: function () {
-                var myScroll = new IScroll('.modal-body');
+                //var myScroll = new IScroll('.modal-body');
                 this.total = this.meetInfo.price * this.meetInfo.meetingTimeCount;
             },
             methods:{

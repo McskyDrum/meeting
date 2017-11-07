@@ -60,15 +60,16 @@ var MeetingList = (function ($) {
                     return;
                 }
                 var newList = [];
-                for(var index in result.list){
+                for(var index=0; index < result.list.length; index++){
                     var building = result.list[index];
-                    newList.push({name:building.cityName});
-                    for(var index2 in building.buildingList){
+                    newList.push({id:'',name:building.cityName});
+                    for(var index2=0; index2<building.buildingList.length; index2++){
                         var build = building.buildingList[index2];
                         newList.push({name:build.name,id:build.id});
                     }
                 }
                 buildingList = newList;
+                console.log(buildingList);
                 callback.call(this,newList);
             });
         }
@@ -77,8 +78,7 @@ var MeetingList = (function ($) {
     function init(cfg) {
         /*重定义内容高度*/
         var wh = $(window).height();
-        var fh = $('.footer').height();
-        $('.container').css('min-height', wh - fh - 90);
+        $('.container').css('min-height', wh - 90);
 
         buildingService.setBuildingId(cfg.buildingId);
         initEvent(cfg);
@@ -126,8 +126,6 @@ var MeetingList = (function ($) {
                    }
                 });
 
-                var myScroll = new IScroll('.modal-body');
-
                 //其他日期选择
                 mobiscroll.date('#mobiscroll', {
                     buttons: ['cancel','set'],
@@ -154,6 +152,7 @@ var MeetingList = (function ($) {
                     loop: true,
                     speed: 1000
                 });
+                //var myScroll = new IScroll('.modal-content .modal-body');
             },
             methods:{
                 'getMeetings' : function(){ //获取会议室列表
@@ -274,6 +273,7 @@ var MeetingList = (function ($) {
                 return;
             }
             vm.cherkId = building.id;
+            return false;
         }
 
         /**
