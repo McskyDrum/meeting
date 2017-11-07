@@ -17,4 +17,26 @@ router.get('/userInfo', function(req, res, next) {
     res.send(data);
 });
 
+router.get('/getUserInfo', function(req, res, next) {
+    var data = {
+        success:true,
+        userInfo:{
+            name:"用户昵称",
+            company:"公司名称",
+            email:"123455@qq.com"
+        }
+    };
+    res.send(data);
+});
+
+router.post('/saveUserInfo', function(req, res, next) {
+    var data = {
+        success:true,
+    };
+    res.send(data);
+});
+
+
+
+
 module.exports = router;
