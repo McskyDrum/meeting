@@ -15,24 +15,22 @@ var Orders = (function ($) {
      * 分页加载全部订单
      * @type {number}
      */
-    var pageIndex = 1,loading = false;
+    var loading = false;
     function loadAllOrders(){
         loading = true;
-        if(pageIndex==-1){
+        if(vm.pageIndex==-1){
             //不能加载更多
             return;
         }
-        $.get("/order/allOrders?pageIndex="+pageIndex,function(result){
+        $.get("/order/allOrders?pageIndex="+vm.pageIndex,function(result){
             if(!result.success){
                 loading = false;
+                $.wiseinfo('获取订单失败');
                 return;
             }
-            pageIndex = result.nextPageIndex;
+            vm.pageIndex = result.nextPageIndex;
             for(index in result.orderList){
                 vm.orders.push(result.orderList[index]);
-            }
-            if(pageIndex==-1){
-                $("#ordersList").append('<div class="list-finished">已经没有更多订单了！</div>');
             }
             loading = false;
         })
@@ -91,15 +89,15 @@ var Orders = (function ($) {
         vm.type = type;
         vm.orders = [];
         if(type=="all"){
-            pageIndex = 1;
+            vm.pageIndex = 1;
             loadAllOrders();
         }
         if(type=="waitPay"){
-            pageIndex = -1;
+            vm.pageIndex = -1;
             loadWaitPayOrder();
         }
         if(type=="waitUse"){
-            pageIndex = -1;
+            vm.pageIndex = -1;
             loadWaitUseOrder();
         }
     }
@@ -127,6 +125,7 @@ var Orders = (function ($) {
         var data = {};
         data.orders = [];
         data.type = type;
+        data.pageIndex = 1;
         vm = new Vue({
             el: '#orders',
             data: data,

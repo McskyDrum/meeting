@@ -13,25 +13,26 @@
     <meta http-equiv="Cache" content="no-cache">
     <title>用户资料</title>
     <script type="text/javascript" src="../js/common/init.js"></script>
+    <script type="text/javascript" src="../js/libs/vue.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/person.css">
     <script type="text/javascript" src="../js/person.js"></script>
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="user">
         <form id="signF">
             <div class="f-divider">填写资料</div>
             <div class="input-group padding-left">
                 <div class="input-control label">
                     <span>姓名</span>
-                    <input type="text" name="uname" id="uname" value="" placeholder="请输入姓名"/>
+                    <input type="text" v-model="name" name="uname" id="uname" placeholder="请输入姓名"/>
                 </div>
                 <div class="input-control label">
                     <span>公司名称</span>
-                    <input type="text" name="cname" id="cname" value="" maxlength="11" placeholder="请输入公司名称"/>
+                    <input type="text" v-model="company" name="cname" id="cname" maxlength="11" placeholder="请输入公司名称"/>
                 </div>
                 <div class="input-control label main">
                     <span>Email</span>
-                    <input type="tel" name="email" id="email" value="" placeholder="请输入邮件地址"/>
+                    <input type="tel" v-model="email" name="email" id="email" placeholder="请输入邮件地址"/>
                 </div>
             </div>
             <div class="form-bottom">

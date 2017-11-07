@@ -10,7 +10,7 @@ request:{
 	startTime:1508566101200 预定开始时间
 	endTime:1508566101200 预定结束时间
 	list<AmountInfo> amountList
-	list<Long> couponIds  用户使用优惠券的Id集合
+	list<Long> couponIds  用户使用优惠券的Id集合  (目前只会提交一张优惠券，但是为日后能使用多张优惠券预留)
 }
 response:{
 	success:true

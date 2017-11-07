@@ -19,13 +19,13 @@ response:{
 
 *****************************************************************************************
 
-加载会议室列表 /building/loadMeetingList
+加载会议室列表 GET /building/loadMeetingList
 
 注意，在这个请求提交的时候应该把buildingId写到cookie中 以便完成 /reserve/selectMeeting 服务端渲染的逻辑
 
 request:{
 	buildingId:园区Id,
-	time:预定当天0时0分的时间戳
+	time:预定当天0时0分的时间戳 (不保证是0时0分，如果服务端有强制需求，就在服务端进行转化)
 }
 response:{
 	success:true
@@ -34,7 +34,7 @@ response:{
 
 *****************************************************************************************
 
-提交选择会议室和时间段 POST /building/submitMeetingRoom
+提交选择会议室和时间段 GET /building/submitMeetingRoom   跳页
 request:{
 	meetingRoomId:会议室Id,
 	startTime:1508566101200 预定开始时间
@@ -44,21 +44,36 @@ request:{
 服务端渲染：
 {
 	meetingRoomId:会议室Id,
-	roomNum:"12A+12B" String 会议室编号
-	roomTitle:"首都大厦，优客工厂"，String  会议标题
+	roomImg:"会议室图片地址"
+	roomName:"苍之风云" String 会议室名称
+	roomTitle:"首都大厦，优客工厂"，String  园区地址
 	startTime:1508566101200 预定开始时间
 	endTime:1508566101200 预定结束时间
+	openStartTime:data.openStartTime,//会议室开放的开始时间
+    openEndTime:data.openEndTime,//会议室开放的结束时间
+	phoneNum:"13900000000", //预定人的电话号码(绑定的电话)
 	meetingTimeCount:2  1个小时
 	address:"详细地址"
 	headCount:人头数
 	remark:"说明"
 	price:20000  200元/半小时
 	list<AmountInfo> amountList  附加消费信息  AmountInfo 见 orderDetails.txt
-
 	peopleName:"预定人"
-	list<Coupon> couponList  优惠券列表  
+	list<Coupon> couponList  优惠券列表  优惠券的加载根据有效期
 }
 
+*****************************************************************************************
+获取广告列表  GET /ad/adlist
+request:{}
+response:{
+	success:true,
+	list:[AdInfo,AdInfo]
+}
+
+AdInfo:{
+	image:"图片地址"
+	url:"广告链接地址"
+}
 
 
 ReserveMeetingRoom:{
@@ -79,7 +94,7 @@ canReserveList的最大长度就是6   如果返回 [0,1,2,3,4,5] 则表示在�
 
 BuildingForCity:{
 	cityName:"北京"，
-	list<Building> meetingList
+	list<Building> buildingList
 }
 
 Building:{

@@ -296,6 +296,38 @@
     padding-top: 35.522%;
 }
 
+[class*=status-]:after {
+    content: '';
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    right: 3px;
+    width: 56px;
+    height: 52.5px;
+    background: url(../img/coupon/status.png) no-repeat;
+    background-size: 100%
+}
+
+.gray {
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+
+    filter: grayscale(100%);
+
+    filter: gray;
+}
+
+.coupon-item.status-used:after {
+    background-position: 0 -103px
+}
+
+.coupon-item.status-canceled:after {
+    background-position: 0 -206px
+}
+
+
 .coupon-item-checkable:after, input[type=radio], input[type=checkbox] {
     content: '';
     position: absolute;

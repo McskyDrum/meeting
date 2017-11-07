@@ -1,51 +1,61 @@
 var OrderDetail = (function ($) {
-    var meetInfo = {};
+    var orderInfo = {};
     function init() {
         /*重定义内容高度*/
         var wh = $(window).height();
         $('.container').css('min-height', wh - 63);
         //获取会议室信息，更新meetInfo;
-        meetInfo = {
+        orderInfo = {
             meetInfo : {
-                'meetingRoomId' : '1',
-                'pic' : 'https://image.urwork.cn/df4649a7-7fc4-4009-a877-a219ee375fc5.jpg',
-                'meetingroomName' : '苍之风云1',
-                'stageName' : '阿里巴巴创新中心·优客工场',
-                'selectDate' : '2017/10/22 (周日)',
-                'seletcTime' : '12:00-13:00 (1小时)',
-                'workstageAddress' : '北京市朝阳区酒仙桥路14号兆维工业园C3号楼2层',
-                'openEndTime' : "20:00",
-                'openStartTime' : "10:00",
-                'peopleNumber' : 8,
+                'meetingRoomId': 1,
+                'img' : 'https://image.urwork.cn/df4649a7-7fc4-4009-a877-a219ee375fc5.jpg',
+                'roomName' : '苍之风云1',
+                'roomTitle' : '阿里巴巴创新中心·优客工场',
+                'selectDate' : 1512000000000,
+                'seletcTime' : '12:00-14:00',
+                'address' : '北京市朝阳区酒仙桥路14号兆维工业园C3号楼2层',
+                'endTime' : 1509789600000,
+                'startTime' : 1509786000000,
+                'headCount' : 8,
                 'tel': '13900000000',
-                'roomTotal' : 400,
-                'roomPrice' : 200
+                'meetingTimeCount' : 2,
+                'price' : 20000
             },
             'coupons' : [{
                 'id': 1234,
-                'couponPrice' : 20,
-                'basicPrice' : 200,
+                'couponPrice' : 2000,
+                'basicPrice' : 20000,
                 'couponName' : '满200减20',
-                'timesStart' : '2017/6/6',
-                'timeEnd' : '2017/12/12'
+                'timeStart' : 1512000000000,
+                'timeEnd' : 1512000000000
+            },{
+                'id': 12345,
+                'couponPrice' : 2000,
+                'basicPrice' : 20000,
+                'couponName' : '满200减20',
+                'timeStart' : 1512000000000,
+                'timeEnd' : 1512000000000
             }],
             'checkCoupon' : {
                 'id': 12345,
-                'couponPrice' : 20,
-                'basicPrice' : 200,
+                'couponPrice' : 2000,
+                'basicPrice' : 20000,
                 'couponName' : '满200减20',
-                'timesStart' : '2017/6/6',
-                'timeEnd' : '2017/12/12'
+                'timeStart' : 1512000000000,
+                'timeEnd' : 1512000000000
             },
-            'addItem' : [
+            'amountListlist' : [
                 {
-                    'name' : '台签',
-                    'price' : '5',
-                    'num' : 0
+                    itemId:1,//long   商品Id
+                    price:20000,//Integer 200元/量化单位
+                    unitName:"个",//单位名称  String
+                    goodName:"商品1",//String
+                    num : 1
                 }
             ],
+            'operateType':["CAN_PAY","CAN_CANCEL","CANCELED","CAN_OPEN","CAN_TUIDING"],
             'total' : 0
-        }
+        };
         initEvent();
     }
 
@@ -53,21 +63,46 @@ var OrderDetail = (function ($) {
     function initEvent(){
         var vm = new Vue({
             el: '#mInfo',
-            data: meetInfo,
+            data: orderInfo,
             mounted: function () {
                 this.calculate();
             },
             methods:{
                 'calculate' : function(){
                     var extraM = 0;
-                    this.addItem.forEach(function(item){
+                    this.amountListlist.forEach(function(item){
                         extraM = extraM + (item.price * item.num);
-                    })
+                    });
                     var couponM = this.checkCoupon.couponPrice ? this.checkCoupon.couponPrice : 0;
-                    this.total = this.meetInfo.roomTotal + extraM - couponM;
+                    this.total = this.meetInfo.price * this.meetInfo.meetingTimeCount + extraM - couponM;
+                },
+                'cancel': function(){
+                    //取消订单
+                    console.log('cancel');
+                },
+                'quit': function(){
+                    //退订
+                    console.log('quit');
+                },
+                'open': function(){
+                    //开锁
+                    console.log('open');
                 }
+            },
+            filters: {
+                cash:CashFilters,
+                time:TimeFilters
             }
-        })
+        });
+
+        function CashFilters(money){
+            return money/100;
+        }
+
+        function TimeFilters(time,format){
+            var data = new Date(time);
+            return moment(data).format(format);
+        }
     }
 
     return {

@@ -1,5 +1,5 @@
 .container{
-    padding: 45px 0;
+    padding:90px 0 35px;
 }
 .header {
     position: fixed;
@@ -13,8 +13,13 @@
     -webkit-transition: top .2s;
     transition: top .2s;
 }
+.header.hasadds{
+    height: 90px;
+}
+.main.hasadds{
+    padding-top: 45px;
+}
 .title-bar {
-    position: relative;
     height: 45px;
     padding: 9px 16px;
     text-align: center;
@@ -23,6 +28,7 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    background: #f9f9f9;
 }
 .title-bar .title {
     display: block;
@@ -40,16 +46,15 @@
     margin-bottom: 10px;
 }
 .search-wrapper{
-    position: fixed;
-    top: 45px;
-    left: 0;
-    right: 0;
     z-index: 850;
     -webkit-border-image: url(../image/border-line.png) 2 stretch;
     -moz-border-image: url(../image/border-line.png) 2 stretch;
     border-top: 1px solid #e5e5e5;
     -webkit-transition: top .2s;
     transition: top .2s;
+}
+.main.hasadds .search-wrapper{
+    top: 90px;
 }
 .search-wrapper {
     height: 46px;
@@ -273,6 +278,11 @@
 }
 .meeting-room-list .bigpictext-item .bigpictext-bar ul {
     height: 100%;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
 }
 .meeting-room-list .bigpictext-item .bigpictext-bar ul li {
     position: relative;
@@ -387,7 +397,25 @@
 .swiper-container {
     position: relative;
     width: 100%;
+    height: 50px;
     overflow: hidden;
+}
+.swiper-container .close{
+    position: absolute;
+    top: 9px;
+    right: 6px;
+    z-index: 20;
+    display: block;
+    width: 30px;
+    height: 30px;
+    color: #fff;
+    font-size: 24px;
+    line-height: 30px;
+    text-align: center;
+    border: 1px solid #fff;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
 }
 .swiper-container .swiper-wrapper {
     left: 0;

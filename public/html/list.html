@@ -11,30 +11,43 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="Cache" content="no-cache">
-    <title>首页</title>
+    <title>会议室列表</title>
     <script type="text/javascript" src="../js/common/init.js"></script>
     <link rel="stylesheet" type="text/css" href="../swiper/css/swiper.min.css">
     <link rel="stylesheet" type="text/css" href="../css/list.css">
     <link rel="stylesheet" type="text/css" href="../mobiscroll/css/mobiscroll.javascript.min.css">
     <link rel="stylesheet" type="text/css" href="../mobiscroll/css/android-holo.css">
     <script type="text/javascript" src="../js/libs/iscroll.js"></script>
-    <script type="text/javascript" src="../swiper/js/swiper.jquery.min.js"></script>
+    <script type="text/javascript" src="../swiper/js/swiper.min.js"></script>
     <script type="text/javascript" src="../mobiscroll/js/mobiscroll.javascript.min.js"></script>
     <script type="text/javascript" src="../js/libs/vue.min.js"></script>
     <script type="text/javascript" src="../js/list.js"></script>
 </head>
 <body>
     <div class="container" id="meetingList">
-        <div class="header">
+        <div class="header" :class="{hasadds: ads.length>0}">
+            <!--广告-->
+            <div class="swiper-container">
+                <span class="close" @click="closeAdd()">&times;</span>
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" v-for="ad in ads">
+                        <a :href="ad.url ? ad.url: 'javascript:void(0)'">
+                            <img class="js-lazy" :data-src="ad.image" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!--广告-->
+            <!--title-->
             <div class="title-bar">
                 <span class="title">会议室列表</span>
             </div>
-        </div>
-        <div class="main">
+            <!--title-->
+            <!--时间选择-->
             <div class="ur-searcher">
                 <div class="search-wrapper clearfix">
                     <div class="menu-item" @click="showStage()">
-                        <span>{{stageCheck.stageName}}</span>
+                        <span>{{building.name}}</span>
                         <i class="icon-arrow-dropdown menu-arrow"></i>
                     </div>
                     <ul>
@@ -48,18 +61,10 @@
                     </ul>
                 </div>
             </div>
+            <!--时间选择-->
+        </div>
 
-            <div class="swiper-container">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide" v-for="ad in ads">
-                        <a :href="ad.href ? ad.href: 'javascript:void(0)'">
-                            <img class="js-lazy" :data-src="ad.img" />
-                        </a>
-                    </div>
-                </div>
-                <div class="swiper-pagination"></div>
-            </div>
-
+        <div class="main" :class="{hasadds: ads.length>0}">
             <div class="meeting-room-list">
                 <div class="bigpictext-item" v-for="(room,index) in rooms">
                     <dl>
@@ -72,7 +77,7 @@
                                     <h2 class="bigpictext-title-txt">{{room.roomName}}</h2>
                                     <small> | {{room.headcount}}人</small>
                                 </div>
-                                <em>¥{{room.price}}
+                                <em>¥{{room.price | cash}}
                                     <small>/ 0.5小时</small>
                                 </em>
                             </div>
@@ -80,18 +85,18 @@
                                 <button class="btn-prev" @click="rollLeft(index)"></button>
                                 <button class="btn-next" @click="rollRight(index)"></button>
                                 <div class="bar-list">
-                                    <ul :style="'width: ' + (room.timeArr.length * 42) + 'px;margin-left:' + room.leftDis + ';'">
-                                        <li v-for="(s,t) in room.timeArr" @click="checkTime(index,t)" :class="{'disabled' : room.canReserveList.indexOf(t) < 0, 'selected': room.checkArr.indexOf(t) >= 0}">
-                                            <label>{{(t%2==0) ? (room.startNum +  t / 2) + '时' : ''}}</label>
+                                    <ul :style="'width: ' + (room.timeArray.length * 42) + 'px;margin-left:' + room.leftDis + 'px;'">
+                                        <li v-for="(s,timeIndex) in room.timeArray" @click="checkTime(index,timeIndex)" :class="{'disabled':s==-1,'selected':s==1}">
+                                            <label>{{timeCompFilter(timeIndex,room.openTimeStart)}}</label>
                                             <div></div>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="tool-action" v-show="room.CTimeNum > 0">
+                            <div class="tool-action" v-show="room.timeNum>0 && operaIndex ==index">
                                 <div class="tool-info">
-                                    <span data-set="timeRange" class="timeRange">{{room.cTimeStr}}</span>
-                                    <span> (共<i data-set="hour">{{room.CTimeNum}}</i>小时）</span>
+                                    <span data-set="timeRange" class="timeRange">{{showTimeRend(index)}}</span>
+                                    <span> (共<i data-set="hour">{{room.timeNum*0.5}}</i>小时）</span>
                                 </div>
                                 <button type="button" class="btn btn-primary booking" @click="reserve(index)">确认预定</button>
                             </div>
@@ -100,15 +105,15 @@
                 </div>
             </div>
         </div>
-        <!-- 社区列表 modal -->
-        <div class="modal primary-modal" @click="closeStage()" id="plantIdModal" role="dialog">
+        <!-- 社区列表 modal  -->
+        <div id="plantIdModal" class="modal primary-modal modal-backdrop" :class="{in:isOpen}" @click="closeStage()" role="dialog">
             <div class="modal-dialog">
                 <div class="modal-content" @click="preventClose($event)">
                     <div class="modal-body">
                         <div class="scroller" id="plantIdContainer">
                             <ul class="select-list stage-list">
-                                <li v-for="stage in stageInfo" @click="checkStage(stage)" :data-id="stage.id" :class="{'active':stage.id==reCheck.id,'stage-title':stage.id==''}">
-                                    {{stage.stageName}}<i class="uricon-success-circle"></i>
+                                <li v-for="(item,index) in buildingList" @click="checkStage(index)" :disable="!item.id" :data-id="item.id" :class="{'active':item.id==cherkId && !!item.id,'stage-title':!item.id}">
+                                    {{item.name}}<i class="uricon-success-circle"></i>
                                 </li>
                             </ul>
                         </div>
@@ -123,7 +128,6 @@
         <!-- 社区列表 modal -->
         <div class="modal-backdrop"></div>
     </div>
-
     <div class="nav-menu nav-fixed nav-menu-bottom nav-menu-1 has-menu-2">
         <div class="nav-item">
             <a class="mainmenu js-mainmenu " href="main.html">
@@ -137,11 +141,11 @@
             </a>
         </div>
     </div>
-    <script type="text/javascript">
+    <script>
         $(function(){
             MeetingList.init({
-                buildingId:10088,
-                now:1509351552133
+                buildingId:1,
+                now:1509778676011
             });
         })
     </script>
