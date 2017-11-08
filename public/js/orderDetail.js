@@ -53,7 +53,7 @@ var OrderDetail = (function ($) {
                     num : 1
                 }
             ],
-            'operateType':["CAN_PAY","CAN_CANCEL","CANCELED","CAN_OPEN","CAN_TUIDING"],
+            'operateType':["CAN_OPEN","CAN_TUIDING"],
             'total' : 0
         };
         initEvent();

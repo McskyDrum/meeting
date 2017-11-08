@@ -233,6 +233,7 @@
     -webkit-box-flex: 1;
     flex: 1;
     height: 30px;
+    margin: 0 5px;
     line-height: 30px;
     font-size: 14px;
     text-align: center;
