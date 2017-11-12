@@ -49,6 +49,21 @@ var Bindtel = (function ($) {
             }
         }
 
+        $("#apply").on("click",function () {
+            var phone = $.trim($("#tel").val());
+            var code = $("#vcode").val();
+            if(!phone || !code){
+                return;
+            }
+            $.post("/phone/submitPhoneCode",{code:code,phone:phone},function(result){
+                if(!result.success){
+                    console.log(result.message);
+                    return
+                }
+                location.href = "/userCenter/index";
+            });
+        });
+
         $("#getCode").bind(mClick, function () {
             var ele = this;
             if ($(ele).hasClass("disabled") || !signCodeFlag) {
@@ -57,11 +72,9 @@ var Bindtel = (function ($) {
                 signCodeFlag = false;
                 $.ajax({
                     type: "POST",
-                    url: "/api/services/mall/account/sendCode",
+                    url: "/phone/sendPhoneCode",
                     data: {
-                        "from": "delear",
-                        "phone": $.trim($("#tel").val()),
-                        "type": 8
+                        "phone": $.trim($("#tel").val())
                     },
                     isNoLoading: true,
                     dataType: "json",
