@@ -45,7 +45,13 @@ var Person = (function ($) {
 
         function submit(){
             var userInfo = vm.userInfo;
-            $.post("/userCenter/saveUserInfo",{userInfo:userInfo},function(result){
+            $.post("/userCenter/saveUserInfo",{
+                userInfo:{
+                    name:vm.name,
+                    company:vm.company,
+                    email:vm.email
+                }
+            },function(result){
                 if(!result.success){
                     console.log(result.message);
                 }
