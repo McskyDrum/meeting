@@ -53,7 +53,7 @@ var Person = (function ($) {
                 }
             },function(result){
                 if(!result.success){
-                    console.log(result.message);
+                    $.wiseinfo({content:message});
                 }
                 location.href = "/userCenter/index";
             });

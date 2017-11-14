@@ -58,5 +58,10 @@ router.post('/createOrder', function(req, res, next) {
     res.send(data);
 });
 
+router.post('/openMeetRoom', function(req, res, next) {
+    var data = {success:true};
+    res.send(data);
+});
+
 
 module.exports = router;

@@ -57,7 +57,7 @@ var Bindtel = (function ($) {
             }
             $.post("/phone/submitPhoneCode",{code:code,phone:phone},function(result){
                 if(!result.success){
-                    console.log(result.message);
+                    $.wiseinfo({content:result.message});
                     return
                 }
                 location.href = "/userCenter/index";

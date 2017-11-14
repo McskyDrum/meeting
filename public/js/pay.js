@@ -129,7 +129,7 @@ var Pay = (function ($) {
             lock = true;
             $.post("/order/createOrder",request,function(result){
                 if(!result.success){
-                    console.log(result.message);
+                    $.wiseinfo({content:result.message});
                 }
                 //调用微信支付
                 var payInfo = result.payInfo;
@@ -137,12 +137,12 @@ var Pay = (function ($) {
             });
 
             function CallBack(orderId,statue,message){
-                console.log(message);
+                $.wiseinfo({content:message,delay:1500});
                 lock = false;
                 if(statue){
                     setTimeout(function(){
                         location.href = "/order/orderDetails?orderId="+orderId;
-                    },2000)
+                    },1500)
                 }
             }
         }
