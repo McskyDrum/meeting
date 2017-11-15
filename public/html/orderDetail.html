@@ -44,6 +44,7 @@
         <a href="javascript:;" v-show="operateTypeList.indexOf('CAN_CANCEL')>=0" class="btn btn-primary" @click="cancel()">取消订单</a>
         <a href="javascript:;" v-show="operateTypeList.indexOf('CAN_TUIDING')>=0" class="btn btn-red" @click="cancel()">退订</a>
         <a href="javascript:;" v-show="operateTypeList.indexOf('CAN_OPEN')>=0" class="btn btn-orange" @click="open()">开锁</a>
+        <a href="javascript:;" v-show="operateTypeList.indexOf('CAN_PAY')>=0" class="btn btn-blue-dark" @click="pay()">继续支付</a>
     </div>
     <section class="info-layout">
         <div class="info-item">
@@ -148,7 +149,7 @@
                 }],//AmountInfo 见 orderDetails.txt
                 couponPrice:20000,//优惠券优惠的总价格,没有为0
                 orderPrice:30000,//订单实际付费总额
-                operateTypeList:["CAN_CANCEL","CAN_TUIDING","CAN_OPEN"],//当前订单可操作的行为
+                operateTypeList:["CAN_PAY","CAN_TUIDING","CAN_OPEN"],//当前订单可操作的行为
                 orderId:"12000222",
                 orderStatue:"已取消"
             })

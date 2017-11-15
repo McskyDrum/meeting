@@ -14,7 +14,8 @@ var OrderDetail = (function ($) {
             data: data,
             methods:{
                 'cancel':cancel,
-                'open': open
+                'open': open,
+                pay:pay
             },
             filters: {
                 cash:CashFilters,
@@ -50,6 +51,62 @@ var OrderDetail = (function ($) {
                 }
             });
         }
+
+        var lock = false;
+        function pay(){
+            if(lock){
+                return;
+            }
+            lock = true;
+            $.post("/order/continuePay",{orderId:data.orderId},function(result){
+                if(!result.success){
+                    $.wiseinfo({content:result.message});
+                    lock = false;
+                    return;
+                }
+                //调用微信支付
+                var payInfo = result.payInfo;
+                weixinPay(result.orderId,payInfo,CallBack);
+
+                function CallBack(orderId,statue,message){
+                    $.wiseinfo({content:message,delay:1500});
+                    lock = false;
+                    if(statue){
+                        setTimeout(function(){
+                            location.href = "/order/orderDetails?orderId="+orderId;
+                        },1500)
+                    }
+                }
+            });
+        }
+
+        function weixinPay(orderId,payInfo,callback){
+            function onBridgeReady(){
+                WeixinJSBridge.invoke(
+                    'getBrandWCPayRequest',payInfo,
+                    function(res){
+                        if(res.err_msg == "get_brand_wcpay_request:ok" ) {
+                            callback.call(this,orderId,true,"支付成功");
+                        }else if(res.err_msg == "get_brand_wcpay_request:cancel"){
+                            callback.call(this,orderId,false,"取消支付");
+                        }else if(res.err_msg == "get_brand_wcpay_request:fail"){
+                            callback.call(this,orderId,false,"支付失败");
+                        }
+                    }
+                );
+            }
+            if (typeof WeixinJSBridge == "undefined"){
+                if( document.addEventListener ){
+                    document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+                }else if (document.attachEvent){
+                    document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+                    document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+                }
+            }else{
+                onBridgeReady();
+            }
+        }
+
     }
 
     return {
