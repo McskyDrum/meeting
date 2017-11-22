@@ -79,14 +79,13 @@ var Pay = (function ($) {
                     return false;
                 },
                 checkCou: function(cou){
-                    console.log(cou);
                     if(cou.id == this.checkCoupon.id){
-                        this.checkCoupon = {};
+                        vm.checkCoupon = {};
                     }else{
                         if(this.total<cou.basicPrice){
                             return false;
                         }
-                        this.checkCoupon = cou;
+                        vm.checkCoupon = cou;
                     }
                     this.calculate();
                     return false;
@@ -123,7 +122,8 @@ var Pay = (function ($) {
             request.startTime = vm.meetInfo.startTime;
             request.amountList = vm.amountList;
             request.couponIds = [];
-            if(!vm.checkCoupon.id){
+            
+            if(!!vm.checkCoupon.id){
                 request.couponIds.push(vm.checkCoupon.id);
             }
             lock = true;
